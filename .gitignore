@@ -1,5 +1,5 @@
 # Jetbrains IDE
-.idea/
+.idea
 
 # package directories
 node_modules
