@@ -4,9 +4,9 @@ import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
 const Navbar = () => {
     return (
-        <nav className="nav.nav-wrapper.grey.darken-3">
+        <nav className="nav-wrapper indigo darken-4">
             <div className="container">
-                <Link to='/' className="brand-logo">GEA_MPD(Brandname)</Link>
+                <Link to='/' className="brand-logo">Farmatic</Link>
                 <SignedInLinks />
                 <SignedOutLinks />
             </div>
