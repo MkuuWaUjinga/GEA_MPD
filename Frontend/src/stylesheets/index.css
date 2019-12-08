@@ -29,3 +29,22 @@ textarea.materialize-textarea:focus:not([readonly]){
   border-color: #ec407a;
   box-shadow: none;;
 }
+
+
+
+/*NAVBAR*/
+
+.notification-badge {
+  position: relative;
+  right: -35px;
+  top: -65px;
+  color: #941e1e;
+  background-color: #f5f1f2;
+  margin: 0 -.8em;
+  border-radius: 50%;
+  padding: 5px 10px;
+}
+
+.bellIcon {
+  margin-top:-5px
+}

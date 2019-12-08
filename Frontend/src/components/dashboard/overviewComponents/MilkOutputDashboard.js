@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const MilkOutputDashboard = () => {
     return (
@@ -8,8 +9,7 @@ const MilkOutputDashboard = () => {
                     <p>Placholder for Milkoutput Dashboard</p>
                     <p className="grey-text">blbablab</p>
                     <div className="card-action">
-                        <a href="#">Link</a>
-                        <a href="#">Link</a>
+                        <Link to='/milkoutputdetails' className="brand-logo">DetailView</Link>
                     </div>
                 </div>
         </div>

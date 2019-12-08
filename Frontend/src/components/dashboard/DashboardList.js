@@ -1,5 +1,5 @@
 import React from 'react';
-import MilkOutputDashboard from './dashboardComponents/MilkOutputDashboard';
+import MilkOutputDashboard from './overviewComponents/MilkOutputDashboard';
 
 const DashboardList = () => {
     return (
