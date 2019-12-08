@@ -7,3 +7,7 @@ jspm_packages
 
 # Serverless directories
 .serverless
+
+__pycache__
+backend_env
+build
