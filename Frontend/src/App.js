@@ -4,7 +4,7 @@ import Navbar from './layout/Navbar';
 import MainDashboardView from './components/dashboard/MainDashboardView';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import MilkOutputDetailView from './components/dashboard/detailViewComponents/MilkOutputDetailView';
+import MilkOutputDetailView from './components/detailViews/MilkOutputDetailView';
 
 
 function App() {

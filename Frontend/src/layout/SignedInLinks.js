@@ -5,8 +5,15 @@ import {NavLink} from 'react-router-dom';
 const SignedInLinks = () => {
     return (
         <ul className="right">
-            <li><NavLink to="/">Dashboard</NavLink></li>
-            <li><NavLink to="/">Log Out</NavLink></li>
+            {/*<li><NavLink to="/">Dashboard</NavLink></li>
+            <li><NavLink to="/">Log Out</NavLink></li>*/}
+            
+            <li>
+                    <div class="input-field col s6 ">
+                        <i class="material-icons prefix">search</i>
+                        <input placeholder="Search" id="search_input" type="text" class="validate white-text "></input>
+                    </div>
+                </li>
             <li><NavLink to="/" >  <span className="dropdown-trigger btn-floating pulse white ligthen-2" >
                 <i className="bellIcon material-icons indigo-text text-darken-4">notifications</i>
                 <small className="notification-badge">5</small>

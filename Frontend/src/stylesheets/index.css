@@ -48,3 +48,18 @@ textarea.materialize-textarea:focus:not([readonly]){
 .bellIcon {
   margin-top:-5px
 }
+
+
+/*Overall Dashboard*/
+
+.dashContainer {
+  border: solid 3px lightgrey;
+  margin: 10px;
+}
+
+.dashboard  h2  {
+  color: indigo;
+  font-size: 2em;
+  text-align: center;
+  text-decoration: underline;
+}

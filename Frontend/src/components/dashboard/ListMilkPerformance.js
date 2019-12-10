@@ -1,7 +1,7 @@
 import React from 'react';
-import MilkOutputDashboard from './overviewComponents/MilkOutputDashboard';
+import MilkOutputDashboard from './overviewComponents/milkPerformance/MilkOutput';
 
-const DashboardList = () => {
+const ListMilkPerformance= () => {
     return (
 
         <div className ="dashboard-list section">
@@ -22,6 +22,6 @@ const DashboardList = () => {
 }
 
 
-export default DashboardList;
+export default ListMilkPerformance;
 
 
