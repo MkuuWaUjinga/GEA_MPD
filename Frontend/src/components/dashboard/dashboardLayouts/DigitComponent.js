@@ -14,7 +14,7 @@ const DigitComponent= () => {
               
 
                         <div className="card-action">
-                            <Link to='/milkoutputdetails' className="brand-logo">Placeholder for link</Link>
+                            <Link to='/milkoutputdetails' className="brand-logo">Detail View</Link>
                         </div>
                     </div>
             </div>

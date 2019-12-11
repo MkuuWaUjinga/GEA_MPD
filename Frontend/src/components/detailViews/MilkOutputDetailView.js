@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import defaultDetailView from '../../assets/img/defaultDetailView.png';
 
 class MilkOutputDetailView extends Component {
     render() {
@@ -9,7 +9,10 @@ class MilkOutputDetailView extends Component {
                     <div className="card z-depth-0 grey lighten-4 grey-text" >
                         <div className="card-content ">
                             <h4>MilkOutput Detail View</h4>
-                            <p>Placeholder</p>
+                            <div class="card-image">
+                            {/*<img src="https://www.tv-bopfingen.de/wp-content/uploads/es_web_platzhalter_bild_3x2@800px.png"></img>*/}
+                            <img src={defaultDetailView} alt="defaultDetailView" />
+                            </div>
                         </div>
                         <div className="card-action">
                             <div>Posted by Jenni</div>
