@@ -52,14 +52,32 @@ textarea.materialize-textarea:focus:not([readonly]){
 
 /*Overall Dashboard*/
 
-.dashContainer {
+
+.dashOutline {
   border: solid 3px lightgrey;
-  margin: 10px;
+
 }
 
 .dashboard  h2  {
-  color: indigo;
-  font-size: 2em;
+  color: black;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: left;
+}
+
+
+/*DigitComponent*/
+
+.card-content {
   text-align: center;
-  text-decoration: underline;
+}
+
+.card .card-title {
+  font-size: 1em;
+  color: grey;
+}
+
+.KPIdigit {
+  font-weight: bold;
+  font-size: 2em;
 }
