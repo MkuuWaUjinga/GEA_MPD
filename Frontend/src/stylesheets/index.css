@@ -77,7 +77,14 @@ textarea.materialize-textarea:focus:not([readonly]){
   color: grey;
 }
 
+.digitComponent {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .KPIdigit {
   font-weight: bold;
   font-size: 2em;
 }
+

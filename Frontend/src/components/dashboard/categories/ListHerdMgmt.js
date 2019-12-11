@@ -2,21 +2,22 @@ import React from 'react';
 import DigitComponent from '../dashboardLayouts/DigitComponent';
 import DiagramComponent from '../dashboardLayouts/DiagramComponent';
 
-const ListMilkPerformance= () => {
+const ListHerdMgmt= () => {
     return (
 
         <div className ="dashboard-list section">
 
             <div className="row">
-                <div className="perfDigitComp">
-                    <DigitComponent  />
-                    <DigitComponent  />
-                    <DigitComponent  />
-                    <DigitComponent  />
-                </div>
+                <DigitComponent  />
+                <DigitComponent  />
+                <DigitComponent  />
+                <DigitComponent  />
                 <DiagramComponent />
+                <DiagramComponent />
+                <DigitComponent  />
+                <DigitComponent  />
+                
             </div>
-
 
         </div>
 
@@ -25,6 +26,6 @@ const ListMilkPerformance= () => {
 }
 
 
-export default ListMilkPerformance;
+export default ListHerdMgmt;
 
 

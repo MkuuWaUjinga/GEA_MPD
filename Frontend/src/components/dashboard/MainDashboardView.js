@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import ListMilkPerformance from './categories/ListMilkPerformance';
 import ListMilkQuality from './categories/ListMilkQuality';
-
+import ListFeedMgmt from './categories/ListFeedMgmt';
+import ListHerdMgmt from './categories/ListHerdMgmt';
+import ListMachineHealth from './categories/ListMachineHealth';
 class MainDashboardView extends Component {
     render() {
         return(
@@ -25,22 +27,20 @@ class MainDashboardView extends Component {
                     <div className="dashOutline col m6">
                         <div className="dashContainer herdMgmt">
                         <h2>Herd Management Dashboard</h2>
-                            Evtl. other Components which are important to show
-                        </div>
+                            <ListHerdMgmt />                        </div>
                     </div>
 
                     <div className="dashOutline col m6">
-                        <div className="dashContainer feedMgmt col m6">
+                        <div className="dashContainer feedMgmt">
                         <h2>Feed Management Dashboard</h2>
-                            Evtl. other Components which are important to show
+                            <ListFeedMgmt />     
                         </div>
                     </div>
 
                     <div className="dashOutline col m6">
-                        <div className="dashContainer machineHealth col m6">
+                        <div className="dashContainer machineHealth ">
                         <h2>Machine Health Dashboard</h2>
-                            Evtl. other Components which are important to show
-                        </div>
+                            <ListMachineHealth />                          </div>
                     </div>
                 </div>
             </div>
