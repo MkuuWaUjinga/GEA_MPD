@@ -1,5 +1,4 @@
 import React from 'react';
-import DigitComponent from '../dashboardLayouts/DigitComponent';
 import DiagramComponent from '../dashboardLayouts/DiagramComponent';
 
 const ListMilkQuality= () => {
@@ -8,13 +7,6 @@ const ListMilkQuality= () => {
         <div className ="dashboard-list section">
 
             <div className="row">
-                <DigitComponent  />
-                <DigitComponent  />
-                <DiagramComponent />
-                <DigitComponent  />
-                <DigitComponent  />
-                <DigitComponent  />
-                <DigitComponent  />
                 <DiagramComponent />
             </div>
 
