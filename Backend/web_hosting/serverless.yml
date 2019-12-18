@@ -84,7 +84,7 @@ custom:
     prod: ''
   s3Sync:
     - bucketName: ${self:custom.siteName}${self:custom.siteNameStageAppendix.${self:custom.myStage}}
-      localDir: ../Frontend/build/
+      localDir: ../../Frontend/build/
       params:
         - "*":
             CacheControl: 'max-age=30'
