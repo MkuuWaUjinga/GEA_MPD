@@ -49,12 +49,15 @@ textarea.materialize-textarea:focus:not([readonly]){
   margin-top:-5px
 }
 
+#dropdown1 {
+  width: 300px !important;
+}
 
 /*Overall Dashboard*/
 
 
 .dashOutline {
-  border: solid 3px lightgrey;
+  /*border: solid 3px lightgrey;*/
 
 }
 
@@ -66,10 +69,11 @@ textarea.materialize-textarea:focus:not([readonly]){
 }
 
 
-/*DigitComponent*/
+/*HerdCountOverviewComponent*/
 
-.card-content {
-  text-align: center;
+.herdHealthKPI{
+margin-left: 20%;
+margin-right: 20%;
 }
 
 .card .card-title {
@@ -77,8 +81,7 @@ textarea.materialize-textarea:focus:not([readonly]){
   color: grey;
 }
 
-.digitComponent {
-  width: 250px;
+.herdCountOverview {
   margin-left: auto;
   margin-right: auto;
 }
@@ -88,3 +91,24 @@ textarea.materialize-textarea:focus:not([readonly]){
   font-size: 2em;
 }
 
+
+/*Detail Somatic Cell Count View*/
+
+.CowID {
+  margin-top: 3em;
+  margin-left: 25%;
+  margin-right:25%;
+}
+
+.CowID > ul {
+  display: flex;
+  align-items: stretch; /* Default */
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+}
+.CowID > li {
+  display: block;
+  flex: 0 1 auto; /* Default */
+  list-style-type: none;
+}

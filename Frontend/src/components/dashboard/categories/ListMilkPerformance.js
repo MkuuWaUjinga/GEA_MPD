@@ -1,5 +1,4 @@
 import React from 'react';
-import DigitComponent from '../dashboardLayouts/DigitComponent';
 import DiagramComponent from '../dashboardLayouts/DiagramComponent';
 
 const ListMilkPerformance= () => {
@@ -8,15 +7,7 @@ const ListMilkPerformance= () => {
         <div className ="dashboard-list section">
 
             <div className="row">
-                <div className="perfDigitComp">
-                    <DigitComponent  />
-                    <DigitComponent  />
-                    <DigitComponent  />
-                    <DigitComponent  />
-                </div>
-                <DiagramComponent />
             </div>
-
 
         </div>
 
@@ -26,5 +17,4 @@ const ListMilkPerformance= () => {
 
 
 export default ListMilkPerformance;
-
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import DigitComponent from '../dashboardLayouts/DigitComponent';
 import DiagramComponent from '../dashboardLayouts/DiagramComponent';
 
 const ListFeedMgmt= () => {
