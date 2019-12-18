@@ -15,7 +15,7 @@ class SignIn extends Component {
     } 
 
     handleSubmit = (e) => {
-        e.preventDefault(); //if eg users presses enter, we dont want that
+        e.preventDefault(); 
         console.log(this.state);
     }
 

@@ -48,3 +48,67 @@ textarea.materialize-textarea:focus:not([readonly]){
 .bellIcon {
   margin-top:-5px
 }
+
+#dropdown1 {
+  width: 300px !important;
+}
+
+/*Overall Dashboard*/
+
+
+.dashOutline {
+  /*border: solid 3px lightgrey;*/
+
+}
+
+.dashboard  h2  {
+  color: black;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: left;
+}
+
+
+/*HerdCountOverviewComponent*/
+
+.herdHealthKPI{
+margin-left: 20%;
+margin-right: 20%;
+}
+
+.card .card-title {
+  font-size: 1em;
+  color: grey;
+}
+
+.herdCountOverview {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.KPIdigit {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+
+/*Detail Somatic Cell Count View*/
+
+.CowID {
+  margin-top: 3em;
+  margin-left: 25%;
+  margin-right:25%;
+}
+
+.CowID > ul {
+  display: flex;
+  align-items: stretch; /* Default */
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+}
+.CowID > li {
+  display: block;
+  flex: 0 1 auto; /* Default */
+  list-style-type: none;
+}
