@@ -2,7 +2,7 @@
 if [ "$TRAVIS_BRANCH" == "dev" ]; then
       cd Frontend;
       npm install;
-      npm run build;
+      CI=false npm run build;
       cd ../Backend;
       npm install -g serverless;
       cd web_hosting;
@@ -15,7 +15,7 @@ elif [ "$TRAVIS_EVENT_TYPE" == "push" ] && [ "$TRAVIS_BRANCH" == "master" ]
 then
       cd Frontend;
       npm install;
-      npm run build;
+      CI=false npm run build;
       cd ../Backend;
       npm install -g serverless;
       cd web_hosting;
