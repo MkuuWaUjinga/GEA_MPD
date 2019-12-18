@@ -1,4 +1,4 @@
-service: mpd-backend
+service: mpd-web-hosting
 
 provider:
   name: aws
