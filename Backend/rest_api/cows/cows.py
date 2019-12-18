@@ -5,8 +5,7 @@ import simplejson as json
 from functools import wraps
 
 dynamo_db_client = boto3.resource('dynamodb')
-
-# random = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
+user_id = "E6XrsXoB7oQhwlnL97VrlbECk9iaIXMN"
 
 def dump_json_body(handler):
 
@@ -25,12 +24,12 @@ def dump_json_body(handler):
     return wrapper
 
 
+
 @cors_headers
 @load_json_body
 @dump_json_body
 def entry(event, context):
     http_method = event['httpMethod']
-    user_id = event['pathParameters']['id']
     stage = event['requestContext']['stage']
 
     response = {
@@ -39,7 +38,7 @@ def entry(event, context):
 
     if http_method == 'GET':
         try:
-            user = get_user(user_id, stage)
+            cows = get_all_cows(user_id, stage)
         except (ClientError, KeyError):
             return {"statusCode": 400,
                     'body': 'Retrieving user from table failed',
@@ -47,21 +46,35 @@ def entry(event, context):
                     }
         response = {
             "statusCode": 200,
-            "body": {"user": user}
+            "body": {"cows": cows}
         }
 
     return response
 
-def get_user(user_id, stage):
+def get_all_cows(user_id, stage):
     table = dynamo_db_client.Table('Users'+ '-dev' if stage=='dev' else '')
 
-    user = table.get_item(
+    cows = table.get_item(
         Key={
             'userId': user_id
         }
-    )['Item']
-    user_view(user)
-    return user
+    )['Item']['cows']
 
-def user_view(user):
-    del user['cows']
+    return cows
+
+
+"""
+metrics_ids = [1]
+time_range = 14
+def get_all_cows(user_id, metrics_id, time_range, stage):
+    table = dynamo_db_client.Table('FarmMetric'+ '-dev' if stage=='dev' else '')
+
+    for metric_id in metrics_id:
+        metric = table.get_item(
+            Key={
+                'userId': user_id + "#{}".format(metric_id)
+            }
+        )['Item']['cows']
+
+    return user
+"""
