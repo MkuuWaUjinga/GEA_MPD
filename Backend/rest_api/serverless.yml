@@ -30,6 +30,13 @@ functions:
           path: users/{id}
           method: get
           cors: true
+  cows:
+    handler: cows/cows.entry
+    events:
+      - http:
+          path: cows
+          method: get
+          cors: true
 
 resources:
   Resources:
@@ -46,6 +53,23 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+    FarmMetricsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: FarmMetrics${self:custom.tableStageAppendix.${self:custom.myStage}}
+        AttributeDefinitions:
+          - AttributeName: userId
+            AttributeType: S
+          - AttributeName: metricIdentifier
+            AttributeType: S
+        KeySchema:
+          - AttributeName: userId
+            KeyType: HASH
+          - AttributeName: metricIdentifier
+            KeyType: RANGE
+        ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
 
 custom:
   tableStageAppendix:
