@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {toggleNotification} from "../store/actions/toggleNotification";
 import M from 'materialize-css';  
 
 class SignedInLinks extends Component {
@@ -14,23 +16,17 @@ class SignedInLinks extends Component {
         M.Dropdown.init(elems, {inDuration: 300, outDuration: 225, coverTrigger: false});
     }
 
+    handleToggle = () => {
+        console.log(this.props.isActive)
+        if (this.props.isActive === true) {
+            this.props.toggleNotification(false)
+        } else {
+            this.props.toggleNotification(true)
+        }
+    }
+
 
     render(){
-
-
-        const {notifications} = this.props;
-        const notificationList = notifications.map(notification => {
-            return(
-                <div>
-                    <li><NavLink to="/milkoutputdetails" >{notification.message}</NavLink></li>
-                    <li class="divider" tabindex="-1"></li>
-                </div>
-            )
-        })
-
-
-
-
 
 
         return(
@@ -43,14 +39,11 @@ class SignedInLinks extends Component {
                     </div>
                 </li>
             <li>
-                    <span className="dropdown-trigger btn-floating pulse white ligthen-2" data-target="dropdown1" onClick={this.showMenu}>
+                    <span className="btn-floating pulse white ligthen-2"  onClick={this.handleToggle}>
                         <i className="bellIcon material-icons indigo-text text-darken-4">notifications</i>
                         <small className="notification-badge">3</small>
                     </span>
 
-                    <ul id='dropdown1' className='dropdown-content'>
-                        {notificationList}
-                    </ul>
                 
 
 
@@ -63,4 +56,21 @@ class SignedInLinks extends Component {
     )
 }
 }
-export default SignedInLinks;
+ const mapStateToProps = (state) => {
+     return {
+        isActive: state.notification.isActive
+     }
+ }
+
+ const mapDispatchToProps = (dispatch) => {
+     return {
+         toggleNotification: (newStatus) => dispatch(toggleNotification(newStatus))
+     }
+ }
+
+
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks);

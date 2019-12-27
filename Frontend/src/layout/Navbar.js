@@ -16,7 +16,7 @@ class Navbar extends Component{
     return (
         <nav className="nav-wrapper indigo darken-4">
             <div className="container">
-                <Link to='/' className="brand-logo">Farmatic x GEA</Link>
+                <Link to='/' className="brand-logo">Farmatic</Link>
                 <SignedInLinks notifications={this.state.notifications}/>
                 <SignedOutLinks />
             </div>

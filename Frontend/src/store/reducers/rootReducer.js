@@ -1,11 +1,11 @@
 import authReducer from './authReducer'
-import cowdataReducer from './cowdataReducer'
+import farmerTasksReducer from './farmerTasksReducer'
 import notificationReducer from './notificationReducer'
 import {combineReducers} from 'redux'
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    cowdata: cowdataReducer,
+    farmer_tasks: farmerTasksReducer,
     notification: notificationReducer
 });
 

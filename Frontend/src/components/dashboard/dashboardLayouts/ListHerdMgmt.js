@@ -1,6 +1,6 @@
 import React from 'react';
-import DiagramComponent from '../dashboardLayouts/DiagramComponent';
-import HerdCountOverview from '../dashboardLayouts/HerdCountOverview';
+import DiagramComponent from './DiagramComponent';
+import HerdCountOverview from './HerdCountOverview';
 
 const ListHerdMgmt= () => {
     return (
