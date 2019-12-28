@@ -28,7 +28,6 @@ class SignedInLinks extends Component {
 
     render(){
 
-
         return(
 
         <ul className="right">
@@ -38,11 +37,13 @@ class SignedInLinks extends Component {
                         <input placeholder="Search" id="search_input" type="text" className="validate white-text "></input>
                     </div>
                 </li>
-            <li>
-                    <span className="btn-floating pulse white ligthen-2"  onClick={this.handleToggle}>
+            <li>    
+                    <small id="notification-badge">3</small>
+                    <span className={this.props.isActive ? 'btn-floating  active' : 'btn-floating white ligthen-2 pulse'}  onClick={this.handleToggle}>
                         <i className="bellIcon material-icons indigo-text text-darken-4">notifications</i>
-                        <small className="notification-badge">3</small>
+                    
                     </span>
+                    
 
                 
 

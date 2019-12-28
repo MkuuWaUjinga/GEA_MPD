@@ -1,10 +1,11 @@
+import uuid from 'react-uuid';
 import {TOGGLE_NOTIFICATION} from '../actions/toggleNotification';
 
 const initState = {
     notifications: [
-        {id: 1, title:"Warning", content: 'please milk your cows properly'},
-        {id: 2, title:"Notification", content: 'please milk'},
-        {id: 3, title:"Alarm", content: 'go outside and feed'}
+        {id: uuid(), title:"Warning", content: 'please milk your cows properly'},
+        {id: uuid(), title:"Notification", content: 'please milk'},
+        {id: uuid(), title:"Alarm", content: 'go outside and feed'}
     ],
     isActive: false
 }

@@ -16,7 +16,7 @@ function App() {
             <Route exact path="/" component={MainDashboardView} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/somaticCellCountView" component={DetailHerdOverview} />
+            <Route path="/detailHerdOverview" component={DetailHerdOverview} />
         </Switch>
       </div>
     </BrowserRouter>

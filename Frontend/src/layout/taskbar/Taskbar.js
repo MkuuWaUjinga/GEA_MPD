@@ -89,8 +89,8 @@ handleTaskFormSubmit = (e) => {
         const notificationList = notifications.length ? (
             notifications.map(notification => {
               return (
-                <div><NavLink to="/somaticCellCountView" >
-                    <li key={notification.id}>
+                <div key={notification.id}><NavLink to="/detailHerdOverview" >
+                    <li>
                       <h4>{notification.title}</h4>
                       <p>{notification.content}</p>
                     </li>
@@ -150,29 +150,29 @@ handleTaskFormSubmit = (e) => {
 
             <div className="modal-content">
             <h3>Create a new Task</h3>
-            <div class="row">
+            <div className="row">
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col l12">
                             <input id="task_title" type="text" data-length="20" onChange={this.handleTaskFormChange}/>
-                            <label for="task_title">Task Title</label>
+                            <label htmlFor="task_title">Task Title</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col l12">
                             <textarea id="task_description" type="materialize-textarea" data-length="50" onChange={this.handleTaskFormChange}/>
-                            <label for="task_description">Task Description</label>
+                            <label htmlFor="task_description">Task Description</label>
                         </div>
                     </div>
                 </form>
 
             </div>
 
-            <div class="modal-footer">
-                <a href="#" class="modal-close waves-effect waves-red btn-flat">
+            <div className="modal-footer">
+                <a href="#" className="modal-close waves-effect waves-red btn-flat">
                 Return
                 </a>
-                <a href="#" class="modal-close waves-effect waves-green btn-flat" onClick={this.handleTaskFormSubmit}>
+                <a href="#" className="modal-close waves-effect waves-green btn-flat" onClick={this.handleTaskFormSubmit}>
                 Create
                 </a>
             </div>
@@ -181,9 +181,9 @@ handleTaskFormSubmit = (e) => {
             <hr></hr>
 
             <h5>Herd Management</h5>
-              <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                <span class="card-title">Card Title</span>
+              <div className="card blue-grey darken-1">
+                <div className="card-content white-text">
+                <span className="card-title">Card Title</span>
                 <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
                 </div>
@@ -193,9 +193,9 @@ handleTaskFormSubmit = (e) => {
             <hr></hr>
 
             <h5>Feed Management</h5>
-              <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                <span class="card-title">Card Title</span>
+              <div className="card blue-grey darken-1">
+                <div className="card-content white-text">
+                <span className="card-title">Card Title</span>
                 <p>I am a very simple card. I am good at containing small bits of information.
                 I am convenient because I require little markup to use effectively.</p>
                 </div>

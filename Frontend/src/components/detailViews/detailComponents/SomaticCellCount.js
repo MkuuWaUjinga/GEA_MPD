@@ -1,20 +1,15 @@
 import React, {Component} from 'react';
 import { Line} from 'react-chartjs-2';
-import M from 'materialize-css'; 
-import ModalAddTask from "../../../layout/taskbar/ModalAddTask";
+import M from 'materialize-css';  
 class SomaticCellCountView extends Component {
 
 state = {
-    modalClicked: false
+
 }
 
 componentDidMount (){
     M.AutoInit();
 }
-
-modalClicked () {
-    this.setState({modalClicked: true})
-  }
 
 constructor(props){
     
@@ -42,12 +37,6 @@ constructor(props){
 }
 
     render() {
-        const modalClicked = this.state.modalClicked ? (
-            <ModalAddTask />
-          ) : (null);
-
-
-
         return(
             <div className="SomaticCellCountContainer">
                         <div className="SomaticCellCountChart">
@@ -197,8 +186,8 @@ constructor(props){
 
                                         <hr />
                                         <div className="right">
-                                    <a class="waves-effect waves-light btn">Create New Task</a>
-                                    <a class="waves-effect waves-light btn">Forward to SPOC</a>
+                                    <a className="waves-effect waves-light btn">Create New Task</a>
+                                    <a className="waves-effect waves-light btn">Forward to SPOC</a>
                                     </div>
 
                                     </div>
@@ -247,8 +236,8 @@ constructor(props){
 
                                         <hr />
                                         <div className="right">
-                                    <a class="waves-effect waves-light btn">Create New Task</a>
-                                    <a class="waves-effect waves-light btn">Forward to SPOC</a>
+                                    <a className="waves-effect waves-light btn">Create New Task</a>
+                                    <a className="waves-effect waves-light btn">Forward to SPOC</a>
                                     </div>
 
                                     </div>
@@ -290,9 +279,8 @@ constructor(props){
 
                                         <hr />
                                         <div className="right">
-                                    <a class="waves-effect waves-light btn" onClick={() => this.modalClicked}>Create New Task</a>
-                                    {modalClicked}
-                                    <a class="waves-effect waves-light btn">Forward to SPOC</a>
+                                    <a className="waves-effect waves-light btn">Create New Task</a>
+                                    <a className="waves-effect waves-light btn">Forward to SPOC</a>
                                     </div>
 
                                     </div>
@@ -314,7 +302,5 @@ constructor(props){
         )
     }
 }
-
-
 
 export default SomaticCellCountView;

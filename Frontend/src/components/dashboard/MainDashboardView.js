@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ListHerdMgmt from './dashboardLayouts/ListHerdMgmt';
-import Notifications from '../../layout/notificationDropDown/Notifications'
 import Taskbar from '../../../src/layout/taskbar/Taskbar'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux'
@@ -13,9 +12,9 @@ class MainDashboardView extends Component {
                 <div className="kpi_boards col xl9">
                     <div className="row">
                         <div className="kpi_milkperfbox col xl6">
-                            <div class="card blue-grey darken-1">
-                                <div class="card-content white-text">
-                                <span class="card-title">Milking Performance</span>
+                            <div className="card blue-grey darken-1">
+                                <div className="card-content white-text">
+                                <span className="card-title">Milking Performance</span>
                                     <div className="row">
                                         <div className="col l8 kpiDiagram">
 
@@ -50,9 +49,9 @@ class MainDashboardView extends Component {
                         </div>
 
                         <div className="kpi_milkqualbox col xl6">
-                            <div class="card blue-grey darken-1">
-                                    <div class="card-content white-text">
-                                    <span class="card-title">Milking Quality</span>
+                            <div className="card blue-grey darken-1">
+                                    <div className="card-content white-text">
+                                    <span className="card-title">Milking Quality</span>
                                     <div className="row">
                                         <div className="col l8 kpiDiagram">
 
@@ -86,10 +85,10 @@ class MainDashboardView extends Component {
                     <div className="row">
 
                         <div className="kpi_herdoverviewbox col xl4">
-                        <NavLink to="/somaticCellCountView" >
-                            <div class="card blue-grey darken-1">
-                                        <div class="card-content white-text">
-                                        <span class="card-title">Herd Overview</span>
+                        <NavLink to="/detailHerdOverview" >
+                            <div className="card blue-grey darken-1">
+                                        <div className="card-content white-text">
+                                        <span className="card-title">Herd Overview</span>
                                         <div className="row">
                                         <div className="col l8 kpiDiagram">
 
@@ -120,9 +119,9 @@ class MainDashboardView extends Component {
                         </div>
 
                         <div className="kpi_feedmgmtbox col xl4">
-                            <div class="card blue-grey darken-1">
-                                        <div class="card-content white-text">
-                                        <span class="card-title">Feed Management</span>
+                            <div className="card blue-grey darken-1">
+                                        <div className="card-content white-text">
+                                        <span className="card-title">Feed Management</span>
                                         <div className="col l12 kpiValues">
                                             <ul>
                                                 <li>
@@ -151,9 +150,9 @@ class MainDashboardView extends Component {
                                 </div>
                         </div>
                         <div className="kpi_machinemgmtbox col xl4">
-                            <div class="card blue-grey darken-1">
-                                        <div class="card-content white-text">
-                                        <span class="card-title">Machine Management</span>
+                            <div className="card blue-grey darken-1">
+                                        <div className="card-content white-text">
+                                        <span className="card-title">Machine Management</span>
                                         <div className="row">
                                             <div className="col l8 kpiDiagram">
 

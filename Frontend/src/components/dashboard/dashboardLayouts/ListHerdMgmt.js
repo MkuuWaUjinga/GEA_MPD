@@ -1,5 +1,4 @@
 import React from 'react';
-import DiagramComponent from './DiagramComponent';
 import HerdCountOverview from './HerdCountOverview';
 
 const ListHerdMgmt= () => {
