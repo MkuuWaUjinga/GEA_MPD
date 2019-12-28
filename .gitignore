@@ -1,0 +1,13 @@
+# Jetbrains IDE
+.idea
+
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+__pycache__
+backend_env
+build

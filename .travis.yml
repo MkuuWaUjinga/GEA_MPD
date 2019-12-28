@@ -1,0 +1,9 @@
+dist: xenial   # required for Python >= 3.7
+language: python
+python:
+  - "3.7"
+script:
+# run tests
+  - Backend/scripts/run_tests.sh
+after_success:
+  - Backend/scripts/deploy.sh

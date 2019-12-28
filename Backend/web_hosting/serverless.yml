@@ -1,0 +1,93 @@
+service: mpd-backend
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: eu-central-1
+  stage: dev
+
+resources:
+  Conditions:
+    IsDev:
+      Fn::Equals:
+        - ${self:custom.myStage}
+        - dev
+  Resources:
+    WebHost:
+      Type: AWS::S3::Bucket
+      Condition: IsDev
+      Properties:
+        AccessControl: PublicRead
+        BucketName: ${self:custom.siteName}${self:custom.siteNameStageAppendix.prod}
+        WebsiteConfiguration:
+          IndexDocument: index.html
+    WebHostS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Condition: IsDev
+      Properties:
+        Bucket:
+          Ref: WebHost
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "WebHost"
+                    },
+                    "/*"
+                  ]
+                ]
+    WebHostDev:
+      Type: AWS::S3::Bucket
+      Condition: IsDev
+      Properties:
+        AccessControl: PublicRead
+        BucketName: ${self:custom.siteName}${self:custom.siteNameStageAppendix.dev}
+        WebsiteConfiguration:
+          IndexDocument: index.html
+    WebHostDevS3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Condition: IsDev
+      Properties:
+        Bucket:
+          Ref: WebHostDev
+        PolicyDocument:
+          Statement:
+            - Sid: PublicReadGetObject
+              Effect: Allow
+              Principal: "*"
+              Action:
+              - s3:GetObject
+              Resource:
+                Fn::Join: [
+                  "", [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "WebHostDev"
+                    },
+                    "/*"
+                  ]
+                ]
+
+custom:
+  myStage: ${opt:stage, self:provider.stage}
+  siteName: farmatic
+  siteNameStageAppendix:
+    dev: '-dev'
+    prod: ''
+  s3Sync:
+    - bucketName: ${self:custom.siteName}${self:custom.siteNameStageAppendix.${self:custom.myStage}}
+      localDir: ../../Frontend/build/
+      params:
+        - "*":
+            CacheControl: 'max-age=30'
+
+plugins:
+  - serverless-s3-sync
