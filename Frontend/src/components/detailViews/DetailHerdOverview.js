@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
-import defaultDetailView from '../../assets/img/defaultDetailView.png';
-import { Line} from 'react-chartjs-2';
 import Taskbar from '../../layout/taskbar/Taskbar'
-import SomaticCellCountView from '../detailViews/HerdOverviewDetailComponents/SomaticCellCount'
+import ConceptionRate from '../detailViews/detailComponents/ConceptionRate'
+import HerdCount from '../detailViews/detailComponents/HerdCount'
+import SomaticCellCountView from '../detailViews/detailComponents/SomaticCellCount'
+import HerdIncrease from '../detailViews/detailComponents/HerdIncrease'
+import Lactation from '../detailViews/detailComponents/Lactation'
 
 class DetailHerdOverview extends Component {
 
 state = {
-
+    displayedComponent: ""
 }
+
+
 
 constructor(props){
     
@@ -16,7 +20,30 @@ constructor(props){
     
 }
 
+
+
+handleSwitch = (componentName) => {
+    this.setState({displayedComponent: componentName});
+}
+
+renderComponent(){
+    switch(this.state.displayedComponent){
+        case "HERD_COUNT":
+            return <HerdCount />
+        case "LACTATION":
+            return <Lactation />
+        case "SICK_COWS":
+            return <SomaticCellCountView />
+        case "CONCEPTION_RATE":
+            return <ConceptionRate />
+        case "HERD_INCREASE":
+            return <HerdIncrease />
+    }
+}
+
     render() {
+
+
         return(
 
 <div className="main_detail_dashboard row">
@@ -24,7 +51,7 @@ constructor(props){
         <h2 className="center">Herd Overview</h2>
     <div className="row center">
         <div className="col l2">
-            <div className="card">
+            <div className="card"  onClick={() => this.handleSwitch("HERD_COUNT")}>
                 <div className="card-content">
                     <div className="keyValue">
                         <p>Total Herd Count</p>
@@ -34,7 +61,7 @@ constructor(props){
             </div>
         </div>
         <div className="col l2">
-            <div className="card">
+            <div className="card"  onClick={() => this.handleSwitch("LACTATION")}>
                 <div className="card-content">
                     <div className="keyValue">
                         <p>Lactating Animals</p>
@@ -44,7 +71,7 @@ constructor(props){
             </div>
         </div>
         <div className="col l2">
-            <div className="card">
+            <div className="card" onClick={() => this.handleSwitch("SICK_COWS")}>
                 <div className="card-content">
                     <div className="keyValue">
                         <p>Sick cows (Mastitis)</p>
@@ -54,7 +81,7 @@ constructor(props){
             </div>
         </div>
         <div className="col l2">
-            <div className="card">
+            <div className="card" onClick={() => this.handleSwitch("CONCEPTION_RATE")}>
                 <div className="card-content">
                     <div className="keyValue">
                         <p>Conception Rate (%)</p>
@@ -64,7 +91,7 @@ constructor(props){
             </div>
         </div>
         <div className="col l2">
-            <div className="card">
+            <div className="card" onClick={() => this.handleSwitch("HERD_INCREASE")}>
                 <div className="card-content">
                     <div className="keyValue">
                         <p>In/-Decrease Herd</p>
@@ -74,7 +101,11 @@ constructor(props){
             </div>
         </div>
     </div>
-<SomaticCellCountView />
+
+{this.renderComponent()}
+
+
+
 </div>
 
 <Taskbar />
