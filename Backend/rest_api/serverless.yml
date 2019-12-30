@@ -24,14 +24,14 @@ provider:
 
 functions:
   users:
-    handler: users/users.entry
+    handler: resources/users/users.entry
     events:
       - http:
           path: users/{id}
           method: get
           cors: true
   cows:
-    handler: cows/cows.entry
+    handler: resources/cows/cows.entry
     events:
       - http:
           path: cows
