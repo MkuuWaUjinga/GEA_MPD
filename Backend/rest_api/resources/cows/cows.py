@@ -32,7 +32,6 @@ def dump_json_body(handler):
 def entry(event, context):
     http_method = event['httpMethod']
     stage = event['requestContext']['stage']
-    days_back_from_now = event['queryStringParameters'].get("days_back_from_now")
 
     response = {
         "statusCode": 404
@@ -40,10 +39,14 @@ def entry(event, context):
 
     if http_method == 'GET':
         try:
-            cows = get_all_cows(user_id, stage, days_back_from_now)
+            if event.get('queryStringParameters'):
+                days_back_from_now = int(event['queryStringParameters'].get("days_back_from_now"))
+                cows = get_all_cows(user_id, stage, days_back_from_now)
+            else:
+                cows = get_all_cows(user_id, stage)
         except (ClientError, KeyError):
             return {"statusCode": 400,
-                    'body': 'Retrieving user from table failed',
+                    'body': 'Retrieving cows failed',
                     'headers': {"Content-Type": "text/plain"}
                     }
         response = {
