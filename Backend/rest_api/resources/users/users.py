@@ -64,4 +64,4 @@ def get_user(user_id, stage):
     return user
 
 def user_view(user):
-    del user['cows']
+    return user
