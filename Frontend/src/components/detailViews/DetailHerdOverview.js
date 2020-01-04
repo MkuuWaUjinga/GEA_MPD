@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Taskbar from '../../layout/taskbar/Taskbar'
 import ConceptionRate from '../detailViews/detailComponents/ConceptionRate'
 import HerdCount from '../detailViews/detailComponents/HerdCount'
-import SomaticCellCountView from '../detailViews/detailComponents/SomaticCellCount'
+import SomaticCellCountView from './detailComponents/SickCows'
 import HerdIncrease from '../detailViews/detailComponents/HerdIncrease'
 import Lactation from '../detailViews/detailComponents/Lactation'
 

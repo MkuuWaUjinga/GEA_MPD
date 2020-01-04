@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Line} from 'react-chartjs-2';
+import BarChart_SickCows from '../dataCharts/BarChart_SickCows'
 import M from 'materialize-css';  
 
 class ConceptionRate extends Component {
@@ -16,7 +16,7 @@ componentDidMount (){
 
     render() {
         return(
-            <p>ConceptionRate VIEW</p>
+            <BarChart_SickCows />
         )
     }
 }

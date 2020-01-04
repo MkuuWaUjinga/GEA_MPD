@@ -1,55 +1,116 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import { Line} from 'react-chartjs-2';
-import M from 'materialize-css';  
-class SomaticCellCountView extends Component {
+import M from 'materialize-css'; 
+import BarChart_SickCows from '../dataCharts/BarChart_SickCows'
+import SCC from '../dataCharts/SCC'
+class SickCows extends Component {
 
 state = {
-
+    collapsed : false
 }
 
-componentDidMount (){
-    M.AutoInit();
-}
-
-constructor(props){
+componentDidMount(){
     
-    super(props);
-    this.state = {
-        chartData:{
-            labels: ['01.02.19','02.02.19','03.02.19','04.02.19','05.02.19','06.02.19','07.02.19'],
-            datasets: [
-                {
-                    label: 'Somatic Cell Count',
-                    data:[
-                        64500,
-                        65450,
-                        36000,
-                        75000,
-                        74500,
-                        70000,
-                        89000
-                    ]
-                }
-            ]
+    const options = {
+        onOpenStart: () => {
+            
+            setTimeout(function() {
+                this.setState({collapsed: true});
+            }.bind(this),100);
         }
     }
-    
+    M.Collapsible.init(this.Collapsible, options);
 }
 
     render() {
-        return(
-            <div className="SomaticCellCountContainer">
-                        <div className="SomaticCellCountChart">
-                            <Line
-                                data={this.state.chartData}
-                                width={100}
-                                height={250}
-                                options={{
-                                    maintainAspectRatio: false
-                                }}
-                            />
+
+        let showDiagram;
+        if (this.state.collapsed) {
+            showDiagram = <SCC />
+        }
+
+
+        const {notifications} = this.props;
+        const notificationList = notifications.length ? (
+            notifications.map(notification => {
+              return (
+
+                <li key={notification.id}>
+                <div className="collapsible-header">
+                    <div className="row">
+                        <div className="col l12">
+                        <i className="large material-icons left">account_circle</i>
+                        <h6>{notification.time} - {notification.title}</h6>
+                        </div>
+                        <div className="col l12">
+                                <p>{notification.content}
+                                </p>
+                                
+                        </div>
+                        </div>
+                            
+                </div>
+                <div className="collapsible-body">
+                <div className="row">
+                
+                {
+                    notification.cows.length ? (
+                        notification.cows.map(uniqueCowData => {
+                            return (
+                            <div className="col l12" key={uniqueCowData.cow_id}>
+                                <div className="card blue-grey darken-1">
+                                    <div className="card-content white-text">
+        
+                                    <p>{uniqueCowData.cow_id}</p>
+                                    <p>{uniqueCowData.SCC}</p>
+                                    {showDiagram}
+                                    
+                                    </div>
+                                    <div className="card-action">
+                                    <a href="#">Put cow under treatment</a>
+                                    </div>
+                                </div>
+                            </div>
+                            )
+                        })
+                    ) : (<p>No Cow data available</p>)
+                }
+
+
+
+
+                <div className ="col l12">
+
+                        <hr />
+                        <div className="right">
+                            <a className="waves-effect waves-light btn">Create New Task</a>
+                            <a className="waves-effect waves-light btn">Forward to SPOC</a>
                         </div>
 
+                </div>
+                </div>
+                </div>
+                </li>
+                
+
+
+
+
+
+
+              )
+            })
+        ) :(
+          <p>No notifications yet...</p>
+        );
+
+
+
+        return(
+            <div className="SomaticCellCountContainer">
+                        <BarChart_SickCows />
+                    
                         <div className="CowsInTreatment">
                             <h4>Cows currently under treatment</h4>
                             <div className="row center black-text">
@@ -139,61 +200,10 @@ constructor(props){
 
                             <div>
                                 <h5>Today</h5>
-                                <ul className="collapsible">
-                                <li>
-                                    <div className="collapsible-header">
-                                        <div className="row">
-                                            <div className="col l12">
-                                            <i className="large material-icons left">account_circle</i>
-                                            <h6>8:24 - Abnormal Somatic Cell Count detected</h6>
-                                            </div>
-                                            <div className="col l12">
-                                                    <p>Notification Details: fdkjadfksj kadfs akdfs aksdfaksdfj aksdfaksdfj
-                                                        dsfh jsdf kjdfskjasdfkjas dfajs
-                                                    </p>
-                                            </div>
-                                            </div>
-                                                
-                                    </div>
-                                <div className="collapsible-body">
-                                <div className="row">
-                                    <div className="col l12">
-                                    <div className="card blue-grey darken-1">
-                                        <div className="card-content white-text">
-                                    
-                                        <p>I am a very simple card. I am good at containing small bits of information.
-                                        I am convenient because I require little markup to use effectively.</p>
-                                        </div>
-                                        <div className="card-action">
-                                        <a href="#">Put cow under treatment</a>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                    <div className="col l12">
-                                    <div className="card blue-grey darken-1">
-                                        <div className="card-content white-text">
-                                    
-                                        <p>I am a very simple card. I am good at containing small bits of information.
-                                        I am convenient because I require little markup to use effectively.</p>
-                                        </div>
-                                        <div className="card-action">
-                                        <a href="#">Put cow under treatment</a>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div className ="col l12">
-
-                                        <hr />
-                                        <div className="right">
-                                    <a className="waves-effect waves-light btn">Create New Task</a>
-                                    <a className="waves-effect waves-light btn">Forward to SPOC</a>
-                                    </div>
-
-                                    </div>
-                                </div>
-                                </div>
-                                </li>
+                                <ul className="collapsible" ref={Collapsible => {
+                                    this.Collapsible = Collapsible;
+                                }}>
+                                {notificationList}
 
                             </ul>
 
@@ -293,8 +303,6 @@ constructor(props){
                             </div>
                         </div>
 
-
-
             </div>
 
 
@@ -303,4 +311,11 @@ constructor(props){
     }
 }
 
-export default SomaticCellCountView;
+const mapStateToProps = (state) => {
+    return {
+        notifications: state.notification.notifications
+
+    }
+}
+
+export default connect(mapStateToProps)(SickCows);

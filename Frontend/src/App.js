@@ -5,6 +5,7 @@ import MainDashboardView from './components/dashboard/MainDashboardView';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import DetailHerdOverview from './components/detailViews/DetailHerdOverview';
+import SickCows from './components/detailViews/detailComponents/SickCows';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/detailHerdOverview" component={DetailHerdOverview} />
+            <Route path="/detailHerdOverview/SickCows" component={SickCows} />
         </Switch>
       </div>
     </BrowserRouter>
