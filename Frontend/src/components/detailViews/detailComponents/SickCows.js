@@ -14,9 +14,10 @@ componentDidMount(){
     
     const options = {
         onOpenStart: () => {
-            console.log("collapsed state_START", this.state.collapsed)
             setTimeout(function() {
                 this.setState({collapsed: true});
+                console.log("Open Start-1", this.state.collapsed);
+
             }.bind(this),100);
         },
 
@@ -44,8 +45,7 @@ componentDidMount(){
                         <h6>{notification.time} - {notification.title}</h6>
                         </div>
                         <div className="col l12">
-                                <p>{notification.content}
-                                </p>
+                                <p>{notification.content}</p>
                                 
                         </div>
                         </div>

@@ -6,6 +6,7 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import DetailHerdOverview from './components/detailViews/DetailHerdOverview';
 import SickCows from './components/detailViews/detailComponents/SickCows';
+import MainChatView from './components/chat/MainChatView';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/signup" component={SignUp} />
             <Route path="/detailHerdOverview" component={DetailHerdOverview} />
             <Route path="/detailHerdOverview/SickCows" component={SickCows} />
+            <Route path="/chat" component={MainChatView} />
         </Switch>
       </div>
     </BrowserRouter>

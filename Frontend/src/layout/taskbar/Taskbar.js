@@ -15,19 +15,18 @@ class Taskbar extends Component {
 componentDidMount() {
         M.Tabs.init(this.Tabs);
         M.updateTextFields();
-        
         const options = {
             onOpenStart: () => {
-              console.log("Open Start");
+              console.log("Open Start-1");
             },
             onOpenEnd: () => {
-              console.log("Open End");
+              console.log("Open End-2");
             },
             onCloseStart: () => {
-              console.log("Close Start");
+              console.log("Close Start-3");
             },
             onCloseEnd: () => {
-              console.log("Close End");
+              console.log("Close End-4");
             },
             inDuration: 250,
             outDuration: 250,
