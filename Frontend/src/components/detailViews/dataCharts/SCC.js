@@ -12,14 +12,15 @@ componentDidMount (){
 }
 
 constructor(props){
-    super(props);
+    super(props); 
     this.state = {
         chartData:{
             labels: ['01.02.19','02.02.19','03.02.19','04.02.19','05.02.19','06.02.19','07.02.19'],
             datasets: [
                 {
                     label: 'Somatic Cell Count',
-                    data:[
+                    data: props.payload
+                    /*[
                         64500,
                         65450,
                         36000,
@@ -27,7 +28,7 @@ constructor(props){
                         74500,
                         70000,
                         89000
-                    ]
+                    ]*/
                 }
             ]
         }
@@ -36,6 +37,7 @@ constructor(props){
 }
 
     render() {
+        const {uniqueCowData} = this.props;
         return(
             <div className="SomaticCellCountContainer">
                         <div className="SomaticCellCountChart">

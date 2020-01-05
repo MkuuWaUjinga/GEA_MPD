@@ -14,21 +14,21 @@ componentDidMount(){
     
     const options = {
         onOpenStart: () => {
-            
+            console.log("collapsed state_START", this.state.collapsed)
             setTimeout(function() {
                 this.setState({collapsed: true});
             }.bind(this),100);
-        }
+        },
+
+        onCloseEnd: () => {
+                this.setState({collapsed: false});
+                console.log("collapsed state_END", this.state.collapsed)
+        },
     }
     M.Collapsible.init(this.Collapsible, options);
 }
 
     render() {
-
-        let showDiagram;
-        if (this.state.collapsed) {
-            showDiagram = <SCC />
-        }
 
 
         const {notifications} = this.props;
@@ -62,9 +62,8 @@ componentDidMount(){
                                 <div className="card blue-grey darken-1">
                                     <div className="card-content white-text">
         
-                                    <p>{uniqueCowData.cow_id}</p>
-                                    <p>{uniqueCowData.SCC}</p>
-                                    {showDiagram}
+                                    <p>Cow-ID: {uniqueCowData.cow_id}</p>
+                                    {this.state.collapsed? <SCC payload={uniqueCowData.SCC} />: <p>No Diagram data available</p>}
                                     
                                     </div>
                                     <div className="card-action">
