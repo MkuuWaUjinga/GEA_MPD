@@ -11,13 +11,15 @@ class MainChatView extends Component {
         return(
         <div className="main_dashboard container row">
             <div className="chatView col xl9">
-                    <div className="scrollable sidebar">
+                <div className="row">
+                    <div className="scrollable sidebar col xl3">
                         <PeopleList />
                     </div>
 
-                    <div className="scrollable content">
+                    <div className="scrollable content xl9">
                         <MessageList />
                     </div>
+                </div>
             </div>
             <Taskbar />
         </div>

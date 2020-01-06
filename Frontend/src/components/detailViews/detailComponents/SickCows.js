@@ -4,6 +4,7 @@ import { Line} from 'react-chartjs-2';
 import M from 'materialize-css'; 
 import BarChart_SickCows from '../dataCharts/BarChart_SickCows'
 import SCC from '../dataCharts/SCC'
+import ModalContactSpoc from '../../../layout/contactSPOC/ModalContactSpoc'
 class SickCows extends Component {
 
 state = {
@@ -28,6 +29,7 @@ componentDidMount(){
     }
     M.Collapsible.init(this.Collapsible, options);
 }
+
 
     render() {
 
@@ -84,7 +86,7 @@ componentDidMount(){
                         <hr />
                         <div className="right">
                             <a className="waves-effect waves-light btn">Create New Task</a>
-                            <a className="waves-effect waves-light btn">Forward to SPOC</a>
+                            <ModalContactSpoc />
                         </div>
 
                 </div>
@@ -109,6 +111,7 @@ componentDidMount(){
         return(
             <div className="SomaticCellCountContainer">
                         <BarChart_SickCows />
+
                     
                         <div className="CowsInTreatment">
                             <h4>Cows currently under treatment</h4>
@@ -204,8 +207,7 @@ componentDidMount(){
                                 }}>
                                 {notificationList}
 
-                            </ul>
-
+                                </ul>
                             </div>
                             <hr />
                             <div>

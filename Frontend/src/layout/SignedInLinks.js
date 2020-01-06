@@ -14,11 +14,12 @@ class SignedInLinks extends Component {
     componentDidMount() {
         let elems = document.querySelectorAll('.dropdown-trigger');
         M.Dropdown.init(elems, {inDuration: 300, outDuration: 225, coverTrigger: false});
-
+    /*
         axios.get(`https://3f4bvj6fub.execute-api.eu-central-1.amazonaws.com/dev/cows`)
         .then(res => {
           console.log(res)
         })
+    */
     }
 
     handleNotificationToggle = () => {

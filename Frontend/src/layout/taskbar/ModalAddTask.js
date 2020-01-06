@@ -5,7 +5,7 @@ import {addTask} from "../../store/actions/addTask";
 import M from 'materialize-css';  
 import "materialize-css/dist/css/materialize.min.css";
 
-class Taskbar extends Component {
+class ModalAddTask extends Component {
     state = {
         task_title: '',
         task_description: ''
@@ -68,7 +68,7 @@ handleTaskFormSubmit = (e) => {
 
             <div className="modal-content">
             <h3>Create a new Task</h3>
-            <div class="row">
+            <div className="row">
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col l12">
@@ -86,11 +86,11 @@ handleTaskFormSubmit = (e) => {
 
             </div>
 
-            <div class="modal-footer">
-                <a href="#" class="modal-close waves-effect waves-red btn-flat">
+            <div className="modal-footer">
+                <a href="#" className="modal-close waves-effect waves-red btn-flat">
                 Return
                 </a>
-                <a href="#" class="modal-close waves-effect waves-green btn-flat" onClick={this.handleTaskFormSubmit}>
+                <a href="#" className="modal-close waves-effect waves-green btn-flat" onClick={this.handleTaskFormSubmit}>
                 Create
                 </a>
             </div>
@@ -110,4 +110,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect(mapDispatchToProps)(Taskbar);
+export default connect(mapDispatchToProps)(ModalAddTask);

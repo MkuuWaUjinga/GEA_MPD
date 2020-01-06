@@ -140,7 +140,7 @@ handleTaskFormSubmit = (e) => {
               {taskList} 
              
           
-              <a className="waves-effect waves-light btn modal-trigger"
+        <a className="waves-effect waves-light btn modal-trigger"
           data-target="modal1"> Create new Task</a>
 
         <div ref={Modal => {this.Modal = Modal}}
