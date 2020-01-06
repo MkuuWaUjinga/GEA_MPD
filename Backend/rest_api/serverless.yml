@@ -37,6 +37,17 @@ functions:
           path: cows
           method: get
           cors: true
+  chatrooms:
+    handler: resources/chatrooms/chatrooms.entry
+    events:
+      - http:
+          path: users/{chatroomId}/messages
+          method: get
+          cors: true
+      -http:
+          path: users/{chatroomId}/messages
+          method: post
+          cors: true
 
 resources:
   Resources:
@@ -66,6 +77,23 @@ resources:
           - AttributeName: userId
             KeyType: HASH
           - AttributeName: metricIdentifier
+            KeyType: RANGE
+        ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+    ChatMessagesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ChatMessages{self:custom.tableStageAppendix.${self:custom.myStage}}
+        AttributeDefinitions:
+          - AttributeName: chatRoomId
+            AttributeType: S
+          - AttributeName: chatMessageId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: chatRoomId
+            KeyType: HASH
+          - AttributeName: chatMessageId
             KeyType: RANGE
         ProvisionedThroughput:
             ReadCapacityUnits: 1
