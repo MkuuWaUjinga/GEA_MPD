@@ -41,11 +41,11 @@ functions:
     handler: resources/chatrooms/chatrooms.entry
     events:
       - http:
-          path: users/{chatroomId}/messages
+          path: chatrooms/{chatroomId}/messages
           method: get
           cors: true
-      -http:
-          path: users/{chatroomId}/messages
+      - http:
+          path: chatrooms/{chatroomId}/messages
           method: post
           cors: true
 
@@ -84,7 +84,7 @@ resources:
     ChatMessagesTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: ChatMessages{self:custom.tableStageAppendix.${self:custom.myStage}}
+        TableName: ChatMessages${self:custom.tableStageAppendix.${self:custom.myStage}}
         AttributeDefinitions:
           - AttributeName: chatRoomId
             AttributeType: S
