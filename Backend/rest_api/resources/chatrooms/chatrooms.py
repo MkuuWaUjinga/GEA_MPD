@@ -99,7 +99,6 @@ def post_message(chat_room_id, message, recipient_email, recipient_first_name, s
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d:%H:%M:%S")
 
     message_table.put_item(
-        Table='ChatMessages' + '-dev' if stage == 'dev' else '',
         Item={
             "chatRoomId": chat_room_id,
             "chatMessageId": f"{timestamp}#{sender_id}",
