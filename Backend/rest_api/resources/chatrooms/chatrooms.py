@@ -38,47 +38,47 @@ def entry(event, context):
         "statusCode": 404
     }
 
-    if http_method == 'GET':
-        if event.get('pathParameters'):
-            chatroom_id = event['pathParameters'].get("chatroomId")
-            try:
-                messages = get_all_messages(chatroom_id, stage)
-            except (ClientError, KeyError):
-                return {"statusCode": 400,
-                        'body': 'Retrieving messages failed',
-                        'headers': {"Content-Type": "text/plain"}
-                        }
-            response = {
-                "statusCode": 200,
-                "body": {"cows": messages}
-            }
-    elif http_method == 'POST':
-        expected_keys = ["chatroom_id", "message", "recipient_email", "recipient_first_name", "sender_id",
-                         "sender_first_name"]
-        if event.get("body") and all(key in event["body"] for key in expected_keys) and \
-                len(expected_keys)==len(event["body"]):
-            try:
-                body = event["body"]
-                post_message(body["chatroom_id"], body["message"], body["recipient_email"],
-                             body["recipient_first_name"], body["sender_id"], body["sender_first_name"], stage)
-            except (ClientError, KeyError):
-                return {
-                    "statusCode": 400,
-                    'body': 'Posting message failed',
-                    'headers': {"Content-Type": "text/plain"}
+    if event.get('pathParameters'):
+        chat_room_id = event['pathParameters'].get("chatroomId")
+        if http_method == 'GET':
+                try:
+                    messages = get_all_messages(chat_room_id, stage)
+                except (ClientError, KeyError):
+                    return {"statusCode": 400,
+                            'body': 'Retrieving messages failed',
+                            'headers': {"Content-Type": "text/plain"}
+                            }
+                response = {
+                    "statusCode": 200,
+                    "body": {"cows": messages}
                 }
-            response = {
-                "statusCode": 200
-            }
-        else:
-            response = {
-                "statusCode": 400,
-                "body": f"All and only these keys are expected: {expected_keys}"
-            }
+        elif http_method == 'POST':
+            expected_keys = ["message", "recipient_email", "recipient_first_name", "sender_id",
+                             "sender_first_name"]
+            if event.get("body") and all(key in event["body"] for key in expected_keys) and \
+                    len(expected_keys)==len(event["body"]):
+                try:
+                    body = event["body"]
+                    post_message(chat_room_id, body["message"], body["recipient_email"],
+                                 body["recipient_first_name"], body["sender_id"], body["sender_first_name"], stage)
+                except (ClientError, KeyError):
+                    return {
+                        "statusCode": 400,
+                        'body': 'Posting message failed',
+                        'headers': {"Content-Type": "text/plain"}
+                    }
+                response = {
+                    "statusCode": 200
+                }
+            else:
+                response = {
+                    "statusCode": 400,
+                    "body": f"All and only these keys are expected: {expected_keys}"
+                }
 
     return response
 
-def get_all_messages(chatroom_id, stage):
+def get_all_messages(chat_room_id, stage):
     message_table = dynamo_db_client.Table('ChatMessages'+ '-dev' if stage=='dev' else '')
 
     messages = message_table.query(
@@ -86,7 +86,7 @@ def get_all_messages(chatroom_id, stage):
             'chatRoomId = :chatroom_id'
         },
         ExpressionAttributeValues={
-            ":chatroom_id": chatroom_id
+            ":chatroom_id": chat_room_id
         }
     )['Items']
     return messages_view(messages)
@@ -94,12 +94,14 @@ def get_all_messages(chatroom_id, stage):
 def messages_view(messages):
     return messages
 
-def post_message(chatroom_id, message, recipient_email, recipient_first_name, sender_id, sender_first_name, stage):
+def post_message(chat_room_id, message, recipient_email, recipient_first_name, sender_id, sender_first_name, stage):
+    message_table = dynamo_db_client.Table('ChatMessages'+ '-dev' if stage=='dev' else '')
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d:%H:%M:%S")
-    dynamo_db_client.put_item(
+
+    message_table.put_item(
         Table='ChatMessages' + '-dev' if stage == 'dev' else '',
         Item={
-            "chatRoomId": chatroom_id,
+            "chatRoomId": chat_room_id,
             "chatMessageId": f"{timestamp}#{sender_id}",
             "message": message
         }
