@@ -82,9 +82,7 @@ def get_all_messages(chat_room_id, stage):
     message_table = dynamo_db_client.Table('ChatMessages'+ '-dev' if stage=='dev' else '')
 
     messages = message_table.query(
-        KeyConditionExpression={
-            'chatRoomId = :chatroom_id'
-        },
+        KeyConditionExpression='chatRoomId = :chatroom_id',
         ExpressionAttributeValues={
             ":chatroom_id": chat_room_id
         }
