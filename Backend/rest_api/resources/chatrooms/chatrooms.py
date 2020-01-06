@@ -63,10 +63,10 @@ def entry(event, context):
                     body = event["body"]
                     post_message(chat_room_id, body["message"], body["recipient_email"],
                                  body["recipient_first_name"], body["sender_id"], body["sender_first_name"], stage)
-                except (ClientError, KeyError):
+                except (ClientError, KeyError) as e:
                     return {
                         "statusCode": 400,
-                        'body': 'Posting message failed',
+                        'body': f'Posting message failed, {str(e)}',
                         'headers': {"Content-Type": "text/plain"}
                     }
                 response = {
@@ -111,16 +111,16 @@ def post_message(chat_room_id, message, recipient_email, recipient_first_name, s
 
 def notify_recipient(recipient_email, recipient_first_name, sender_first_name):
     s3_client = boto3.client('s3')
-    sender = "farmatic@web.de"
+    sender = "Jules from Farmatic <farmatic@web.de>"
 
     template = s3_client.get_object(
-        Bucket='kahawa-assets',
-        Key='contact_email.html'
+        Bucket='farmatic-assets',
+        Key='new_message_email.html'
     )['Body'].read()
     template = jinja2.Template(template.decode('utf-8'))
 
     logo = s3_client.get_object(
-        Bucket='kahawa-assets',
+        Bucket='farmatic-assets',
         Key='logo.png'
     )['Body'].read()
 
@@ -131,7 +131,7 @@ def notify_recipient(recipient_email, recipient_first_name, sender_first_name):
     Mastitis cases on his farm. To see all the information and make an appointment, please click on the link below: \n
     {link}"""
     template_html = template.render(name=recipient_first_name, client_name=sender_first_name,
-                                           logo='data:image/jpeg;base64,{}'.format(logo_base_64))
+                                           logo='data:image/jpeg;base64,{}'.format(logo_base_64, link=link))
 
     mail_client = boto3.client('ses', region_name=ses_region)
     response = mail_client.send_email(
