@@ -70,6 +70,11 @@ def entry(event, context):
             response = {
                 "statusCode": 200
             }
+        else:
+            response = {
+                "statusCode": 400,
+                "body": f"All and only these keys are expected: {expected_keys}"
+            }
 
     return response
 
