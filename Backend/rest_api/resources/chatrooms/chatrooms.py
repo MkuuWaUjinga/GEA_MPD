@@ -100,7 +100,9 @@ def post_message(chat_room_id, message, recipient_email, recipient_first_name, s
         Item={
             "chatRoomId": chat_room_id,
             "chatMessageId": f"{timestamp}#{sender_id}",
-            "message": message
+            "message": message,
+            "senderFirstName": sender_first_name,
+            "senderId": sender_id
         }
     )
     notify_recipient(message, recipient_email, recipient_first_name, sender_first_name)
