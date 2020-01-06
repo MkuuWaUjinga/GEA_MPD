@@ -52,7 +52,7 @@ def entry(event, context):
                             }
                 response = {
                     "statusCode": 200,
-                    "body": {"cows": messages}
+                    "body": {"messages": messages}
                 }
         elif http_method == 'POST':
             expected_keys = ["message", "recipient_email", "recipient_first_name", "sender_id",
