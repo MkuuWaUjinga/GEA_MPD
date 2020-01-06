@@ -4,6 +4,8 @@ from lambda_decorators import cors_headers, load_json_body
 import simplejson as json
 from functools import wraps
 import datetime
+import jinja2
+import base64
 from collections import defaultdict
 import numpy as np
 
@@ -105,7 +107,54 @@ def post_message(chat_room_id, message, recipient_email, recipient_first_name, s
             "senderId": sender_id
         }
     )
-    notify_recipient(message, recipient_email, recipient_first_name, sender_first_name)
+    notify_recipient(recipient_email, recipient_first_name, sender_first_name)
 
-def notify_recipient(message, recipient_email, recipient_first_name, sender_first_name):
-    pass
+def notify_recipient(recipient_email, recipient_first_name, sender_first_name):
+    s3_client = boto3.client('s3')
+    sender = "farmatic@web.de"
+
+    template = s3_client.get_object(
+        Bucket='kahawa-assets',
+        Key='contact_email.html'
+    )['Body'].read()
+    template = jinja2.Template(template.decode('utf-8'))
+
+    logo = s3_client.get_object(
+        Bucket='kahawa-assets',
+        Key='logo.png'
+    )['Body'].read()
+
+    logo_base_64 = ''.join(base64.encodebytes(logo).decode('utf-8').splitlines())
+    link = "https://www.google.com"
+    ses_region = 'eu-central-1'
+    body_text = f"""Hi {recipient_first_name}, \n \n Your client {sender_first_name} sent you information about new 
+    Mastitis cases on his farm. To see all the information and make an appointment, please click on the link below: \n
+    {link}"""
+    template_html = template.render(name=recipient_first_name, client_name=sender_first_name,
+                                           logo='data:image/jpeg;base64,{}'.format(logo_base_64))
+
+    mail_client = boto3.client('ses', region_name=ses_region)
+    response = mail_client.send_email(
+        Destination={
+            'ToAddresses': [
+                recipient_email
+            ],
+        },
+        Message={
+            'Body': {
+                'Html': {
+                    'Charset': 'UTF-8',
+                    'Data': template_html,
+                },
+                'Text': {
+                    'Charset': 'UTF-8',
+                    'Data': body_text,
+                },
+            },
+            'Subject': {
+                'Charset': 'UTF-8',
+                'Data': f"You got a new inspection request from {sender_first_name}",
+            },
+        },
+        Source=sender,
+    )
