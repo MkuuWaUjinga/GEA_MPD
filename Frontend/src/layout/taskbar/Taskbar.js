@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {deleteTask} from "../../store/actions/deleteTask";
 import {addTask} from "../../store/actions/addTask";
+import ModalAddTask from '../taskbar/ModalAddTask';
 import M from 'materialize-css';  
 import "materialize-css/dist/css/materialize.min.css";
 
@@ -138,8 +139,9 @@ handleTaskFormSubmit = (e) => {
           <div className="taskBox">
               <h5>Milk Quality</h5>
               {taskList} 
+              <ModalAddTask />
              
-          
+     {/* 
         <a className="waves-effect waves-light btn modal-trigger"
           data-target="modal1"> Create new Task</a>
 
@@ -175,8 +177,10 @@ handleTaskFormSubmit = (e) => {
                 Create
                 </a>
             </div>
-            </div>
           </div>
+          </div>
+
+*/}
             <hr></hr>
 
             <h5>Herd Management</h5>

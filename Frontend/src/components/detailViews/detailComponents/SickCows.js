@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Line} from 'react-chartjs-2';
 import M from 'materialize-css'; 
-import BarChart_SickCows from '../dataCharts/BarChart_SickCows'
-import SCC from '../dataCharts/SCC'
-import ModalContactSpoc from '../../../layout/contactSPOC/ModalContactSpoc'
+import BarChart_SickCows from '../dataCharts/BarChart_SickCows';
+import SCC from '../dataCharts/SCC';
+import ModalContactSpoc from '../../../layout/contactSPOC/ModalContactSpoc';
+import ModalAddTask from '../../../layout/taskbar/ModalAddTask';
 class SickCows extends Component {
 
 state = {
@@ -48,7 +49,6 @@ componentDidMount(){
                         </div>
                         <div className="col l12">
                                 <p>{notification.content}</p>
-                                
                         </div>
                         </div>
                             
@@ -85,8 +85,8 @@ componentDidMount(){
 
                         <hr />
                         <div className="right">
-                            <a className="waves-effect waves-light btn">Create New Task</a>
-                            <ModalContactSpoc />
+                            <ModalAddTask />
+                            <ModalContactSpoc notificationPayload = {notification}/>
                         </div>
 
                 </div>
@@ -111,8 +111,6 @@ componentDidMount(){
         return(
             <div className="SomaticCellCountContainer">
                         <BarChart_SickCows />
-
-                    
                         <div className="CowsInTreatment">
                             <h4>Cows currently under treatment</h4>
                             <div className="row center black-text">

@@ -44,12 +44,14 @@ handleTaskFormChange = (e) => {
  this.setState({
     [e.target.id]: e.target.value
  })
+ console.log("current state", this.state)
 }
 
 handleTaskFormSubmit = (e) => {
     e.preventDefault();
     this.props.addTask({title: this.state.task_title, description: this.state.task_description});
     this.setState({task_title:'', task_description:''});
+    console.log("current state", this.state)
 }
 
 
@@ -62,8 +64,13 @@ handleTaskFormSubmit = (e) => {
         return(
 
        
+   <div>
+           
+
+      <a className="waves-effect waves-light btn modal-trigger" data-target="ModalAddTask">Create new Task</a>
+
         <div ref={Modal => {this.Modal = Modal}}
-          id="modal1"
+          id="ModalAddTask"
           className="modal">
 
             <div className="modal-content">
@@ -73,13 +80,13 @@ handleTaskFormSubmit = (e) => {
                     <div className="row">
                         <div className="input-field col l12">
                             <input id="task_title" type="text" data-length="20" onChange={this.handleTaskFormChange}/>
-                            <label for="task_title">Task Title</label>
+                            <label htmlFor="task_title">Task Title</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col l12">
                             <textarea id="task_description" type="materialize-textarea" data-length="50" onChange={this.handleTaskFormChange}/>
-                            <label for="task_description">Task Description</label>
+                            <label htmlFor="task_description">Task Description</label>
                         </div>
                     </div>
                 </form>
@@ -96,12 +103,20 @@ handleTaskFormSubmit = (e) => {
             </div>
             </div>
           </div>
-
+        </div>
     
 
         )
     }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    
+  }
+}
+
+
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -110,4 +125,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect(mapDispatchToProps)(ModalAddTask);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalAddTask);

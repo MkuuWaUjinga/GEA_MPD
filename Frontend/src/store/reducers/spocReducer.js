@@ -12,7 +12,7 @@ const initState = {
         firstName: 'Adrian',
         lastName: 'Ziegler',
         email: 'adrian.ziegler@tum.de',
-        role: 'Vet',
+        role: 'Consultant',
         chatRoomId: 'JENOkpVwXgZ4CM5MHVIR6q0NvSey4uN2Dn4'
         },
 

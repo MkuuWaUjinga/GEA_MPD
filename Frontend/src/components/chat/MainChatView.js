@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Taskbar from '../../../src/layout/taskbar/Taskbar'
 import PeopleList from '../chat/peopleListSidebar/PeopleList'
 import MessageList from '../chat/chatWindow/MessageList'
+import MessageListTest from '../chat/chatWindow/MessageListTest'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux'
 
@@ -17,7 +18,7 @@ class MainChatView extends Component {
                     </div>
 
                     <div className="scrollable content xl9">
-                        <MessageList />
+                        <MessageListTest />
                     </div>
                 </div>
             </div>
