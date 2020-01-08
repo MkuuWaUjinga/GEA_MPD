@@ -4,7 +4,9 @@ import Navbar from './layout/Navbar';
 import MainDashboardView from './components/dashboard/MainDashboardView';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import MilkOutputDetailView from './components/detailViews/MilkOutputDetailView';
+import DetailHerdOverview from './components/detailViews/DetailHerdOverview';
+import SickCows from './components/detailViews/detailComponents/SickCows';
+import MainChatView from './components/chat/MainChatView';
 
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
             <Route exact path="/" component={MainDashboardView} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/milkoutputdetails" component={MilkOutputDetailView} />
+            <Route path="/detailHerdOverview" component={DetailHerdOverview} />
+            <Route path="/detailHerdOverview/SickCows" component={SickCows} />
+            <Route path="/chat" component={MainChatView} />
         </Switch>
       </div>
     </BrowserRouter>

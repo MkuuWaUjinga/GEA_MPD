@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {toggleNotification} from "../store/actions/toggleNotification";
 import M from 'materialize-css';  
 
 class SignedInLinks extends Component {
@@ -12,26 +14,25 @@ class SignedInLinks extends Component {
     componentDidMount() {
         let elems = document.querySelectorAll('.dropdown-trigger');
         M.Dropdown.init(elems, {inDuration: 300, outDuration: 225, coverTrigger: false});
+    /*
+        axios.get(`https://3f4bvj6fub.execute-api.eu-central-1.amazonaws.com/dev/cows`)
+        .then(res => {
+          console.log(res)
+        })
+    */
+    }
+
+    handleNotificationToggle = () => {
+        console.log(this.props.isActive)
+        if (this.props.isActive === true) {
+            this.props.toggleNotification(false)
+        } else {
+            this.props.toggleNotification(true)
+        }
     }
 
 
     render(){
-
-
-        const {notifications} = this.props;
-        const notificationList = notifications.map(notification => {
-            return(
-                <div>
-                    <li><NavLink to="/milkoutputdetails" >{notification.message}</NavLink></li>
-                    <li class="divider" tabindex="-1"></li>
-                </div>
-            )
-        })
-
-
-
-
-
 
         return(
 
@@ -41,19 +42,17 @@ class SignedInLinks extends Component {
                         <i className="material-icons prefix">search</i>
                         <input placeholder="Search" id="search_input" type="text" className="validate white-text "></input>
                     </div>
-                </li>
-            <li>
-                    <span className="dropdown-trigger btn-floating pulse white ligthen-2" data-target="dropdown1" onClick={this.showMenu}>
+            </li>
+            <li>    
+                    <NavLink to="/chat" className="btn-floating white" >
+                        <i className="btn-floating white material-icons indigo-text text-darken-4">chat_bubble</i>
+                    </NavLink>
+            </li>
+            <li>    
+                    <small id="notification-badge">1</small>
+                    <span className={this.props.isActive ? 'btn-floating  active' : 'btn-floating white ligthen-2 pulse'}  onClick={this.handleNotificationToggle}>
                         <i className="bellIcon material-icons indigo-text text-darken-4">notifications</i>
-                        <small className="notification-badge">3</small>
                     </span>
-
-                    <ul id='dropdown1' className='dropdown-content'>
-                        {notificationList}
-                    </ul>
-                
-
-
             </li>
 
             <li><NavLink to="/" className='btn btn-floating  lighten-1'>NN</NavLink></li>
@@ -63,4 +62,21 @@ class SignedInLinks extends Component {
     )
 }
 }
-export default SignedInLinks;
+ const mapStateToProps = (state) => {
+     return {
+        isActive: state.notification.isActive
+     }
+ }
+
+ const mapDispatchToProps = (dispatch) => {
+     return {
+         toggleNotification: (newStatus) => dispatch(toggleNotification(newStatus))
+     }
+ }
+
+
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignedInLinks);

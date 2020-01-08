@@ -34,15 +34,16 @@ textarea.materialize-textarea:focus:not([readonly]){
 
 /*NAVBAR*/
 
-.notification-badge {
+#notification-badge {
   position: relative;
-  right: -35px;
-  top: -65px;
-  color: #941e1e;
-  background-color: #f5f1f2;
+  color: white;
+  right: -40px;
+  top: -15px;
+  background-color: orange;
   margin: 0 -.8em;
-  border-radius: 50%;
+  border-radius: 100%;
   padding: 5px 10px;
+  z-index: 100;
 }
 
 .bellIcon {
@@ -52,8 +53,47 @@ textarea.materialize-textarea:focus:not([readonly]){
 #dropdown1 {
   width: 300px !important;
 }
+#root > div > nav > div > a {
+margin: 0;
+left: 2em;
+}
+#root > div > nav > div {
+  margin-right: 2em;
+}
+
+.nav-wrapper .container {
+  padding: 0;
+}
 
 /*Overall Dashboard*/
+
+.farmview_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/farmview.jpg');
+}
+
+.milking_performance_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/milkoutput.jpg');
+}
+
+.milk_quality_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/milkquality.jpg');
+}
+
+.herd_mgmt_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/herdmgmt.jpg');
+}
 
 
 .dashOutline {
@@ -69,16 +109,30 @@ textarea.materialize-textarea:focus:not([readonly]){
 }
 
 
-/*HerdCountOverviewComponent*/
+.kpiDiagram{
+  background-color: hotpink;
+  height:300px;
+}
+
+.kpiValues {
+  background-color: purple;
+  height:300px;
+}
+
+.kpiValues > ul{
+  text-align: center;
+}
+
+
+/*OVERVIEW_DASHBOARD - HerdCountOverviewComponent*/
 
 .herdHealthKPI{
 margin-left: 20%;
 margin-right: 20%;
 }
 
-.card .card-title {
-  font-size: 1em;
-  color: grey;
+.kpi_boards .card {
+  height: 25em;
 }
 
 .herdCountOverview {
@@ -91,11 +145,9 @@ margin-right: 20%;
   font-size: 2em;
 }
 
-
 /*Detail Somatic Cell Count View*/
 
 .CowID {
-  margin-top: 3em;
   margin-left: 25%;
   margin-right:25%;
 }
@@ -111,4 +163,75 @@ margin-right: 20%;
   display: block;
   flex: 0 1 auto; /* Default */
   list-style-type: none;
+}
+.taskBox {
+  height: 100%;
+  max-height: 100%;
+}
+
+.taskBox .card-content {
+  padding-top: 0.3em !important;
+  padding-left: 2.5em !important;
+  padding-right: 2.5em !important;
+  font-size: 0.8em;
+}
+
+.taskBox .card {
+  height: 100px;
+}
+
+
+.taskBox .card-title {
+  font-size: 1.3em !important;
+  font-weight: bold !important;
+  margin-bottom: 0 !important;
+}
+
+.collapsible .collapsible-header{
+  margin: 0 !important;
+  
+}
+
+/*Chat*/
+
+.scrollable {
+  position: relative;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar {
+  background: white;
+  grid-row-start: 1;
+  grid-row-end: span 3;
+}
+
+.content {
+  background: white;
+  grid-row-start: 1;
+  grid-row-end: span 3;
+}
+
+
+
+/*testing*/
+
+.main_dashboard {
+  background-color: grey;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.task_sidebar {
+  background-color: black;
+  height: 100vh;
+}
+
+#root > div > div > div.kpi_boards.col {
+  padding-left: 3.5em;
+  padding-right: 3.5em;
+  padding-top: 2em;
 }
