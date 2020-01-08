@@ -108,13 +108,14 @@ handleTaskFormChange = (e) => {
                                       {notificationList}
                                   </ul>
                                </div>
+                               {/* 
                                <div className="row">
                                 <div className="input-field col l12">
                                     <textarea id="chat_message" type="materialize-textarea" data-length="50" onChange={this.handleTaskFormChange}/>
                                     <label htmlFor="chat_message">Add a message for your SPOC</label>
                                 </div>
                                </div>
-               
+                                */}
                                <div className="modal-footer">
                                    <a href="#" className="modal-close waves-effect waves-red btn-flat">
                                    Return

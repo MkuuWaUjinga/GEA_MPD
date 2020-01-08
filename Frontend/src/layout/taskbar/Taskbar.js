@@ -89,9 +89,14 @@ handleTaskFormSubmit = (e) => {
         const notificationList = notifications.length ? (
             notifications.map(notification => {
               return (
-                <div key={notification.id}><NavLink to="/DetailHerdOverview" >
+                <div key={notification.id}><NavLink to={{
+                  pathname: "/DetailHerdOverview",
+                  aboutProps: {
+                    link_id: "HERD_COUNT"
+                  }
+                }} >
                     <li>
-                      <h4>{notification.title}</h4>
+                      <h5>{notification.title}</h5>
                       <p>{notification.content}</p>
                     </li>
                   </NavLink>

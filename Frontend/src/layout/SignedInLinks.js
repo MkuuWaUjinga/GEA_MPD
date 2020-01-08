@@ -49,7 +49,7 @@ class SignedInLinks extends Component {
                     </NavLink>
             </li>
             <li>    
-                    <small id="notification-badge">3</small>
+                    <small id="notification-badge">1</small>
                     <span className={this.props.isActive ? 'btn-floating  active' : 'btn-floating white ligthen-2 pulse'}  onClick={this.handleNotificationToggle}>
                         <i className="bellIcon material-icons indigo-text text-darken-4">notifications</i>
                     </span>

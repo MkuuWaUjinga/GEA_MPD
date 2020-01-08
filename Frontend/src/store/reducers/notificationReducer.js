@@ -73,7 +73,7 @@ const initState = {
 
         ]
         },
-
+/*
         {id: uuid(),
             date: '23/10/19',
             time: '4:24',
@@ -134,7 +134,7 @@ const initState = {
     
 
             
-
+*/
     ],
     isActive: false
 }

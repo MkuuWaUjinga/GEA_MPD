@@ -20,6 +20,13 @@ constructor(props){
     
 }
 
+componentDidMount() {
+    /*
+    console.log("In degail herd:", this.props.location.aboutProps.link_id)
+    this.handleSwitch(this.props.location.aboutProps.link_id);
+    */
+}
+
 
 
 handleSwitch = (componentName) => {
