@@ -10,7 +10,7 @@ class Navbar extends Component{
     return (
         <nav className="nav-wrapper indigo darken-4">
             <div className="container">
-                <Link to='/' className="brand-logo">Farmatic</Link>
+                <Link to='/' className="brand-logo">Farmetic</Link>
                 <SignedInLinks />
                 <SignedOutLinks />
             </div>

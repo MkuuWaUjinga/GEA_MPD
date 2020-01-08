@@ -62,6 +62,34 @@ left: 2em;
 }
 /*Overall Dashboard*/
 
+.farmview_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/farmview.jpg');
+}
+
+.milking_performance_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/milkoutput.jpg');
+}
+
+.milk_quality_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/milkquality.jpg');
+}
+
+.herd_mgmt_container{
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../assets/img/herdmgmt.jpg');
+}
+
 
 .dashOutline {
   /*border: solid 3px lightgrey;*/

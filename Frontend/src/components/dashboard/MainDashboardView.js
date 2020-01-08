@@ -3,6 +3,7 @@ import ListHerdMgmt from './dashboardLayouts/ListHerdMgmt';
 import Taskbar from '../../../src/layout/taskbar/Taskbar'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux'
+import farmview_img from '../../assets/img/farmview.jpg'
 
 class MainDashboardView extends Component {
     render() {
@@ -16,7 +17,7 @@ class MainDashboardView extends Component {
                                 <div className="card-content white-text">
                                 <span className="card-title">Milking Performance</span>
                                     <div className="row">
-                                        <div className="col l8 kpiDiagram">
+                                        <div className="col l8 kpiDiagram milking_performance_container">
 
                                         </div>
                                         <div className="col l4 kpiValues">
@@ -53,7 +54,7 @@ class MainDashboardView extends Component {
                                     <div className="card-content white-text">
                                     <span className="card-title">Milking Quality</span>
                                     <div className="row">
-                                        <div className="col l8 kpiDiagram">
+                                        <div className="col l8 kpiDiagram milk_quality_container">
 
                                         </div>
                                         <div className="col l4 kpiValues">
@@ -90,7 +91,7 @@ class MainDashboardView extends Component {
                                         <div className="card-content white-text">
                                         <span className="card-title">Herd Overview</span>
                                         <div className="row">
-                                        <div className="col l8 kpiDiagram">
+                                        <div className="col l8 kpiDiagram herd_mgmt_container">
 
                                         </div>
                                         <div className="col l4 kpiValues">
@@ -126,22 +127,22 @@ class MainDashboardView extends Component {
                                             <ul>
                                                 <li>
                                                     <div className="keyValue">
-                                                        <p>#KPI</p>
-                                                        <p className="KPIdigit">#VALUE</p>
+                                                        <p>Feed Storage (kg)</p>
+                                                        <p className="KPIdigit">3890</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
                                                 <li>
                                                     <div className="keyValue">
-                                                        <p>#KPI</p>
-                                                        <p className="KPIdigit">#VALUE</p>
+                                                        <p>Lactating Dry Matter intake (%)</p>
+                                                        <p className="KPIdigit">23</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
                                                 <li>
                                                     <div className="keyValue">
-                                                        <p>#KPI</p>
-                                                        <p className="KPIdigit">#VALUE</p>
+                                                        <p>Feed Efficiency (%)</p>
+                                                        <p className="KPIdigit">4</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -154,7 +155,7 @@ class MainDashboardView extends Component {
                                         <div className="card-content white-text">
                                         <span className="card-title">Machine Management</span>
                                         <div className="row">
-                                            <div className="col l8 kpiDiagram">
+                                            <div className="col l8 kpiDiagram farmview_container">
 
                                             </div>
                                             <div className="col l4 kpiValues">
