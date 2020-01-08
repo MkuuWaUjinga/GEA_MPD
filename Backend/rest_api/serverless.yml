@@ -19,8 +19,11 @@ provider:
     - Effect: Allow
       Action:
         - ses:*
-      Resource: "arn:aws:ses:eu-west-1:*"
-
+      Resource: "arn:aws:ses:eu-central-1:*"
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource: "arn:aws:s3:::farmatic-assets/*"
 
 functions:
   users:
@@ -36,6 +39,17 @@ functions:
       - http:
           path: cows
           method: get
+          cors: true
+  chatrooms:
+    handler: resources/chatrooms/chatrooms.entry
+    events:
+      - http:
+          path: chatrooms/{chatroomId}/messages
+          method: get
+          cors: true
+      - http:
+          path: chatrooms/{chatroomId}/messages
+          method: post
           cors: true
 
 resources:
@@ -66,6 +80,23 @@ resources:
           - AttributeName: userId
             KeyType: HASH
           - AttributeName: metricIdentifier
+            KeyType: RANGE
+        ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+    ChatMessagesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ChatMessages${self:custom.tableStageAppendix.${self:custom.myStage}}
+        AttributeDefinitions:
+          - AttributeName: chatRoomId
+            AttributeType: S
+          - AttributeName: chatMessageId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: chatRoomId
+            KeyType: HASH
+          - AttributeName: chatMessageId
             KeyType: RANGE
         ProvisionedThroughput:
             ReadCapacityUnits: 1
