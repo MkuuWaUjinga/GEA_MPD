@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import MessageList from '../chatWindow/MessageList';
-import ChatInput from '../chatWindow/ChatInput';
-
 class MessageWindow extends Component {
     render() {
 
@@ -23,7 +21,6 @@ class MessageWindow extends Component {
                 </div>
             </div>
             <MessageList />
-            <ChatInput />
         </div>
         )
     }

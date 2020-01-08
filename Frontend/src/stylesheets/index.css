@@ -60,6 +60,11 @@ left: 2em;
 #root > div > nav > div {
   margin-right: 2em;
 }
+
+.nav-wrapper .container {
+  padding: 0;
+}
+
 /*Overall Dashboard*/
 
 .farmview_container{

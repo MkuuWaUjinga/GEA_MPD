@@ -75,7 +75,7 @@ renderComponent(){
                 <div className="card-content">
                     <div className="keyValue">
                         <p>Sick cows (Mastitis)</p>
-                        <p className="KPIdigit">8</p>
+                        <p className="KPIdigit">3</p>
                     </div>
                 </div>
             </div>

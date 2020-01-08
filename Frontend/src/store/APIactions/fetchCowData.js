@@ -11,7 +11,6 @@ const request = axios.get(`https://3f4bvj6fub.execute-api.eu-central-1.amazonaws
 
 export const fetchCowData = () => {
   return (dispatch) => {
-    console.log("fetch Cow Data ACTIOn was called")
     fetch(`https://3f4bvj6fub.execute-api.eu-central-1.amazonaws.com/dev/cows`)
       .then(res => res.json())
       .then(cows => {

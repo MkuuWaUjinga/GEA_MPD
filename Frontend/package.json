@@ -17,7 +17,8 @@
     "react-scripts": "3.3.0",
     "react-uuid": "^1.0.2",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "moment": "^2.23.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "shave": "^2.5.4"
   }
 }

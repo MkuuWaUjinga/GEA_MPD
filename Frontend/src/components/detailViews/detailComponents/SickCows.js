@@ -61,15 +61,15 @@ componentDidMount(){
                         notification.cows.map(uniqueCowData => {
                             return (
                             <div className="col l12" key={uniqueCowData.cow_id}>
-                                <div className="card blue-grey darken-1">
-                                    <div className="card-content white-text">
+                                <div className="card blue lighten-5">
+                                    <div className="card-content black-text">
         
                                     <p>Cow-ID: {uniqueCowData.cow_id}</p>
                                     {this.state.collapsed? <SCC payload={uniqueCowData.SCC} />: <p>No Diagram data available</p>}
                                     
                                     </div>
                                     <div className="card-action">
-                                    <a href="#">Put cow under treatment</a>
+                                    <a  href="#">Put cow under treatment</a>
                                     </div>
                                 </div>
                             </div>
