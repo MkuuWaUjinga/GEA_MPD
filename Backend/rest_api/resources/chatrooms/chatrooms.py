@@ -6,11 +6,8 @@ from functools import wraps
 import datetime
 import jinja2
 import base64
-from collections import defaultdict
-import numpy as np
 
 dynamo_db_client = boto3.resource('dynamodb')
-user_id = "E6XrsXoB7oQhwlnL97VrlbECk9iaIXMN"
 
 def dump_json_body(handler):
 
@@ -107,7 +104,6 @@ def post_message(chat_room_id, message, recipient_email, recipient_first_name, s
             "senderId": sender_id
         }
     )
-    notify_recipient(recipient_email, recipient_first_name, sender_first_name)
 
 def notify_recipient(recipient_email, recipient_first_name, sender_first_name):
     s3_client = boto3.client('s3')

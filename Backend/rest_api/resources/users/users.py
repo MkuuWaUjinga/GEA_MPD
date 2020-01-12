@@ -6,7 +6,7 @@ from functools import wraps
 
 dynamo_db_client = boto3.resource('dynamodb')
 
-# random = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
+# ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
 
 def dump_json_body(handler):
 
