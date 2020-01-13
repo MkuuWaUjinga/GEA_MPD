@@ -1,0 +1,194 @@
+
+/*Overall Dashboard*/
+.feed_mgmt_container{
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../assets/img/feedmgmt.png');
+  }
+  
+.machine_mgmt_container{
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../assets/img/machinemgmt.png');
+  }
+  
+  .milking_performance_container{
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../assets/img/milkperf.png');
+  }
+  
+  .milk_quality_container{
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../assets/img/milkqual.png');
+  }
+  
+  .herd_mgmt_container{
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../../assets/img/herdoverview.png');
+  }
+  
+
+  .dashboard  h2  {
+    color: black;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .kpi_boards .card {
+    height: 25em;
+    border-radius: 25px;
+  }
+  
+  .kpi_boards .card {
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
+    /*transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
+  }
+  .kpi_boards .card:hover {
+    top: -5px;
+    box-shadow: 0 11px 25px rgba(160, 161, 163, 0.164), 0 8px 8px rgba(160, 161, 163,0.137);
+  }
+  
+  .kpiDiagram{
+    height:300px;
+  }
+  
+  .kpiValues {
+    width: 25px;
+    padding: 0 !important;
+    height:100%;
+    position: absolute;
+    right: 0 !important;
+    top:0 !important;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+  }
+  
+  div.box_icon {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-top-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+  }
+  
+  .kpiValues > ul{
+    text-align: center;
+  }
+
+  .keyValue p:first-of-type{
+    margin-bottom: 3px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.keyValue p:last-of-type{
+    font-size: 12px;
+    color: grey;
+}
+
+.card h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 5em;
+}
+  
+  .KPIdigit {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+    margin:0;
+  }
+
+  p.kpi_timestamp {
+      margin:0;
+  }
+
+  .box_icon .material-icons {
+      font-size: 35px;
+      margin-left: auto;
+      margin-right:auto;
+  }
+
+.kpiValues hr { 
+    border: 1.5px solid white;
+}
+
+/*Milking Performance______________________________*/
+.kpi_milkperfbox .kpiValues {
+    background-color: #D3E2FE;
+} 
+
+.kpi_milkperfbox i, .kpi_milkperfbox .KPIdigit {
+    color: #5A7BBB;
+}
+
+.kpi_milkperfbox div.box_icon {
+    background-color: #7BAFFE;
+}
+/*Milking Quality__________________________________*/
+.kpi_milkqualbox .kpiValues {
+    background-color:#D1F2F0;
+} 
+
+.kpi_milkqualbox i, .kpi_milkqualbox .KPIdigit {
+    color: #3AC9BF;
+}
+
+.kpi_milkqualbox div.box_icon {
+    background-color:#ACE7E3;
+}
+/*Herd Overview______________________________________*/
+.kpi_herdoverviewbox .kpiValues {
+    background-color:#FFECE0;
+} 
+
+.kpi_herdoverviewbox i, .kpi_herdoverviewbox .KPIdigit {
+    color: #F09960;
+}
+
+.kpi_herdoverviewbox div.box_icon {
+    background-color:#FEC8A4;
+}
+.kpi_herdoverviewbox a {
+    color: #373a3d;
+}
+
+
+/*Feed Management____________________________________*/
+.kpi_feedmgmtbox .kpiValues {
+    background-color:#DFD9FA;
+} 
+
+.kpi_feedmgmtbox i, .kpi_feedmgmtbox .KPIdigit {
+    color: #8B75E7;
+}
+
+.kpi_feedmgmtbox div.box_icon {
+    background-color: #B5A6F2;
+}
+
+/*Herd Overview*/
+.kpi_machinemgmtbox .kpiValues {
+    background-color:#FEDADC;
+} 
+
+.kpi_machinemgmtbox i, .kpi_machinemgmtbox .KPIdigit {
+    color: #FD7D85;
+}
+
+.kpi_machinemgmtbox div.box_icon {
+    background-color: #FDB1B6;
+}

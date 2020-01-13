@@ -1,12 +1,15 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Nunito', sans-serif;
+  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: blue;
+  */
+  color:#373a3d;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -28,6 +31,10 @@ input[type=password]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]){
   border-color: #ec407a;
   box-shadow: none;;
+}
+
+.App {
+  background-color: #F6F7FB;
 }
 
 
@@ -61,89 +68,18 @@ left: 2em;
   margin-right: 2em;
 }
 
-.nav-wrapper .container {
-  padding: 0;
+nav.nav-wrapper{
+  background-color: transparent;
+  box-shadow: none;
 }
 
-/*Overall Dashboard*/
-
-.farmview_container{
-  overflow: hidden;
+.nav_background {
+  background-image: url(../assets//img//nav_background.svg);
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  background-image: url('../assets/img/farmview.jpg');
+  height: 220px;;
 }
 
-.milking_performance_container{
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-image: url('../assets/img/milkoutput.jpg');
-}
-
-.milk_quality_container{
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-image: url('../assets/img/milkquality.jpg');
-}
-
-.herd_mgmt_container{
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-image: url('../assets/img/herdmgmt.jpg');
-}
-
-
-.dashOutline {
-  /*border: solid 3px lightgrey;*/
-
-}
-
-.dashboard  h2  {
-  color: black;
-  font-size: 1.3em;
-  font-weight: bold;
-  text-align: left;
-}
-
-
-.kpiDiagram{
-  background-color: hotpink;
-  height:300px;
-}
-
-.kpiValues {
-  background-color: purple;
-  height:300px;
-}
-
-.kpiValues > ul{
-  text-align: center;
-}
-
-
-/*OVERVIEW_DASHBOARD - HerdCountOverviewComponent*/
-
-.herdHealthKPI{
-margin-left: 20%;
-margin-right: 20%;
-}
-
-.kpi_boards .card {
-  height: 25em;
-}
-
-.herdCountOverview {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.KPIdigit {
-  font-weight: bold;
-  font-size: 2em;
-}
 
 /*Detail Somatic Cell Count View*/
 
@@ -217,12 +153,12 @@ margin-right: 20%;
 /*testing*/
 
 .main_dashboard {
-  background-color: grey;
   margin: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
   height: 100vh;
   max-height: 100vh;
+  background-color: transparent;
 }
 
 .task_sidebar {
