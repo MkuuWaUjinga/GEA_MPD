@@ -1,0 +1,36 @@
+service: mpd-analytics
+
+provider:
+  name: aws
+  runtime: python3.7
+  region: eu-central-1
+  stage: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:eu-central-1:*:*"
+    - Effect: Allow
+      Action:
+        - ses:*
+      Resource: "arn:aws:ses:eu-central-1:*"
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource: "arn:aws:s3:::farmatic-assets/*"
+
+functions:
+  anaylzeMetrics:
+    handler: analytics_handler.start
+    events:
+      - schedule:
+          rate: rate(10 minutes)
+          enabled: false
+custom:
+  myStage: ${opt:stage, self:provider.stage}
