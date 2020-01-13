@@ -99,6 +99,8 @@
     color: grey;
 }
 
+
+
 .card h5 {
     font-size: 18px;
     font-weight: 600;
@@ -110,6 +112,8 @@
     font-weight: 700;
     font-size: 2em;
     margin:0;
+    padding-bottom: 5%;
+    padding-top: 4%;
   }
 
   p.kpi_timestamp {
@@ -125,6 +129,28 @@
 .kpiValues hr { 
     border: 1.5px solid white;
 }
+
+.kpiValues li {
+  height: 103px;
+}
+
+div.keyValue {
+  padding-top: -2px;
+}
+
+/*
+.kpi_herdoverviewbox li, .kpi_feedmgmtbox li, .kpi_machinemgmtbox li {
+  height: 160px;
+}
+*/
+/*
+.kpi_herdoverviewbox .KPIdigit, .kpi_feedmgmtbox .KPIdigit, .kpi_machinemgmtbox .KPIdigit {
+  padding-top: 15%;
+  padding-bottom: 20%;
+}
+*/
+
+
 
 /*Milking Performance______________________________*/
 .kpi_milkperfbox .kpiValues {
@@ -191,4 +217,63 @@
 
 .kpi_machinemgmtbox div.box_icon {
     background-color: #FDB1B6;
+}
+
+
+/*_____________________________*/
+
+.business_kpis {
+  height: 100px;
+  width: 70%;
+  background-color: white;
+  position: absolute;
+  top: 150px;
+  left: 60px;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
+}
+
+.business_kpis div {
+  float: left;
+  width: 300px;
+  background-color: white;
+  position: relative;
+  margin: 5px;
+  padding-left: 30px;
+
+}
+
+.business_kpis div:not(:last-child) {
+  border-right: solid 1px #cbd1d4;
+}
+
+.business_kpis .material-icons {
+  position: absolute;
+  top:0;
+  right: 0;
+}
+
+
+/*_time frame selector_____________________*/
+
+div.timeframe_box {
+  height: 50px;
+  width: 70%;
+  background-color: red;
+  position: absolute;
+  top: 80px;
+  left: 60px;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
+}
+
+.timeframe_box div {
+  float: left;
+  width: 350px;
+  height: 30px;
+  background-color: white;
+  position: relative;
+  margin: 5px;
+  padding-left: 30px;
+
 }
