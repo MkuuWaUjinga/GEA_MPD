@@ -12,12 +12,13 @@ somatic_cell_count_max_norm_average = 110000
 class SomaticCellCountAnalyser(Analyser):
 
     def __init__(self, stage):
-        self.cow_table = boto3.resource('dynamodb').Table('FarmMetrics'+ '-dev' if stage=='dev' else '')
-        self.cached_medical_records = None
         super(SomaticCellCountAnalyser, self).__init__(stage)
+        self.user_table = self.session.resource('dynamodb').Table('Users'+ '-dev' if stage=='dev' else '')
+        self.cached_medical_records = None
 
     def __call__(self, user_id):
-        current_date = datetime.datetime.now()
+        # Hardcode date of design fair to make our analysis consistent for requests before this date.
+        current_date = datetime.datetime(2020, 1, 24, 20, 13, 22)
         max_retrieval_date = (current_date - datetime.timedelta(days=relevant_time_frame)).replace(hour=0, minute=0,
                                                                                                    second=0)
         # Gives back all metric values sorted by date
@@ -33,27 +34,29 @@ class SomaticCellCountAnalyser(Analyser):
                                           "detection_timestamp": cows[cow_id]["somatic_cell_count"][-1]["date"],
                                           "notification_title": f"High somatic cell count detected for cow {cow_id}",
                                           "scc_data": cows[cow_id]["somatic_cell_count"],
-                                          "medical_record": self.get_medical_record(cow_id)} for cow_id in cows.keys()
+                                          "medical_record": self.get_medical_record(cow_id, user_id)} for cow_id in cows.keys()
                                          if self.calculate_health_status(cows[cow_id]["somatic_cell_count"]) == 1]
 
-        # TODO checkt whether notification already exists
-        # 1. Check whether notificaiton with same topic exisits
-        #   (if yes) 2. 1 Check whether cow ids are the same
-        #            (if yes): Do nothing
-        #            (if new id): Add new_id and data to existing notification (update assigned person)
         if cows_with_mastritis_suspicion:
             return Notification(
                 title=f"Abnormal somatic cell count detected in {len(cows_with_mastritis_suspicion)} cows",
                 escalation_status="alarm",
                 proof=cows_with_mastritis_suspicion,
-                type="Somatic Cell Count Alert")
+                notification_type="Somatic Cell Count Alert")
 
-    def get_medical_record(self, cow_id):
-        # Connect to cow data base and get bedical records for cow with cow_id
+    def get_medical_record(self, cow_id, user_id):
+        # Connect to cow data base and get medical records for cow with cow_id
         if self.cached_medical_records:
-            return self.cached_medical_records[cow_id]
+            return self.cached_medical_records.get(cow_id)
 
-       # TODO retrieve medical records of all cows of user id and cache them
+        user = self.user_table.get_item(
+            Key={
+                'userId': user_id
+            }
+        )['Item']
+        self.cached_medical_records = {str(cow["id"]): cow["medical_record"] for cow in user["cows"]}
+        return self.cached_medical_records.get(cow_id)
+
 
 
     @staticmethod
@@ -89,4 +92,4 @@ class SomaticCellCountAnalyser(Analyser):
         if not avg > somatic_cell_count_max_norm_average:
             return avg, 0
         coeffs = np.polyfit(list(range(number_of_values_last_two_weeks)), last_two_weeks, 1)
-        return avg, 2 if coeffs[-2] < 0 else 1
+        return 2 if coeffs[-2] < 0 else 1
