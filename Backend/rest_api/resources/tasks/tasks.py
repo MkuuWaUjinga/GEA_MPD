@@ -40,28 +40,29 @@ def entry(event, context):
 
     if http_method == 'GET':
         try:
-            messages = get_all_tasks(user_id, stage)
+            tasks = get_all_tasks(user_id, stage)
         except (ClientError, KeyError):
             return {"statusCode": 400,
-                    'body': 'Retrieving messages failed',
+                    'body': 'Retrieving tasks failed',
                     'headers': {"Content-Type": "text/plain"}
                     }
         response = {
             "statusCode": 200,
-            "body": {"messages": messages}
+            "body": {"tasks": tasks}
         }
+
     elif http_method == 'POST':
         expected_keys = ["task_title", "assigned_person_id", "todos", "notification_id", "messages"]
         if event.get("body") and all(key in event["body"] for key in expected_keys) and \
                 len(expected_keys)==len(event["body"]):
             try:
                 body = event["body"]
-                post_message(user_id, body["task_title"], body["assigned_person_id"], body["todos"],
+                post_task(user_id, body["task_title"], body["assigned_person_id"], body["todos"],
                              body["notification_id"], body["messages"], stage)
             except (ClientError, KeyError) as e:
                 return {
                     "statusCode": 400,
-                    'body': f'Posting message failed, {str(e)}',
+                    'body': f'Creating task failed, {str(e)}',
                     'headers': {"Content-Type": "text/plain"}
                 }
             response = {
@@ -76,27 +77,27 @@ def entry(event, context):
     return response
 
 def get_all_tasks(user_id, stage):
-    message_table = dynamo_db_client.Table('Tasks'+ '-dev' if stage=='dev' else '')
+    task_table = dynamo_db_client.Table('Tasks'+ '-dev' if stage=='dev' else '')
 
-    messages = message_table.query(
+    tasks = task_table.query(
         KeyConditionExpression='userId = :user_id',
         ExpressionAttributeValues={
             ":user_id": user_id
         }
     )['Items']
-    return messages_view(messages)
+    return task_view(tasks)
 
-def messages_view(messages):
-    return messages
+def task_view(tasks):
+    return tasks
 
-def post_message(user_id, task_title, assigned_person_id, todos, notification_id, messages, stage):
+def post_task(user_id, task_title, assigned_person_id, todos, notification_id, messages, stage):
     message_table = dynamo_db_client.Table('ChatMessages'+ '-dev' if stage=='dev' else '')
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d:%H:%M:%S")
 
     message_table.put_item(
         Item={
             "userId": user_id,
-            "taskId": f"{timestamp}",
+            "taskId": timestamp,
             "task_title": task_title,
             "assigned_person_id": assigned_person_id,
             "todos": todos,
