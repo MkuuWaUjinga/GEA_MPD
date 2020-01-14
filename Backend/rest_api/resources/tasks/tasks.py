@@ -91,10 +91,10 @@ def task_view(tasks):
     return tasks
 
 def post_task(user_id, task_title, assigned_person_id, todos, notification_id, messages, stage):
-    message_table = dynamo_db_client.Table('ChatMessages'+ '-dev' if stage=='dev' else '')
+    task_table = dynamo_db_client.Table('Tasks'+ '-dev' if stage=='dev' else '')
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d:%H:%M:%S")
 
-    message_table.put_item(
+    task_table.put_item(
         Item={
             "userId": user_id,
             "taskId": timestamp,
