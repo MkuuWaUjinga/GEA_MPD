@@ -36,7 +36,6 @@ const tasksReducer = (state = initState, action) => {
                 };
         }
         case FETCH_TASKS: {
-            console.log(action);
             return {
                 ...state,
                 ...action.tasks

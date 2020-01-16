@@ -15,7 +15,6 @@ const initState = {
 const userReducer = (state = initState, action) => {
     switch (action.type) {
         case FETCH_USER:
-            console.log(action);
             return Object.assign(
                 {}, state,
                 {

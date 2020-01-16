@@ -89,7 +89,6 @@ const notificationReducer = (state = initState, action) => {
             } 
         }
         case FETCH_USER:
-            console.log(action);
             return Object.assign(
                 {}, state, {
                     notifications: action.notifications
