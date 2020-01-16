@@ -23,10 +23,9 @@ const initState = {
 const spocReducer = (state = initState, action) => {
     switch(action.type) {
         case FETCH_USER:
-            return Object.assign(
-                {}, state, {
-                    spocs: action.spocs
-                })
+            return {
+                ...state,
+                ...action.spocs};
         default:
             return state;
     }

@@ -4,16 +4,16 @@ export const fetchUser = () => {
     return (dispatch) => {
         fetch(`https://3f4bvj6fub.execute-api.eu-central-1.amazonaws.com/dev/users/E6XrsXoB7oQhwlnL97VrlbECk9iaIXMN`)
             .then(res => res.json())
-            .then(user => {
+            .then(res => {
                 dispatch({
                     type: FETCH_USER,
-                    spocs: user.user.spocs,
-                    notifications: user.user.notifications,
-                    firstName: user.user.firstName,
-                    lastName: user.user.lastName,
-                    userId: user.user.userId,
-                    email: user.user.email,
-                    number: user.user.number
+                    spocs: res.user.spocs,
+                    notifications: res.user.notifications,
+                    firstName: res.user.firstName,
+                    lastName: res.user.lastName,
+                    userId: res.user.userId,
+                    email: res.user.email,
+                    number: res.user.number
                 })
             })
     }

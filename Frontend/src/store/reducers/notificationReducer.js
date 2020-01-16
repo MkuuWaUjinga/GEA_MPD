@@ -77,7 +77,7 @@ const initState = {
         }
     ],
     isActive: false
-}
+};
 
 const notificationReducer = (state = initState, action) => {
     switch (action.type) {
@@ -93,11 +93,11 @@ const notificationReducer = (state = initState, action) => {
             return Object.assign(
                 {}, state, {
                     notifications: action.notifications
-                })
+                });
         default: {
             return state;
         }
     }
-}
+};
 
 export default notificationReducer
