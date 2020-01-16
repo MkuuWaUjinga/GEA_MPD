@@ -3,11 +3,14 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {NavLink} from 'react-router-dom';
 import {fetchUser} from '../../../store/APIactions/fetchUser'
+import {fetchTasks} from '../../../store/APIactions/fetchTasks'
+
 
 class MessageList extends Component {
 
       componentDidMount() {
           this.props.getUser();
+          this.props.getTasks();
     }
 
 
@@ -16,6 +19,7 @@ class MessageList extends Component {
         console.log("these are the spocs", this.props.spocs);
         console.log("these are the notifications", this.props.notifications);
         console.log("these are the users", this.props.user);
+        console.log("these are the tasks", this.props.tasks);
 
 
         return(
@@ -34,8 +38,9 @@ const mapStateToProps = (state) => {
         spocs: state.spocs,
         notifications: state.notifications,
         user: state.user,
+        tasks: state.tasks
     }
-}
+};
 
 /*
 const mapDispatchToProps = (dispatch) => {
@@ -47,7 +52,8 @@ const mapDispatchToProps = (dispatch) => {
 */
 function mapDispatchToProps(dispatch) {
     return {
-      getUser: bindActionCreators(fetchUser, dispatch)
+      getUser: bindActionCreators(fetchUser, dispatch),
+      getTasks: bindActionCreators(fetchTasks, dispatch)
     }
   }
   
