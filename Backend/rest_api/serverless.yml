@@ -33,13 +33,6 @@ functions:
           path: users/{id}
           method: get
           cors: true
-  cows:
-    handler: resources/cows/cows.entry
-    events:
-      - http:
-          path: cows
-          method: get
-          cors: true
   tasks:
     handler: resources/tasks/tasks.entry
     events:

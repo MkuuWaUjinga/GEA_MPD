@@ -1,16 +1,16 @@
 import userReducer from './userReducer'
-import farmerTasksReducer from './farmerTasksReducer'
+import tasksReducer from './tasksReducer'
 import notificationReducer from './notificationReducer'
-import getCowDataReducer from './getCowDataReducer'
+import cowsReducer from './cowsReducer'
 import spocReducer from './spocReducer'
 import chatMsgReducer from './chatMsgReducer'
 import {combineReducers} from 'redux'
 
 const rootReducer = combineReducers({
     user: userReducer,
-    farmer_tasks: farmerTasksReducer,
+    tasks: tasksReducer,
     notifications: notificationReducer,
-    cow_data: getCowDataReducer,
+    cow_data: cowsReducer,
     spocs: spocReducer,
     chat_messages: chatMsgReducer
 });
