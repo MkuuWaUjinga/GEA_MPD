@@ -1,3 +1,4 @@
+import {FETCH_USER} from '../APIactions/fetchUser'
 
 const initState = {
     spocs: [
@@ -15,17 +16,20 @@ const initState = {
         role: 'Consultant',
         chatRoomId: 'JENOkpVwXgZ4CM5MHVIR6q0NvSey4uN2Dn4'
         },
-
-
     ],
 }
 
 
-
-
 const spocReducer = (state = initState, action) => {
-    
+    switch(action.type) {
+        case FETCH_USER:
+            return Object.assign(
+                {}, state, {
+                    spocs: action.spocs
+                })
+        default:
             return state;
+    }
        
 }
 

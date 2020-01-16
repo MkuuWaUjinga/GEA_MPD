@@ -231,8 +231,8 @@ handleTaskFormSubmit = (e) => {
 const mapStateToProps = (state) => {
     return {
         tasks: state.farmer_tasks.tasks,
-        isActive: state.notification.isActive,
-        notifications: state.notification.notifications
+        isActive: state.notifications.isActive,
+        notifications: state.notifications.notifications
 
     }
 }

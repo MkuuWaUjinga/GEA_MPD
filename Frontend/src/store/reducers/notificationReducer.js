@@ -1,5 +1,7 @@
 import uuid from 'react-uuid';
 import {TOGGLE_NOTIFICATION} from '../actions/toggleNotification';
+import {FETCH_USER} from '../APIactions/fetchUser';
+
 
 const initState = {
     notifications: [
@@ -72,69 +74,7 @@ const initState = {
             },
 
         ]
-        },
-/*
-        {id: uuid(),
-            date: '23/10/19',
-            time: '4:24',
-            title:"Warning - blasbdfaldsfdslf", 
-            content: 'XYZ',
-            category: 'DetailHerdOverview/SickCows',
-            cows: [
-                {
-                    cow_id: 235324,
-                    SCC: [
-                        43634,
-                        43634,
-                        36000,
-                        54345,
-                        23425,
-                        59776,
-                        83454
-                    ]
-                }
-    
-            ]
-            },
-
-            {id: uuid(),
-                date: '23/10/19',
-                time: '2:24',
-                title:"Note - blasbsdfasdf", 
-                content: 'XYZ',
-                category: 'DetailHerdOverview/SickCows',
-                cows: [
-                    {
-                        cow_id: 235324,
-                        SCC: [
-                            43634,
-                            43634,
-                            36000,
-                            54345,
-                            23425,
-                            59776,
-                            93454
-                        ]
-                    },
-                    {
-                        cow_id: 24353245,
-                        SCC: [
-                            43634,
-                            43634,
-                            36000,
-                            54345,
-                            23425,
-                            59776,
-                            83454
-                        ]
-                    },
-        
-                ]
-                },
-    
-
-            
-*/
+        }
     ],
     isActive: false
 }
@@ -148,7 +88,12 @@ const notificationReducer = (state = initState, action) => {
                 isActive: newStatus
             } 
         }
-
+        case FETCH_USER:
+            console.log(action);
+            return Object.assign(
+                {}, state, {
+                    notifications: action.notifications
+                })
         default: {
             return state;
         }
