@@ -15,7 +15,7 @@ class MainChatView extends Component {
         <div className="main_dashboard container row">
             <div className="chatView col xl9">
                 <div className="row">
-                   {/* 
+
                     <div className="scrollable sidebar col xl3">
                         <PeopleList />
                     </div>
@@ -23,8 +23,7 @@ class MainChatView extends Component {
                     <div className="scrollable content xl9">
                         <MessageWindow />
                     </div>
-                    */}
-                    <ChatComponent />
+
                 </div>
             </div>
             <Taskbar />

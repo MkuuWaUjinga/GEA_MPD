@@ -67,7 +67,7 @@ class SignedInLinks extends Component {
 }
  const mapStateToProps = (state) => {
      return {
-        isActive: state.notification.isActive
+        isActive: state.notifications.isActive
      }
  }
 

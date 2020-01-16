@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {deleteTask} from "../../store/actions/deleteTask";
 import {addTask} from "../../store/actions/addTask";
-import {changeActiveTab} from "../../store/actions/changeActiveTab";
 import ModalAddTask from '../taskbar/ModalAddTask';
 import M from 'materialize-css';  
 import "materialize-css/dist/css/materialize.min.css";
@@ -41,12 +40,6 @@ componentDidMount() {
           M.Modal.init(this.Modal, options);
 }
 
-/*
-deleteTask = (id) => {
-    console.log(id)
-    this.props.deleteTask(id)
-}
-*/
 
 handleTaskFormChange = (e) => {
  this.setState({
@@ -80,7 +73,7 @@ changeTab = (newActiveTab) => {
                               <i className="material-icons">error</i>
                               <p>{task.description}</p>
                             </div>
-                            
+
                             <form action="#" className="checkboxes">
                             <p>Please check cows:</p>
                             <div className="check">
@@ -103,7 +96,7 @@ changeTab = (newActiveTab) => {
                                   </label>
                                 </p>
                                 </div>
-                                {/* 
+                                {/*
                                 <p>
                                   <label>
                                     <input type="checkbox" checked="checked" />
@@ -112,9 +105,9 @@ changeTab = (newActiveTab) => {
                                 </p>
                                 */}
                               </form>
-        
+
                             <div className="deleteTaskIcon" onClick={() => {if(window.confirm('Delete the item?')){this.props.deleteTask(task.id)};}}><i className="material-icons delete">more_horiz</i></div>
-                            
+
                         </div>
                     </div>
                 )
@@ -153,17 +146,17 @@ changeTab = (newActiveTab) => {
         return(
 
     <div className="task_sidebar col xl3">
-      
+
             {this.props.isActive ? (
               <div>
                 <div className="nav_notification">
                     Notifications
                 </div>
                 <ul>
-                {notificationList} 
+                {notificationList}
                 </ul>
               </div>
-              
+
               ) : (
               null
             )}
@@ -172,7 +165,7 @@ changeTab = (newActiveTab) => {
             this.Tabs = Tabs;
           }}
           className={this.props.isActive ? 'tabs tabs-swipe-demo active' : 'tabs tabs-swipe-demo'}
-          
+
 
         >
           <li className="tab col s2">
@@ -207,7 +200,7 @@ changeTab = (newActiveTab) => {
               <input type="text" placeholder="Search..." className="searchbar"></input>
               <h6>Active</h6>
               <div className="tasklist_container">
-                {taskList} 
+                {taskList}
               </div>
               <ModalAddTask payload="taskbar"/>
               <div className="taskbar_footer">
@@ -233,10 +226,9 @@ changeTab = (newActiveTab) => {
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.farmer_tasks.tasks,
-        tabActive: state.farmer_tasks.tabActive,
-        isActive: state.notification.isActive,
-        notifications: state.notification.notifications
+        tasks: state.tasks.tasks,
+        isActive: state.notifications.isActive,
+        notifications: state.notifications.notifications
 
     }
 }
@@ -246,8 +238,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       deleteTask: (id) => dispatch(deleteTask(id)),
-      addTask: (newTask) => dispatch(addTask(newTask)),
-      changeActiveTab: (newTab) => dispatch(changeActiveTab(newTab))
+      addTask: (newTask) => dispatch(addTask(newTask))
     }
   }
 

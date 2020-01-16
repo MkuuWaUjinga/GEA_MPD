@@ -2,48 +2,29 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {NavLink} from 'react-router-dom';
-import {fetchCowData} from '../../../store/APIactions/fetchCowData'
+import {fetchUser} from '../../../store/APIactions/fetchUser'
+import {fetchTasks} from '../../../store/APIactions/fetchTasks'
+
 
 class MessageList extends Component {
 
-
-
       componentDidMount() {
-        
-       //Fetch Data From API
-        this.props.getCowData();
+          this.props.getUser();
+          this.props.getTasks();
     }
 
 
     render() {
-        console.log("I wanna see all cows",this.props);
-        const {chat_messages} = this.props;
-        const chatMessages = chat_messages? (
-        <p>{chat_messages.chatRoomId}</p>
-        
-        ) : (
-            <div className="center">No messages yet...</div>
-        );
 
-        const {cows} = this.props;
-        console.log("these are the cows", cows)
-        const cowList = Object.keys(cows).map(key => {
-            return (
-            <div value={key}>{cows[key]}</div>
-            );
-        })
+        console.log("these are the spocs", this.props.spocs);
+        console.log("these are the notifications", this.props.notifications);
+        console.log("these are the users", this.props.user);
+        console.log("these are the tasks", this.props.tasks);
 
-        
+
         return(
         <div className="">
             <p>hello World - MessageList</p>
-            {chatMessages}
-
-
-            <div>
-                CowList:
-                {cowList}
-            </div>
         </div>
         )
     }
@@ -53,9 +34,13 @@ class MessageList extends Component {
 const mapStateToProps = (state) => {
     return {
         chat_messages: state.chat_messages,
-        cows: state.cow_data
+        cows: state.cow_data,
+        spocs: state.spocs,
+        notifications: state.notifications,
+        user: state.user,
+        tasks: state.tasks
     }
-}
+};
 
 /*
 const mapDispatchToProps = (dispatch) => {
@@ -67,7 +52,8 @@ const mapDispatchToProps = (dispatch) => {
 */
 function mapDispatchToProps(dispatch) {
     return {
-      getCowData: bindActionCreators(fetchCowData, dispatch)
+      getUser: bindActionCreators(fetchUser, dispatch),
+      getTasks: bindActionCreators(fetchTasks, dispatch)
     }
   }
   
