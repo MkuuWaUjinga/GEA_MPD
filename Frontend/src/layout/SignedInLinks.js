@@ -37,17 +37,20 @@ class SignedInLinks extends Component {
         return(
 
         <ul className="right">
+            {/*
             <li>
                     <div className="input-field col s6 ">
                         <i className="material-icons prefix">search</i>
                         <input placeholder="Search" id="search_input" type="text" className="validate white-text "></input>
                     </div>
-            </li>
+            </li> */}
+            {/* 
             <li>    
                     <NavLink to="/chat" className="btn-floating white" >
                         <i className="btn-floating white material-icons indigo-text text-darken-4">chat_bubble</i>
                     </NavLink>
             </li>
+                */}
             <li>    
                     <small id="notification-badge">1</small>
                     <span className={this.props.isActive ? 'btn-floating  active' : 'btn-floating white ligthen-2 pulse'}  onClick={this.handleNotificationToggle}>
@@ -55,7 +58,7 @@ class SignedInLinks extends Component {
                     </span>
             </li>
 
-            <li><NavLink to="/" className='btn btn-floating  lighten-1'>NN</NavLink></li>
+            <li><NavLink to="/" className='btn btn-floating  blue darken-1'>Me</NavLink></li>
 
             
         </ul>

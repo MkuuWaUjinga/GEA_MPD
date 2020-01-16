@@ -6,6 +6,8 @@ import BarChart_SickCows from '../dataCharts/BarChart_SickCows';
 import SCC from '../dataCharts/SCC';
 import ModalContactSpoc from '../../../layout/contactSPOC/ModalContactSpoc';
 import ModalAddTask from '../../../layout/taskbar/ModalAddTask';
+import {NavLink} from 'react-router-dom';
+
 class SickCows extends Component {
 
 state = {
@@ -13,8 +15,15 @@ state = {
 }
 
 componentDidMount(){
+
+        var elems = document.querySelectorAll('.datepicker');
+
+      const optionsDatePicker = {
+        defaultDate: true
+    }
     
-    const options = {
+    
+    const optionsCollapsible = {
         onOpenStart: () => {
             setTimeout(function() {
                 this.setState({collapsed: true});
@@ -28,12 +37,14 @@ componentDidMount(){
                 console.log("collapsed state_END", this.state.collapsed)
         },
     }
-    M.Collapsible.init(this.Collapsible, options);
+    M.Collapsible.init(this.Collapsible, optionsCollapsible);
+    M.Datepicker.init(elems, optionsCollapsible);
 }
 
 
     render() {
 
+        const cow_icon = require('../../../assets/img/cow_icon.png');
 
         const {notifications} = this.props;
         const notificationList = notifications.length ? (
@@ -110,37 +121,71 @@ componentDidMount(){
 
         return(
             <div className="SomaticCellCountContainer">
+                <div className="subheadline">
+                    <h4>Cows currently in treatment</h4>
+                    <input type="text" className="datepicker"/> 
+                </div>
+
                         <BarChart_SickCows />
                         <div className="CowsInTreatment">
-                            <h4>Cows currently under treatment</h4>
-                            <div className="row center black-text">
-                                <div className="col l2">Cow</div>
-                                <div className="col l2">Somatic Cell Count</div>
-                                <div className="col l2">Medication</div>
-                                <div className="col l2">Start</div>
-                                <div className="col l2">Treatment Period</div>
-                                <div className="col l2">Due Date</div>
-                            </div>
+                    
                             <ul className="collapsible">
-                                <li>
+                            <li className="tableHeader">
                                 <div className="collapsible-header row center">
                                         <div className="col l2">
-                                            Cow-ID 5689
+                                            
                                         </div>
                                         <div className="col l2">
-                                            35132345
+                                            Cow-ID
                                         </div>
                                         <div className="col l2">
-                                            #Medication
+                                            Diagnosis
+                                        </div>
+                                        <div className="col l2">
+                                            Medication
+                                        </div>
+                                        <div className="col l2">
+                                            Start
+                                        </div>
+                                        <div className="col l2">
+                                            Treatment Period
+                                        </div>
+                                        <div className="col l2">
+                                            Due Date
+                                        </div>
+                                        <div className="col l2">
+                                           
+                                        </div>
+                                </div>
+                                </li>
+                                <li>
+                                <div className="collapsible-header row center">
+                                         <div className="col l2">
+                                            <img src={cow_icon} alt="cow_icon"></img>
+                                        </div>
+                                        <div className="col l2">
+                                            5689
+                                        </div>
+                                        <div className="col l2">
+                                            Mastitis
+                                        </div>
+                                        <div className="col l2">
+                                            Antibiotics
                                         </div>
                                         <div className="col l2">
                                             01/04/19
                                         </div>
                                         <div className="col l2">
-                                            (========--)
+                                            <div className="progress blue-grey lighten-4 tooltipped" data-position="top" data-tooltip="6 Days until end of treatment">
+                                                <span>Time Period</span>
+                                                <div className="determinate orange lighten-2" style={{width: '75%', animation: 'grow 2s'}}>75%</div>
+                                            </div>
                                         </div>
                                         <div className="col l2">
                                             13/04/19
+                                        </div>
+                                        <div className="col l2">
+                                            <i className="large material-icons left">arrow_drop_down</i>
                                         </div>
                                 </div>
                                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -148,22 +193,31 @@ componentDidMount(){
                                 <li>
                                 <div className="collapsible-header row center">
                                         <div className="col l2">
-                                            Cow-ID 12322
+                                            <img src={cow_icon} alt="cow_icon"></img>
                                         </div>
                                         <div className="col l2">
-                                            15325345
+                                            12322
                                         </div>
                                         <div className="col l2">
-                                            #Medication
+                                            Claw Disease
+                                        </div>
+                                        <div className="col l2">
+                                            Antibiotics
                                         </div>
                                         <div className="col l2">
                                             23/02/19
                                         </div>
                                         <div className="col l2">
-                                            (====-------)
+                                            <div className="progress blue-grey lighten-4 tooltipped" data-position="top" data-tooltip="6 Days until end of treatment">
+                                                <span>Time Period</span>
+                                                <div className="determinate orange lighten-2" style={{width: '56%', animation: 'grow 2s'}}>56%</div>
+                                            </div>
                                         </div>
                                         <div className="col l2">
                                             15/05/19
+                                        </div>
+                                        <div className="col l2">
+                                            <i className="large material-icons left">arrow_drop_down</i>
                                         </div>
                                 </div>
                                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -171,22 +225,31 @@ componentDidMount(){
                                 <li>
                                 <div className="collapsible-header row center">
                                         <div className="col l2">
-                                            Cow-ID 23421
+                                            <img src={cow_icon} alt="cow_icon"></img>
                                         </div>
                                         <div className="col l2">
-                                            23514322
+                                        23421
                                         </div>
                                         <div className="col l2">
-                                            #Medication
+                                            Mastitis
+                                        </div>
+                                        <div className="col l2">
+                                            Antibiotics
                                         </div>
                                         <div className="col l2">
                                             31/03/19
                                         </div>
                                         <div className="col l2">
-                                            (==----------)
+                                            <div className="progress blue-grey lighten-4 tooltipped" data-position="top" data-tooltip="6 Days until end of treatment">
+                                                <span>Time Period</span>
+                                                <div className="determinate orange lighten-2" style={{width: '20%', animation: 'grow 2s'}}>20%</div>
+                                            </div>
                                         </div>
                                         <div className="col l2">
                                             25/05/19
+                                        </div>
+                                        <div className="col l2">
+                                            <i className="large material-icons left">arrow_drop_down</i>
                                         </div>
                                 </div>
                                 <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
@@ -196,10 +259,11 @@ componentDidMount(){
                         </div>
 
                         <div className="NotificationsSomaticCellCount">
-                            <h4>Notifcations</h4>
-
+                        <div><i className="small material-icons left">notifications</i><h4>Notifcations</h4></div>
+                        <div className="notification_timepicker"><input type="text" className="datepicker"/><input type="text" placeholder="Search..." className="searchbar"></input></div>
                             <div>
-                                <h5>Today</h5>
+                                <h5>24th Jan. 2020</h5>
+                                <hr />
                                 <ul className="collapsible" ref={Collapsible => {
                                     this.Collapsible = Collapsible;
                                 }}>
@@ -207,9 +271,10 @@ componentDidMount(){
 
                                 </ul>
                             </div>
-                            <hr />
+                            
                             <div>
-                                <h5>23/10/19</h5>
+                            <h5>23th Jan. 2020</h5>
+                            <hr />
                                 <ul className="collapsible">
                                 <li>
                                     <div className="collapsible-header">

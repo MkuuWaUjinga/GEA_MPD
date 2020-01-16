@@ -4,17 +4,20 @@ import Taskbar from '../../../src/layout/taskbar/Taskbar'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux'
 import './dashboard.css';
+import {weatherIcon} from '../../assets/img/weatherIcon.png';
 
 class MainDashboardView extends Component {
     render() {
         const {notifications} = this.props;
+        const weatherIcon = require('../../assets/img/weatherIcon.png');
         return(
             <div className="main_dashboard container row">
 
         <div className="timeframe_box">
+                
                     <div className="time_block">
                         <p>Today</p>
-                    </div> 
+                    </div>
                     <div className="time_block">
                         <p>Week</p>
                     </div> 
@@ -42,7 +45,8 @@ class MainDashboardView extends Component {
                     </div> 
                     <div className="kpi_block">
                         <p>Weather</p>
-                        <p>Rainy</p>
+                        <span><img src={weatherIcon} alt="weather icon"></img>
+                        <p>Rainy</p></span>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
@@ -153,7 +157,7 @@ class MainDashboardView extends Component {
                                         <div className="row">
                                             <div className="col l8">
                                                 <div className="box_icon valign-wrapper">
-                                                        <i className="material-icons">assessment</i>
+                                                        <i className="material-icons">bubble_chart</i>
                                                 </div>
                                                     <h5>Herd Overview</h5>
                                                     <div className="kpiDiagram herd_mgmt_container">
@@ -229,7 +233,7 @@ class MainDashboardView extends Component {
                                                 <div className="box_icon valign-wrapper">
                                                         <i className="material-icons">build</i>
                                                 </div>
-                                                    <h5>Herd Overview</h5>
+                                                    <h5>Machine Management</h5>
                                                     <div className="kpiDiagram machine_mgmt_container">
 
                                                 </div>

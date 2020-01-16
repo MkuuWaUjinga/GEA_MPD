@@ -3,9 +3,11 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {deleteTask} from "../../store/actions/deleteTask";
 import {addTask} from "../../store/actions/addTask";
+import {changeActiveTab} from "../../store/actions/changeActiveTab";
 import ModalAddTask from '../taskbar/ModalAddTask';
 import M from 'materialize-css';  
 import "materialize-css/dist/css/materialize.min.css";
+import "./taskbar.css";
 
 class Taskbar extends Component {
     state = {
@@ -39,12 +41,12 @@ componentDidMount() {
           M.Modal.init(this.Modal, options);
 }
 
-
+/*
 deleteTask = (id) => {
     console.log(id)
     this.props.deleteTask(id)
 }
-
+*/
 
 handleTaskFormChange = (e) => {
  this.setState({
@@ -58,7 +60,9 @@ handleTaskFormSubmit = (e) => {
     this.setState({task_title:'', task_description:''});
 }
 
-
+changeTab = (newActiveTab) => {
+  this.props.changeActiveTab(newActiveTab)
+}
 
 
 
@@ -68,15 +72,49 @@ handleTaskFormSubmit = (e) => {
         const taskList = tasks.length ? (
             tasks.map(task => {
                 return (
-                    <div className="card blue-grey darken-1" key={task.id}>
-                        <div className="card-content white-text">
+                    <div className="card herdmgmt" key={task.id}>
+                        <div className="card-content">
                             <span className="card-title">{task.title}</span>
-                            <p>{task.description}</p>
-                            <div className="center">
-                            <button className="btn grey" onClick={() => this.props.deleteTask(task.id)}>
-                                Delete Task
-                            </button>
+                            <i className="material-icons chat">chat</i>
+                            <div className="alarm_msg">
+                              <i className="material-icons">error</i>
+                              <p>{task.description}</p>
                             </div>
+                            
+                            <form action="#" className="checkboxes">
+                            <p>Please check cows:</p>
+                            <div className="check">
+                                <p>
+                                  <label>
+                                    <input type="checkbox" />
+                                    <span>14123</span>
+                                  </label>
+                                </p>
+                                <p>
+                                  <label>
+                                    <input type="checkbox" />
+                                    <span>235324</span>
+                                  </label>
+                                </p>
+                                <p>
+                                  <label>
+                                    <input type="checkbox" />
+                                    <span>325234</span>
+                                  </label>
+                                </p>
+                                </div>
+                                {/* 
+                                <p>
+                                  <label>
+                                    <input type="checkbox" checked="checked" />
+                                    <span>Yellow</span>
+                                  </label>
+                                </p>
+                                */}
+                              </form>
+        
+                            <div className="deleteTaskIcon" onClick={() => {if(window.confirm('Delete the item?')){this.props.deleteTask(task.id)};}}><i className="material-icons delete">more_horiz</i></div>
+                            
                         </div>
                     </div>
                 )
@@ -95,12 +133,15 @@ handleTaskFormSubmit = (e) => {
                     link_id: "HERD_COUNT"
                   }
                 }} >
-                    <li>
+                    <li id="notificationCell">
+                      <p>Jan 24, 2020</p>
                       <h5>{notification.title}</h5>
-                      <p>{notification.content}</p>
+                      <div className="alarm_msg">
+                        <i className="material-icons">error</i>
+                        <p>{notification.content}</p>
+                      </div>
                     </li>
                   </NavLink>
-                  <hr />
                 </div>
               )
             })
@@ -112,104 +153,66 @@ handleTaskFormSubmit = (e) => {
         return(
 
     <div className="task_sidebar col xl3">
-          <div>
+      
             {this.props.isActive ? (
-              <ul>
-              {notificationList} 
-              </ul>
-            ) : null}
-          </div>
+              <div>
+                <div className="nav_notification">
+                    Notifications
+                </div>
+                <ul>
+                {notificationList} 
+                </ul>
+              </div>
+              
+              ) : (
+              null
+            )}
 
         <ul ref={Tabs => {
             this.Tabs = Tabs;
           }}
-          id="tabs-swipe-demo"
-          className="tabs"
+          className={this.props.isActive ? 'tabs tabs-swipe-demo active' : 'tabs tabs-swipe-demo'}
+          
+
         >
-          <li className="tab col s3">
-            <a href="#test-swipe-1">Farmer</a>
+          <li className="tab col s2">
+            <a href="#test-swipe-1" onClick={() => this.props.changeActiveTab("FARMER")}><div className="spocContactInfoIcon farmer"><span>Me</span></div></a>
           </li>
-          <li className="tab col s3">
-            <a href="#test-swipe-2">Technician</a>
+          <li className="tab col s2">
+            <a href="#test-swipe-2 "><div className="spocContactInfoIcon vet">JV</div></a>
           </li>
-          <li className="tab col s3">
-            <a href="#test-swipe-3">Vet</a>
+          <li className="tab col s2">
+            <a href="#test-swipe-3"><div className="spocContactInfoIcon dealer">AK</div></a>
           </li>
-          <li className="tab col s3">
-            <a href="#test-swipe-4">Consultant</a>
+          <li className="tab col s2">
+            <a href="#test-swipe-4"><div className="spocContactInfoIcon consultant">SL</div></a>
           </li>
+          <li className="tab col s2">
+            <a href="#test-swipe-5"><div className="spocContactInfoIcon technician">RA</div></a>
+          </li>
+          <i className="material-icons">more_vert</i>
         </ul>
 
-        <div id="test-swipe-1" className="col l12 blue">
+        <div id="test-swipe-1" className="col l12 swipeContent">
           <div className="taskBox">
-              <h5>Milk Quality</h5>
-              {taskList} 
-              <ModalAddTask />
-             
-     {/* 
-        <a className="waves-effect waves-light btn modal-trigger"
-          data-target="modal1"> Create new Task</a>
-
-        <div ref={Modal => {this.Modal = Modal}}
-          id="modal1"
-          className="modal">
-
-            <div className="modal-content">
-            <h3>Create a new Task</h3>
-            <div className="row">
-                <form className="col s12">
-                    <div className="row">
-                        <div className="input-field col l12">
-                            <input id="task_title" type="text" data-length="20" onChange={this.handleTaskFormChange}/>
-                            <label htmlFor="task_title">Task Title</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="input-field col l12">
-                            <textarea id="task_description" type="materialize-textarea" data-length="50" onChange={this.handleTaskFormChange}/>
-                            <label htmlFor="task_description">Task Description</label>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-
-            <div className="modal-footer">
-                <a href="#" className="modal-close waves-effect waves-red btn-flat">
-                Return
-                </a>
-                <a href="#" className="modal-close waves-effect waves-green btn-flat" onClick={this.handleTaskFormSubmit}>
-                Create
-                </a>
-            </div>
-          </div>
-          </div>
-
-*/}
-            <hr></hr>
-
-            <h5>Herd Management</h5>
-              <div className="card blue-grey darken-1">
-                <div className="card-content white-text">
-                <span className="card-title">Card Title</span>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
+            <div className="spocInfo">
+                <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPic"/>
+                <div className ="spocContent">
+                  <h5>John Vermehren</h5>
+                  <p>Vet</p>
+                  <div><i className="material-icons">phone_in_talk</i>+49 234 2334534</div>
+                  <div><i className="material-icons">markunread</i>john.vermehren@gmail.com</div>
                 </div>
-            </div>
-
-
-            <hr></hr>
-
-            <h5>Feed Management</h5>
-              <div className="card blue-grey darken-1">
-                <div className="card-content white-text">
-                <span className="card-title">Card Title</span>
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-                </div>
-            </div>
-
-    
+              </div>
+              <input type="text" placeholder="Search..." className="searchbar"></input>
+              <h6>Active</h6>
+              <div className="tasklist_container">
+                {taskList} 
+              </div>
+              <ModalAddTask payload="taskbar"/>
+              <div className="taskbar_footer">
+                <span><i className="material-icons">archive</i>Archive<i className="material-icons">arrow_drop_down</i></span>
+              </div>
           </div>
         </div>
         <div id="test-swipe-2" className="col s12 red">
@@ -231,6 +234,7 @@ handleTaskFormSubmit = (e) => {
 const mapStateToProps = (state) => {
     return {
         tasks: state.farmer_tasks.tasks,
+        tabActive: state.farmer_tasks.tabActive,
         isActive: state.notification.isActive,
         notifications: state.notification.notifications
 
@@ -242,7 +246,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       deleteTask: (id) => dispatch(deleteTask(id)),
-      addTask: (newTask) => dispatch(addTask(newTask))
+      addTask: (newTask) => dispatch(addTask(newTask)),
+      changeActiveTab: (newTab) => dispatch(changeActiveTab(newTab))
     }
   }
 

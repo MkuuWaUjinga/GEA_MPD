@@ -17,9 +17,11 @@ constructor(props){
     this.state = {
         chartData:{
             labels: ['WED','THU','FRI','SAT','SUN','MON','TUE','WED','THU','FRI','SAT'],
+            
             datasets: [
                 {
                     label: 'Sick cows under treatment',
+                    backgroundColor: 'rgba(187, 195, 212, 0.616)',
                     data:[
                         5,
                         3,

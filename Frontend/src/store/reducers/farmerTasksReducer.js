@@ -1,10 +1,12 @@
 import uuid from 'react-uuid';
 import {DELETE_TASK} from '../actions/deleteTask';
 import {ADD_TASK} from '../actions/addTask';
+import {CHANGE_ACTIVE_TAB} from '../actions/changeActiveTab'
 
 const initState = {
+    tabActive: "FARMER",
     tasks: [
-        {id: uuid(), title: 'Milk Cows', description: 'milk them efficiently'},
+        {id: uuid(), title: 'High Somatic Cell Count detected in 5 Cows', description: '5 cows could be affected with Mastitis'},
         {id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2'},
         {id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3'},
     ]
@@ -33,6 +35,13 @@ const farmerTasksReducer = (state = initState, action) => {
               return { 
                   ...state, 
                   tasks: [...state.tasks, newTaskItem] 
+                };
+        }
+
+        case CHANGE_ACTIVE_TAB: {
+              return { 
+                  ...state, 
+                  tabActive: action.payload.newTab
                 };
         }
 

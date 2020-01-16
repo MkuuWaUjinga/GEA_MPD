@@ -6,7 +6,7 @@ const initState = {
         {id: uuid(),
         date: '23/10/19',
         time: '8:24',
-        title:"Important - Abnormal Somatic Cell Count detected", 
+        title:"15:25 - Abnormal Somatic Cell Count detected", 
         content: '5 cows show a high somatic cell count',
         category: 'DetailHerdOverview/SickCows',
         cows: [

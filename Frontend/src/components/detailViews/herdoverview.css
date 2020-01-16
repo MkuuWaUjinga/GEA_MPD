@@ -1,0 +1,127 @@
+.main_detail_dashboard {
+}
+
+div.herd_overview_nav {
+    height: 100px;
+    width: 70%;
+    background-color: white;
+    position: absolute;
+    top: 150px;
+    left: 60px;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
+    display: table;
+    table-layout: fixed;
+    line-height: 0;
+  }
+  
+  .herd_overview_nav div {
+  display: table-cell;
+  text-align: center;
+  padding-left: 3px;
+  padding-top: 10px;
+  line-height: 10px;
+  }
+
+  .herd_overview_nav div:not(:last-child) {
+    border-right: solid 1px #cbd1d4;
+  }
+
+.herd_overview_nav p:first-child {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.herd_overview_nav p.KPIdigit {
+color: #F57228;
+}
+
+span.sectionHeadline {
+      position: relative;
+      font-size: 16px;
+  }
+
+  span.sectionHeadline a{
+    color: rgba(104,190,245,1);
+}
+  h2.sectionHeadline {
+      font-size: 2em;
+      color: white;
+      font-weight: bold;
+      position: absolute;
+      top: 40px;
+      left: 34%;
+  }
+
+  span.sectionHeadline .material-icons {
+      color: white;
+      margin-top:-50px;
+      margin-right:-10px;
+  }
+
+  .ho_nav_block:hover {
+    background-color: #FFECDF;
+    outline: 2px solid #FBCFAF
+  }
+
+  
+
+  .ho_nav_block.active {
+    background-color: #FFECDF;
+  }
+
+
+  /* __Sick Cows View____________*/
+
+  .SomaticCellCountContainer {
+      margin-top: 60px;
+      margin-left:50px;
+      margin-right: 50px;
+  }
+
+
+  .SomaticCellCountContainer h4{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: grey;
+}
+
+
+div.SomaticCellCountContainer > div.subheadline > input {
+
+    width: 300px;
+}
+
+
+/* List of cows that are in treatment */
+
+.CowsInTreatment {
+    margin-top: 40px;
+}
+
+ul.collapsible {
+    box-shadow: none;
+    border:none;
+}
+
+.collapsible div{
+    background-color: #F6F7FB;
+}
+
+.tableHeader {
+    font-weight: bold;
+}
+
+.collapsible-header img {
+    height: 30px;
+}
+
+
+
+.NotificationsSomaticCellCount {
+    margin-top: 70px;
+    background-color: #EAEBF1;
+    padding: 40px;
+
+}
+

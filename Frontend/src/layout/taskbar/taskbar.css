@@ -1,0 +1,321 @@
+.task_sidebar {
+    position: absolute;
+    right:0 !important;
+    height: 90vh;
+    top:100px;
+    border-radius: 25px;
+    padding:0 !important;
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);*/
+    box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.051);
+    background-color: white;
+}
+
+.nav_notification {
+    width: auto;
+    height: 45px;
+    background-color: #f5b942;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top:12px;
+    padding-left:15px;
+    font-size: 1.1em;
+}
+#notificationCell {
+    padding-left: 25px ;
+    height: 7em;
+}
+
+#notificationCell p:first-child {
+text-align: right;
+padding-right: 17px;
+margin-bottom: -15px;
+color: #969695;
+font-size:13px;
+}
+
+#notificationCell h5 {
+    color: #F57228;
+    font-size: 16px;
+}
+
+#notificationCell .alarm_msg p {
+    margin:0;
+    color: #969695;
+}
+
+
+
+
+.task_sidebar ul{
+    margin:0;
+}
+
+.tabs-swipe-demo.active {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.tabs-swipe-demo {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #BBD1F8;
+}
+.tabs-swipe-demo a:active{
+    background-color: white !important;
+}
+
+.tabs-swipe-demo a:hover {
+    background-color: white;
+}
+
+/* taskbar - header */
+
+.spocContactInfoIcon {
+    border-radius: 25px;
+    border: 1px solid #969695;
+    width: 35px;
+    height: 35px;
+    background: white;
+    margin-top:6px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+.spocContactInfoIcon.farmer {
+    color: #3E68B6;
+}
+
+.spocContactInfoIcon.vet {
+    color: #FDB07E;
+}
+
+.spocContactInfoIcon.dealer {
+    color: #8E78E6;
+}
+
+.spocContactInfoIcon.consultant {
+    color: #FD7D86;
+}
+.spocContactInfoIcon.technician {
+    color: #FD7D86;
+}
+.tabs .material-icons {
+    position: absolute;
+    right:10px;
+    top:13px;
+    color: #969695;
+}
+
+.spocInfo {
+    background-color: white;
+    width: auto;
+    height: 150px;
+    border-bottom: 1px solid grey;
+    padding-top: 10px;
+    line-height: 2px;
+}
+.spocInfo h5 {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.taskBox h6 {
+    margin-left: 2.8em;
+    font-size: 1.1em;
+    margin-bottom:1em;
+    font-weight: bold;
+}
+
+img.spocPic {
+    width: 100px;
+    height:100px;
+    border-radius: 5px;
+    background-color: green;
+    float: left;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+
+.spocContent p{
+    line-height: 0;
+}
+
+.spocContent div {
+    margin-right: 5px !important ;
+}
+
+.col.swipeContent {
+    padding: 0;
+}
+
+
+/*_taskbar__________*/
+
+.tasklist_container {
+    overflow: scroll;
+    height: 180px;
+    width:auto;
+}
+
+
+.card {
+    margin-left: 45px;
+    margin-right: 45px;
+}
+.taskBox {
+    height: 100%;
+    max-height: 100%;
+  }
+  
+  .taskBox .card-content {
+    padding-top: 0.3em !important;
+    padding-left: 2.5em !important;
+    padding-right: 2.5em !important;
+    font-size: 0.8em;
+  }
+  
+  .taskBox .card {
+    height: 250px;
+
+  }
+  
+  
+  .taskBox .card-title {
+    font-size: 1.3em !important;
+    font-weight: bold !important;
+    margin-bottom: 0 !important;
+  }
+
+  .card.herdmgmt {
+      background-color: #FFF4E7;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
+  }
+
+  .card.herdmgmt .card-title{
+    margin-top: 8px;
+   color: #F57228;
+   line-height: 19px;
+}
+
+  .card.herdmgmt:hover {
+      outline: 3px solid #FEC8A4;
+  }
+
+i.chat {
+      position: absolute;
+      top: 7px;
+      right:5px;
+      color: rgba(0, 0, 0, 0.1);
+  }
+
+  .deleteTaskIcon{
+    width: 30px;
+    height:30px;
+    position: absolute;
+    bottom:5px;
+    right:5px;
+}
+
+  .deleteTaskIcon:hover {
+      width: 30px;
+      height:30px;
+      border-radius: 25px;
+      background-color: rgba(0, 0, 0, 0.1);
+
+  }
+  .deleteTaskIcon.delete {
+      text-align: center;  
+  }
+
+
+div.alarm_msg {
+    background-color: white;
+    height: 30px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(254, 206, 174, 0.699);
+    margin-top: 8px;
+    margin-bottom:8px;
+
+}
+  .alarm_msg p, .alarm_msg i{
+      float: left;
+  }
+
+  .alarm_msg i {
+      color: #F47590;
+      margin-right: 8px;
+      margin-left: 8px;
+      padding-top:3px;
+  }
+
+  .alarm_msg p {
+      font-size: 13px;
+      padding-top:7px;
+  }
+.checkboxes {
+    margin-top:0;
+}
+
+form.checkboxes {
+    padding:0;
+}
+
+form.checkboxes p:first-child{
+font-size: 14px;
+margin-top:10px;
+margin-bottom:5px;
+}
+
+.checkbox {
+    border-color: #FECFB1;
+}
+
+.checkboxes span {
+    font-size: 14px !important;
+}
+
+
+
+/*_Searchbar______*/
+
+input.searchbar {
+    background-color: #F8F8F8 !important;
+    border-radius: 25px !important;
+    margin-left: 40px !important;
+    margin-top: 20px !important;
+    width: 450px !important;
+    height: 35px !important;
+    border-bottom: none !important;
+    padding-left: 1em !important;
+}
+
+/*_Create new task button__________*/
+
+.btn.modal-trigger {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    bottom:50px;
+    right:0;
+    background-color:#6198FC;
+    border-top-left-radius: 50px;
+}
+
+
+/*taskbar footer_______*/
+
+.taskbar_footer {
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right:0;
+    background-color: #F7F7F7;
+    padding-left:20px;
+    padding-top:10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
