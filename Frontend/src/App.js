@@ -13,7 +13,10 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+
+      <div className="nav_background">
         <Navbar />
+      </div>
         <Switch>
             <Route exact path="/" component={MainDashboardView} />
             <Route path="/signin" component={SignIn} />

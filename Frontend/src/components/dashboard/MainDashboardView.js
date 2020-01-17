@@ -3,29 +3,83 @@ import ListHerdMgmt from './dashboardLayouts/ListHerdMgmt';
 import Taskbar from '../../../src/layout/taskbar/Taskbar'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux'
-import farmview_img from '../../assets/img/farmview.jpg'
+import './dashboard.css';
 
 class MainDashboardView extends Component {
     render() {
         const {notifications} = this.props;
         return(
             <div className="main_dashboard container row">
+
+        <div className="timeframe_box">
+                    <div className="time_block">
+                        <p>Today</p>
+                    </div> 
+                    <div className="time_block">
+                        <p>Week</p>
+                    </div> 
+                    <div className="time_block">
+                        <p>Month</p>
+                    </div> 
+                    <div className="time_block">
+                        <p>Quarter</p>
+                    </div> 
+                    <div className="time_block">
+                        <p>Year</p>
+                    </div> 
+            </div>    
+                
+            <div className="business_kpis">
+                    <div className="kpi_block">
+                        <p>Date</p>
+                        <p>Sat, 9th Oct</p>
+                        <i className="material-icons">more_vert</i>
+                    </div> 
+                    <div className="kpi_block">
+                        <p>Time</p>
+                        <p>8:34</p>
+                        <i className="material-icons">more_vert</i>
+                    </div> 
+                    <div className="kpi_block">
+                        <p>Weather</p>
+                        <p>Rainy</p>
+                        <i className="material-icons">more_vert</i>
+                    </div> 
+                    <div className="kpi_block">
+                        <p>Temperature</p>
+                        <p>24°</p>
+                        <i className="material-icons">more_vert</i>
+                    </div> 
+                    <div className="kpi_block">
+                        <p>Estimated outcome</p>
+                        <p>$4523.34</p>
+                        <i className="material-icons">more_vert</i>
+                    </div> 
+            </div>
+
+
+
                 <div className="kpi_boards col xl9">
                     <div className="row">
                         <div className="kpi_milkperfbox col xl6">
-                            <div className="card blue-grey darken-1">
-                                <div className="card-content white-text">
-                                <span className="card-title">Milking Performance</span>
+                                <div className="card z-depth-3">
                                     <div className="row">
-                                        <div className="col l8 kpiDiagram milking_performance_container">
+                                        <div className="col l9 ">
+                                            <div className="box_icon valign-wrapper center-align">
+                                                <i className="material-icons">assessment</i>
+                                            </div>
+                                            <h5 >Milking Performance</h5>
+                                            <div className="kpiDiagram milking_performance_container">
 
+                                            </div>
                                         </div>
-                                        <div className="col l4 kpiValues">
+                                        <div className="col l3 kpiValues">
                                             <ul>
                                                 <li>
                                                     <div className="keyValue">
                                                         <p>Milking Output (kg)</p>
-                                                        <p className="KPIdigit">3000</p>
+                                                        <p className="KPIdigit">42335</p>
+                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
@@ -33,49 +87,57 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p># Milkings</p>
                                                         <p className="KPIdigit">75</p>
+                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
                                                 <li>
                                                     <div className="keyValue">
-                                                        <p>Milking time/Cow (min)</p>
-                                                        <p className="KPIdigit">5</p>
+                                                        <p>Milking time (min)</p>
+                                                        <p className="KPIdigit">6</p>
+                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
 
-                        <div className="kpi_milkqualbox col xl6">
-                            <div className="card blue-grey darken-1">
-                                    <div className="card-content white-text">
-                                    <span className="card-title">Milking Quality</span>
-                                    <div className="row">
-                                        <div className="col l8 kpiDiagram milk_quality_container">
 
+
+                        <div className="kpi_milkqualbox col xl6">
+                            <div className="card">
+                                    <div className="row">
+                                        <div className="col l9 kpiDiagram">
+                                            <div className="box_icon valign-wrapper">
+                                                <i className="material-icons">assignment</i>
+                                            </div>
+                                            <h5 >Milking Quality</h5>
+                                            <div className="kpiDiagram milk_quality_container">
+
+                                            </div>
                                         </div>
-                                        <div className="col l4 kpiValues">
+                                        <div className="col l3 kpiValues">
                                             <ul>
                                                 <li>
                                                     <div className="keyValue">
                                                         <p>Fat (%)</p>
-                                                        <p className="KPIdigit">3.51</p>
+                                                        <p className="KPIdigit">3.34</p>
+                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
                                                 <li>
                                                     <div className="keyValue">
                                                         <p>Protein (%)</p>
-                                                        <p className="KPIdigit">3.1</p>
+                                                        <p className="KPIdigit">2.03</p>
+                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
                                             </ul>
                                         </div>
-                                    </div>
                                     </div>
                             </div>
                         </div>
@@ -87,96 +149,111 @@ class MainDashboardView extends Component {
 
                         <div className="kpi_herdoverviewbox col xl4">
                         <NavLink to="/detailHerdOverview" >
-                            <div className="card blue-grey darken-1">
-                                        <div className="card-content white-text">
-                                        <span className="card-title">Herd Overview</span>
+                            <div className="card">
                                         <div className="row">
-                                        <div className="col l8 kpiDiagram herd_mgmt_container">
+                                            <div className="col l8">
+                                                <div className="box_icon valign-wrapper">
+                                                        <i className="material-icons">assessment</i>
+                                                </div>
+                                                    <h5>Herd Overview</h5>
+                                                    <div className="kpiDiagram herd_mgmt_container">
 
-                                        </div>
+                                                </div>
+                                            </div>
                                         <div className="col l4 kpiValues">
                                             <ul>
                                                 <li>
                                                     <div className="keyValue">
-                                                        <p># Lactating Animals</p>
-                                                        <p className="KPIdigit">150</p>
+                                                        <p># Conception Rate (%)</p>
+                                                        <p className="KPIdigit">42</p>
+                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
                                                 <li>
                                                     <div className="keyValue">
                                                         <p>In-/Decrease Herd (%)</p>
-                                                        <p className="KPIdigit">-2.1</p>
+                                                        <p className="KPIdigit">-1.1</p>
+                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
                                             </ul>
                                         </div>
                                     </div>
-                                        </div>
                                 </div>
                         </NavLink>                                
 
                         </div>
 
                         <div className="kpi_feedmgmtbox col xl4">
-                            <div className="card blue-grey darken-1">
-                                        <div className="card-content white-text">
-                                        <span className="card-title">Feed Management</span>
-                                        <div className="col l12 kpiValues">
-                                            <ul>
-                                                <li>
-                                                    <div className="keyValue">
-                                                        <p>Feed Storage (kg)</p>
-                                                        <p className="KPIdigit">3890</p>
+                            <div className="card">
+                                            <div className="row">
+                                                <div className="col l8">
+                                                    <div className="box_icon valign-wrapper">
+                                                            <i className="material-icons">invert_colors</i>
                                                     </div>
-                                                </li>
-                                                <hr></hr>
-                                                <li>
-                                                    <div className="keyValue">
-                                                        <p>Lactating Dry Matter intake (%)</p>
-                                                        <p className="KPIdigit">23</p>
-                                                    </div>
-                                                </li>
-                                                <hr></hr>
-                                                <li>
-                                                    <div className="keyValue">
-                                                        <p>Feed Efficiency (%)</p>
-                                                        <p className="KPIdigit">4</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        </div>
-                                </div>
-                        </div>
-                        <div className="kpi_machinemgmtbox col xl4">
-                            <div className="card blue-grey darken-1">
-                                        <div className="card-content white-text">
-                                        <span className="card-title">Machine Management</span>
-                                        <div className="row">
-                                            <div className="col l8 kpiDiagram farmview_container">
+                                                        <h5>Feed Management</h5>
+                                                        <div className="kpiDiagram feed_mgmt_container">
 
-                                            </div>
+                                                    </div>
+                                                </div>
                                             <div className="col l4 kpiValues">
                                                 <ul>
                                                     <li>
                                                         <div className="keyValue">
-                                                            <p>OEE (%)</p>
-                                                            <p className="KPIdigit">95%</p>
+                                                            <p>Feed Storage (kg)</p>
+                                                            <p className="KPIdigit">2355</p>
+                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                         </div>
                                                     </li>
                                                     <hr></hr>
                                                     <li>
                                                         <div className="keyValue">
-                                                            <p># Stored Rubber Liner</p>
-                                                            <p className="KPIdigit">10</p>
+                                                            <p>Feed Efficiency</p>
+                                                            <p className="KPIdigit">-2.1</p>
+                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                         </div>
                                                     </li>
                                                     <hr></hr>
                                                 </ul>
                                             </div>
                                         </div>
+                                    </div>
+                        </div>
+
+                        <div className="kpi_machinemgmtbox col xl4">
+                            <div className="card">
+                                        <div className="row">
+                                            <div className="col l8">
+                                                <div className="box_icon valign-wrapper">
+                                                        <i className="material-icons">build</i>
+                                                </div>
+                                                    <h5>Herd Overview</h5>
+                                                    <div className="kpiDiagram machine_mgmt_container">
+
+                                                </div>
+                                            </div>
+                                            <div className="col l4 kpiValues">
+                                                <ul>
+                                                    <li>
+                                                        <div className="keyValue">
+                                                            <p>Cleaning Program Rounds</p>
+                                                            <p className="KPIdigit">1</p>
+                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        </div>
+                                                    </li>
+                                                    <hr></hr>
+                                                    <li>
+                                                        <div className="keyValue">
+                                                            <p># Stored Rubber Liner</p>
+                                                            <p className="KPIdigit">127</p>
+                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        </div>
+                                                    </li>
+                                                    <hr></hr>
+                                                </ul>
+                                            </div>
                                         </div>
                             </div>
                         </div>
