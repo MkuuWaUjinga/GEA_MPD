@@ -5,7 +5,7 @@ dev: [![Build Status](https://travis-ci.com/MkuuWaUjinga/GEA_MPD.svg?token=EX2ht
 We empower farmers to retrieve the right information at the right time.
 
 ### Production environment
-_Frontend_: Accessible via [this link](http://farmatic.s3-website.eu-central-1.amazonaws.com/).
+_Frontend_: Accessible via [this link](http://farmony.s3-website.eu-central-1.amazonaws.com/).
 
 ### Development environment
-_Frontend_: Accessible via [this link](http://farmatic-dev.s3-website.eu-central-1.amazonaws.com/).
+_Frontend_: Accessible via [this link](http://farmony-dev.s3-website.eu-central-1.amazonaws.com/).
