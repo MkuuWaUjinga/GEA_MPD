@@ -5,10 +5,22 @@ import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux'
 import './dashboard.css';
 import {weatherIcon} from '../../assets/img/weatherIcon.png';
+import {fetchUser} from '../../store/APIactions/fetchUser';
+import { bindActionCreators } from 'redux';
+
 
 class MainDashboardView extends Component {
+
+    componentDidMount () {
+            //FETCH_USER
+            this.props.getUser();
+    }
+
+
+
     render() {
         const {notifications} = this.props;
+        console.log("these are the notifications", this.props.notifications);
         const weatherIcon = require('../../assets/img/weatherIcon.png');
         return(
             <div className="main_dashboard container row">
@@ -268,6 +280,19 @@ class MainDashboardView extends Component {
             </div>
         )
     }
+
 }
 
-export default MainDashboardView;
+const mapStateToProps = (state) => {
+    return {
+        notifications: state.notifications,
+    }
+};
+
+function mapDispatchToProps(dispatch) {
+    return {
+      getUser: bindActionCreators(fetchUser, dispatch)
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainDashboardView);

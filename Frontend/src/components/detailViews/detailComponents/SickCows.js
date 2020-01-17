@@ -46,7 +46,19 @@ componentDidMount(){
 
         const cow_icon = require('../../../assets/img/cow_icon.png');
 
+
+
         const {notifications} = this.props;
+
+
+        
+
+
+
+
+
+
+
         const notificationList = notifications.length ? (
             notifications.map(notification => {
               return (
@@ -55,11 +67,16 @@ componentDidMount(){
                 <div className="collapsible-header">
                     <div className="row">
                         <div className="col l12">
-                        <i className="large material-icons left">account_circle</i>
-                        <h6>{notification.time} - {notification.title}</h6>
+                        <h6>13:34 - Abnormal Somatic Cell Count detected in 5 Cows</h6>
                         </div>
-                        <div className="col l12">
-                                <p>{notification.content}</p>
+                        {/* 
+                        <div className="noti_msg col l12">
+                            <p><i className="material-icons">error</i>{notification.content}</p>
+                        </div>
+                        */}
+                        <div className="alarm_msg col l12">
+                            <i className="material-icons">error</i>
+                            <p>{notification.content}</p>
                         </div>
                         </div>
                             
@@ -280,12 +297,11 @@ componentDidMount(){
                                     <div className="collapsible-header">
                                         <div className="row">
                                             <div className="col l12">
-                                            <i className="large material-icons left">account_circle</i>
                                             <h6>14:24 - Cow behaved unusual</h6>
                                             </div>
-                                            <div className="col l12">
-                                                    <p>Notification Details: blasdfbaksdbfkadsfkjdsf
-                                                    </p>
+                                            <div className="alarm_msg col l12">
+                                                <i className="material-icons">error</i>
+                                                <p>alarmmmmm</p>
                                             </div>
                                             </div>
                                                 
@@ -323,49 +339,85 @@ componentDidMount(){
                                     <div className="collapsible-header">
                                         <div className="row">
                                             <div className="col l12">
-                                            <i className="large material-icons left">account_circle</i>
                                             <h6>10:11 - Cow #1234 is sick</h6>
                                             </div>
-                                            <div className="col l12">
-                                                    <p>Notification Details: blasdfbaksdbfkadsfkjdadsf dsf dsf esdafdfsadf sf
-                                                    </p>
+                                            <div className="alarm_msg col l12">
+                                                <i className="material-icons">error</i>
+                                                <p>alarmmmmm</p>
                                             </div>
                                             </div>
                                                 
                                     </div>
+
+{/*
                                 <div className="collapsible-body">
                                 <div className="row">
                                     <div className="col l12">
-                                    <div className="card blue-grey darken-1">
-                                        <div className="card-content white-text">
-                                    
-                                        <p>I am a very simple card. I am good at containing small bits of information.
-                                        I am convenient because I require little markup to use effectively.</p>
+
+                                        <div class="tabs-vertical ">
+                                                <div class="col s4 m3 l2">
+                                                    <ul class="tabs">
+
+                                                    {
+                                                        notifications.cows.length ? (
+                                                            notifications.cows.map(uniqueCowData => {
+                                                                return (
+                                                                    
+                                                        <li class="tab">
+                                                            <a class="waves-effect waves-cyan" href={uniqueCowData.cow_id}><i class="zmdi zmdi-apps"></i>{uniqueCowData.cow_id}</a>
+                                                        </li>
+                                                                )
+                                                            })
+                                                        )
+                                                     : (<p>no cow data</p>)
+                                                    
+                                                    }
+
+
+
+
+
+
+
+
+                                                    </ul>
+                                                </div>
+                                                <div class="col s8 m9 l6">
+                                                    <div id="cow1" class="tab-content">lol1</div>
+                                                    <div id="cow2" class="tab-content">adhsfasdf</div>
+                                                    <div id="cow3" class="tab-content">dsfkjsf</div>
+                                                    <div id="cow4" class="tab-content">adhsfasdf</div>
+                                                    <div id="cow5" class="tab-content">dsfkjsf</div>
+                                                </div>
                                         </div>
-                                        <div className="card-action">
-                                        <a href="#">Put cow under treatment</a>
                                         </div>
-                                    </div>
-                                    </div>
+                                        </div>
 
-                                  
-                                    <div className ="col l12">
 
-                                        <hr />
-                                        <div className="right">
-                                    <a className="waves-effect waves-light btn">Create New Task</a>
-                                    <a className="waves-effect waves-light btn">Forward to SPOC</a>
-                                    </div>
-
-                                    </div>
                                 </div>
-                                </div>
+
+
+
+                                */}
                                 </li>
 
                             </ul>
 
                             </div>
+
+
+                            <ul class="pagination">
+                                <li ><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                                <li className="active"><a href="#!">1</a></li>
+                                <li ><a href="#!">2</a></li>
+                                <li ><a href="#!">3</a></li>
+                                <li ><a href="#!">4</a></li>
+                                <li ><a href="#!">5</a></li>
+                                <li ><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                            </ul>
                         </div>
+
+
 
             </div>
 
@@ -377,7 +429,7 @@ componentDidMount(){
 
 const mapStateToProps = (state) => {
     return {
-        notifications: state.notification.notifications
+        notifications: state.notifications.notifications
 
     }
 }

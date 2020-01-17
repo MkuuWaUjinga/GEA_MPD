@@ -53,10 +53,6 @@ handleTaskFormSubmit = (e) => {
     this.setState({task_title:'', task_description:''});
 }
 
-changeTab = (newActiveTab) => {
-  this.props.changeActiveTab(newActiveTab)
-}
-
 
 
 
@@ -169,7 +165,7 @@ changeTab = (newActiveTab) => {
 
         >
           <li className="tab col s2">
-            <a href="#test-swipe-1" onClick={() => this.props.changeActiveTab("FARMER")}><div className="spocContactInfoIcon farmer"><span>Me</span></div></a>
+            <a href="#test-swipe-1" ><div className="spocContactInfoIcon farmer"><span>Me</span></div></a>
           </li>
           <li className="tab col s2">
             <a href="#test-swipe-2 "><div className="spocContactInfoIcon vet">JV</div></a>
