@@ -7,6 +7,7 @@ import './dashboard.css';
 import {weatherIcon} from '../../assets/img/weatherIcon.png';
 import {fetchUser} from '../../store/APIactions/fetchUser';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 
 
 class MainDashboardView extends Component {
@@ -19,8 +20,8 @@ class MainDashboardView extends Component {
 
 
     render() {
-        const {notifications} = this.props;
-        console.log("these are the notifications", this.props.notifications);
+        const {notifications} = this.props.notifications;
+        console.log("these are the notifications", notifications);
         const weatherIcon = require('../../assets/img/weatherIcon.png');
         return(
             <div className="main_dashboard container row">
@@ -47,12 +48,12 @@ class MainDashboardView extends Component {
             <div className="business_kpis">
                     <div className="kpi_block">
                         <p>Date</p>
-                        <p>Sat, 9th Oct</p>
+                        <p>{moment().format("MMM Do YYYY")} </p>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
                         <p>Time</p>
-                        <p>8:34</p>
+                        <p>{moment().format('LT')}</p>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
@@ -63,17 +64,15 @@ class MainDashboardView extends Component {
                     </div> 
                     <div className="kpi_block">
                         <p>Temperature</p>
-                        <p>24°</p>
+                        <p>4°C</p>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
                         <p>Estimated outcome</p>
-                        <p>$4523.34</p>
+                        <p>€ 14.210</p>
                         <i className="material-icons">more_vert</i>
                     </div> 
             </div>
-
-
 
                 <div className="kpi_boards col xl9">
                     <div className="row">
@@ -109,7 +108,7 @@ class MainDashboardView extends Component {
                                                 <hr></hr>
                                                 <li>
                                                     <div className="keyValue">
-                                                        <p>Milking time (min)</p>
+                                                        <p> &empty; Milking time (min)</p>
                                                         <p className="KPIdigit">6</p>
                                                         <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>

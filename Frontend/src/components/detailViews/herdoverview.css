@@ -79,6 +79,14 @@ span.sectionHeadline {
       margin-right: 50px;
   }
 
+  .SomaticCellCountContainer .subheadline {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .SomaticCellCountContainer .subheadline input{
+
+  }
 
   .SomaticCellCountContainer h4{
     font-size: 1.3em;
@@ -210,3 +218,7 @@ margin: 0 ;
       cursor: default; }
   .tabs-vertical .indicator {
     display: none; }
+
+    /* */
+
+

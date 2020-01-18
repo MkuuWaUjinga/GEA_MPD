@@ -9,17 +9,27 @@ state = {
 
 componentDidMount (){
     M.AutoInit();
+    console.log("Payload", this.props.payload)
 }
 
 constructor(props){
     super(props); 
     this.state = {
         chartData:{
-            labels: ['01.02.19','02.02.19','03.02.19','04.02.19','05.02.19','06.02.19','07.02.19'],
+            labels: [props.payload.date],
+                    /*[
+                        '01.02.19',
+                        '02.02.19',
+                        '03.02.19',
+                        '04.02.19',
+                        '05.02.19',
+                        '06.02.19',
+                        '07.02.19'
+                    ], */
             datasets: [
                 {
                     label: 'Somatic Cell Count',
-                    data: props.payload
+                    data: props.payload.value
                     /*[
                         64500,
                         65450,
