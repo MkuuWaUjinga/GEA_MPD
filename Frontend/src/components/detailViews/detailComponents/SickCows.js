@@ -79,84 +79,20 @@ class SickCows extends Component {
                                             >
                                                 <Card
                                                     actions={[
-                                                        <a key="1" href="#">This is a link</a>,
-                                                        <a key="2" href="#">This is a link</a>
+                                                        <a key="1" href="#">This is a link</a>
                                                     ]}
-                                                    className="blue-grey darken-1"
-                                                    closeIcon={<Icon>close</Icon>}
-                                                    revealIcon={<Icon>more_vert</Icon>}
-                                                    textClassName="white-text"
-                                                    title="Card title"
+                                                    className="card-content black-text"
+                                                    title={"Cow ID:" + cowData.cow_id}
                                                 >
-                                                    I am a very simple card.
+                                                    <SCC payload={cowData.scc_data}/> <p>ye works</p>
                                                 </Card>
-                                                <Card>
-                                                    <div className="card-content black-text">
-
-                                                        <p>Cow-ID: {cowData.cow_id}</p>
-                                                        {this.state.collapsed ?
-                                                            <div><SCC payload={cowData.scc_data}/> <p>ye works</p>
-                                                            </div> : <p>No Diagram data available</p>}
-
-                                                    </div>
-                                                </Card>
-
                                             </Tab>
                                         )
                                     })
                                 ) : (<p>nope</p>)}
 
                             </Tabs>
-                            <ul className="tabs">
-                                <li className="tab" style={{display: "none"}}>
-                                    <a className="waves-effect waves-cyan" href="#cow1"><i className="zmdi zmdi-apps"></i>loool</a>
-                                </li>
-                                {notification.proof ? (
-                                    notification.proof.map(cowData => {
-                                        return (
-                                            <li className="tab" key={cowData.cow_id}>
-                                                <a className="waves-effect waves-cyan" href={"#" + cowData.cow_id}><i
-                                                    className="zmdi zmdi-apps"></i>{cowData.cow_id}
-                                                </a>
-                                            </li>
-                                        )
-                                    })
-                                ) : (<p>nope</p>)}
-
-                            </ul>
                         </div>
-
-
-                        {notification.proof ? (
-                            notification.proof.map(cowData => {
-                                return (
-                                    <div className="col l12">
-                                        <div id={cowData.cow_id} className="tab-content">{cowData.notification_title}
-                                            <div className="row">
-                                                <div className="col l12" key={cowData.cow_id}>
-                                                    <div className="card blue lighten-5">
-                                                        <div className="card-content black-text">
-
-                                                            <p>Cow-ID: {cowData.cow_id}</p>
-                                                            {this.state.collapsed ?
-                                                                <div><SCC payload={cowData.scc_data}/> <p>ye works</p>
-                                                                </div> : <p>No Diagram data available</p>}
-
-                                                        </div>
-                                                        <div className="card-action">
-                                                            <a href="#">Put cow under treatment</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        ) : (<p>nope</p>)}
-
-
                     </div>
 
 

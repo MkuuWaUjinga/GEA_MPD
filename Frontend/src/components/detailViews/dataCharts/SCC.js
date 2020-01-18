@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Line} from 'react-chartjs-2';
-import M from 'materialize-css';  
 class SomaticCellCountView extends Component {
 
 state = {
@@ -8,10 +7,6 @@ SomaticCellCountView
 }
 
 componentDidMount (){
-    M.AutoInit();
-
-
-
     const payloadData = this.props.payload;
     console.log(payloadData);
     let labelarray= [];
@@ -84,11 +79,11 @@ constructor(props){
                         <div className="SomaticCellCountChart">
                             <Line
                                 data={this.state.chartData}
-                                width={100}
-                                height={250}
+                                width={500}
+                                height={500}
                                 options={{
                                     maintainAspectRatio: false,
-                                    responsive: true
+                                    responsive: false
                                 }}
                             />
                         </div>
