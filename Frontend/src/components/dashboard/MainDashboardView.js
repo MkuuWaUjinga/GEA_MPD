@@ -21,7 +21,6 @@ class MainDashboardView extends Component {
 
     render() {
         const {notifications} = this.props.notifications;
-        console.log("these are the notifications", notifications);
         const weatherIcon = require('../../assets/img/weatherIcon.png');
         return(
             <div className="main_dashboard container row">
