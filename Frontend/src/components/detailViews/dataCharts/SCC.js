@@ -4,7 +4,7 @@ import M from 'materialize-css';
 class SomaticCellCountView extends Component {
 
 state = {
-
+SomaticCellCountView
 }
 
 componentDidMount (){
@@ -13,6 +13,7 @@ componentDidMount (){
 
 
     const payloadData = this.props.payload;
+    console.log(payloadData);
     let labelarray= [];
     let cowarray = [];
 
