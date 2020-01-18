@@ -23,7 +23,6 @@ class SignedInLinks extends Component {
     }
 
     handleNotificationToggle = () => {
-        console.log(this.props.isActive)
         if (this.props.isActive === true) {
             this.props.toggleNotification(false)
         } else {
