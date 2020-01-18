@@ -23,7 +23,7 @@ function App() {
             <Route path="/signup" component={SignUp} />
             <Route path="/detailHerdOverview" component={DetailHerdOverview} />
             <Route path="/detailHerdOverview/SickCows" component={SickCows} />
-            <Route path="/chat" component={MainChatView} />
+            <Route path="/chat/:chat_id" component={MainChatView} />
         </Switch>
       </div>
     </BrowserRouter>

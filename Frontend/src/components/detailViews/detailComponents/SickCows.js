@@ -60,70 +60,70 @@ class SickCows extends Component {
             notis.map(notification => {
                 return (
                     <div className="tabs-vertical ">
-                            <div className="col s4 m3 l2">
-                                    <ul class="tabs">
-                                         
-                                            <li className="tab" style={{display: "none"}}>
-                                                <a className="waves-effect waves-cyan" href="#cow1"><i className="zmdi zmdi-apps"></i>loool</a>
-                                            </li>
-                                        
-                                            {notification.proof ? (
-                                                notification.proof.map(cowData => {
-                                                    return (
-                                                        <li className="tab">
-                                                            <a className="waves-effect waves-cyan" href={"#"+cowData.cow_id}><i className="zmdi zmdi-apps"></i>{cowData.cow_id}
-                                                                             
-                                                                        
-                                                            
-                                                            </a>
-                                                        </li>
-                                                    )
-                                                })
-                                            ) : (<p>nope</p>)}
+                        <div className="col s4 m3 l2">
+                            <ul class="tabs">
 
-              
- 
-                                    </ul>
-                            </div>
-                         
-                       
+                                <li className="tab" style={{ display: "none" }}>
+                                    <a className="waves-effect waves-cyan" href="#cow1"><i className="zmdi zmdi-apps"></i>loool</a>
+                                </li>
+
+                                {notification.proof ? (
+                                    notification.proof.map(cowData => {
+                                        return (
+                                            <li className="tab">
+                                                <a className="waves-effect waves-cyan" href={"#" + cowData.cow_id}><i className="zmdi zmdi-apps"></i>{cowData.cow_id}
+
+
+
+                                                </a>
+                                            </li>
+                                        )
+                                    })
+                                ) : (<p>nope</p>)}
+
+
+
+                            </ul>
+                        </div>
+
+
 
                         {notification.proof ? (
                             notification.proof.map(cowData => {
                                 return (
-                                         <div class="col l12">
-                                            <div id={cowData.cow_id} className="tab-content">{cowData.notification_title}
-                                                    <div className="row">
-                                                                        <div className="col l12" key={cowData.cow_id}>
-                                                                                    <div className="card blue lighten-5">
-                                                                                        <div className="card-content black-text">
+                                    <div class="col l12">
+                                        <div id={cowData.cow_id} className="tab-content">{cowData.notification_title}
+                                            <div className="row">
+                                                <div className="col l12" key={cowData.cow_id}>
+                                                    <div className="card blue lighten-5">
+                                                        <div className="card-content black-text">
 
-                                                                                            <p>Cow-ID: {cowData.cow_id}</p>
-                                                                                            {this.state.collapsed ? <div> <SCC payload={cowData.scc_data} /> <p>ye works</p> </div>: <p>No Diagram data available</p>}
+                                                            <p>Cow-ID: {cowData.cow_id}</p>
+                                                            {this.state.collapsed ? <div> <SCC payload={cowData.scc_data} /> <p>ye works</p> </div> : <p>No Diagram data available</p>}
 
-                                                                                        </div>
-                                                                                        <div className="card-action">
-                                                                                            <a href="#">Put cow under treatment</a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                         
+                                                        </div>
+                                                        <div className="card-action">
+                                                            <a href="#">Put cow under treatment</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                                    )
-                                                })
-                                        ) : (<p>nope</p>)}
 
-                
-                </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        ) : (<p>nope</p>)}
+
+
+                    </div>
 
 
                 )
             })
 
 
-        ) : ( <p>No notifications yet...</p>);
+        ) : (<p>No notifications yet...</p>);
 
 
         /* _____________________________________________*/
@@ -336,16 +336,16 @@ class SickCows extends Component {
                 </div>
 
                 <div className="NotificationsSomaticCellCount">
-                    
+
                     <div className="notiSCCheadline">
                         <i className="small material-icons left">notifications</i>
                         <h4>Notifcations</h4>
                     </div>
-                        <div className="notiSCCheadlineSearch">
-                             <input type="text" value="17. Jan 20 - Today, 24 Jan 20" className="datepicker" />
-                             <input type="text" placeholder="Search..." className="searchbar" ></input>
-                        </div>
-  
+                    <div className="notiSCCheadlineSearch">
+                        <input type="text" value="17. Jan 20 - Today, 24 Jan 20" className="datepicker" />
+                        <input type="text" placeholder="Search..." className="searchbar" ></input>
+                    </div>
+
 
                     <div>
                         <h5>24th Jan. 2020</h5>
@@ -426,7 +426,7 @@ class SickCows extends Component {
                                         <div className="col l12">
 
 
-                                         {notificationTab} 
+                                            {notificationTab}
                                             {/*AB HIER TAB ersetzen 
                                             
                                             <div class="tabs-vertical ">

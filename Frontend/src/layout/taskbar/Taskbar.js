@@ -54,14 +54,13 @@ handleTaskFormSubmit = (e) => {
 }
 
 
-
-
     render() {
         const {tasks} = this.props;
         const taskList = tasks.length ? (
             tasks.map(task => {
                 return (
-                    <div className="card herdmgmt" key={task.id}>
+                  <NavLink to={"/chat/"+ task.id} >
+                    <div className="card herdmgmt" key={task.id} onClick={()=> this.handleOpenChat(task)}>
                         <div className="card-content">
                             <span className="card-title">{task.title}</span>
                             <i className="material-icons chat">chat</i>
@@ -106,6 +105,7 @@ handleTaskFormSubmit = (e) => {
 
                         </div>
                     </div>
+                    </NavLink>
                 )
             })
         ) : (
