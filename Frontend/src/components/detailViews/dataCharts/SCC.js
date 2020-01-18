@@ -9,14 +9,44 @@ state = {
 
 componentDidMount (){
     M.AutoInit();
-    console.log("Payload", this.props.payload)
+
+
+
+    const payloadData = this.props.payload;
+    let labelarray= [];
+    let cowarray = [];
+
+    payloadData.map (x => {
+       labelarray.push(x.date);
+       cowarray.push(x.value);
+    })
+
+    let newChartData = {
+        labels : labelarray,
+        datasets : [{
+            label: 'Somatic Cell Count',
+            data: cowarray
+        }]
+    }
+
+    this.setState ({
+        ...this.state,
+        chartData: newChartData
+
+    })
+
+
+
+
 }
+
+
 
 constructor(props){
     super(props); 
     this.state = {
         chartData:{
-            labels: [props.payload.date],
+            labels: [],
                     /*[
                         '01.02.19',
                         '02.02.19',
@@ -29,7 +59,7 @@ constructor(props){
             datasets: [
                 {
                     label: 'Somatic Cell Count',
-                    data: props.payload.value
+                    data: []
                     /*[
                         64500,
                         65450,

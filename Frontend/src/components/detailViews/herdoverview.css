@@ -130,7 +130,18 @@ ul.collapsible {
     margin-top: 70px;
     background-color: #EAEBF1;
     padding: 40px;
+    position: relative;
 
+}
+
+.notiSCCheadlineSearch {
+  
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top:0;
+  right: 20px;
 }
 
 /*Notifications___________ */

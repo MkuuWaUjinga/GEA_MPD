@@ -56,6 +56,78 @@ class SickCows extends Component {
         const notis = this.props.notifications.notifications;
         console.log("NOTIS", notis)
 
+        const notificationTab = notis ? (
+            notis.map(notification => {
+                return (
+                    <div className="tabs-vertical ">
+                            <div className="col s4 m3 l2">
+                                    <ul class="tabs">
+                                         
+                                            <li className="tab" style={{display: "none"}}>
+                                                <a className="waves-effect waves-cyan" href="#cow1"><i className="zmdi zmdi-apps"></i>loool</a>
+                                            </li>
+                                        
+                                            {notification.proof ? (
+                                                notification.proof.map(cowData => {
+                                                    return (
+                                                        <li className="tab">
+                                                            <a className="waves-effect waves-cyan" href={"#"+cowData.cow_id}><i className="zmdi zmdi-apps"></i>{cowData.cow_id}
+                                                                             
+                                                                        
+                                                            
+                                                            </a>
+                                                        </li>
+                                                    )
+                                                })
+                                            ) : (<p>nope</p>)}
+
+              
+ 
+                                    </ul>
+                            </div>
+                         
+                       
+
+                        {notification.proof ? (
+                            notification.proof.map(cowData => {
+                                return (
+                                         <div class="col l12">
+                                            <div id={cowData.cow_id} className="tab-content">{cowData.notification_title}
+                                                    <div className="row">
+                                                                        <div className="col l12" key={cowData.cow_id}>
+                                                                                    <div className="card blue lighten-5">
+                                                                                        <div className="card-content black-text">
+
+                                                                                            <p>Cow-ID: {cowData.cow_id}</p>
+                                                                                            {this.state.collapsed ? <div> <SCC payload={cowData.scc_data} /> <p>ye works</p> </div>: <p>No Diagram data available</p>}
+
+                                                                                        </div>
+                                                                                        <div className="card-action">
+                                                                                            <a href="#">Put cow under treatment</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                         
+                                            </div>
+                                        </div>
+                                                    )
+                                                })
+                                        ) : (<p>nope</p>)}
+
+                
+                </div>
+
+
+                )
+            })
+
+
+        ) : ( <p>No notifications yet...</p>);
+
+
+        /* _____________________________________________*/
+
         const notificationList = notis ? (
             notis.map(notification => {
                 return (
@@ -116,12 +188,6 @@ class SickCows extends Component {
                         </div>
                     </li>
 
-
-
-
-
-
-
                 )
             })
         ) : (
@@ -134,7 +200,7 @@ class SickCows extends Component {
             <div className="SomaticCellCountContainer">
                 <div className="subheadline">
                     <h4>Cows currently in treatment</h4>
-                    <input type="text" className="datepicker" defaultValue='22.2.2'/>
+                    <input type="text" className="datepicker" defaultValue='24.01.2020' />
                 </div>
 
                 <BarChart_SickCows />
@@ -270,8 +336,17 @@ class SickCows extends Component {
                 </div>
 
                 <div className="NotificationsSomaticCellCount">
-                    <div><i className="small material-icons left">notifications</i><h4>Notifcations</h4></div>
-                    <div className="notification_timepicker"><input type="text" className="datepicker" /><input type="text" placeholder="Search..." className="searchbar"></input></div>
+                    
+                    <div className="notiSCCheadline">
+                        <i className="small material-icons left">notifications</i>
+                        <h4>Notifcations</h4>
+                    </div>
+                        <div className="notiSCCheadlineSearch">
+                             <input type="text" value="17. Jan 20 - Today, 24 Jan 20" className="datepicker" />
+                             <input type="text" placeholder="Search..." className="searchbar" ></input>
+                        </div>
+  
+
                     <div>
                         <h5>24th Jan. 2020</h5>
                         <hr />
@@ -296,7 +371,7 @@ class SickCows extends Component {
                                         <div className="alarm_msg col l12">
                                             <i className="material-icons">error</i>
                                             <p>alarmmmmm</p>
-                                            <p>{console.log(this.props.notifications.notifications), this.props.notifications.notifications.length ? "lol" : "...not working"}
+                                            <p>{console.log("HIER", this.props.notifications.notifications), this.props.notifications.notifications.length ? "lol" : "...not working"}
                                             </p>
                                         </div>
                                     </div>
@@ -345,29 +420,38 @@ class SickCows extends Component {
 
                                 </div>
 
-                                {/*
-                                <div className="collapsible-body">
-                                <div className="row">
-                                    <div className="col l12">
 
-                                        <div class="tabs-vertical ">
+                                <div className="collapsible-body">
+                                    <div className="row">
+                                        <div className="col l12">
+
+
+                                         {notificationTab} 
+                                            {/*AB HIER TAB ersetzen 
+                                            
+                                            <div class="tabs-vertical ">
                                                 <div class="col s4 m3 l2">
                                                     <ul class="tabs">
-
+                                                        {/* 
                                                     {
-                                                        notifications.cows.length ? (
-                                                            notifications.cows.map(uniqueCowData => {
+                                                        this.props.notifications.notifications ? (
+                                                        
+                                                            this.props.notifications.notifications.proof.map(uniqueCowData => {
                                                                 return (
                                                                     
-                                                        <li class="tab">
-                                                            <a class="waves-effect waves-cyan" href={uniqueCowData.cow_id}><i class="zmdi zmdi-apps"></i>{uniqueCowData.cow_id}</a>
-                                                        </li>
+                                                                    <li class="tab">
+                                                                        <a class="waves-effect waves-cyan" href={uniqueCowData.cow_id}><i class="zmdi zmdi-apps"></i>{uniqueCowData.cow_id}</a>
+                                                                    </li>
                                                                 )
                                                             })
                                                         )
                                                      : (<p>no cow data</p>)
                                                     
                                                     }
+                                            
+                                                        <li class="tab">
+                                                            <a class="waves-effect waves-cyan" href="cow1"><i class="zmdi zmdi-apps"></i>loool</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col s8 m9 l6">
@@ -377,16 +461,22 @@ class SickCows extends Component {
                                                     <div id="cow4" class="tab-content">adhsfasdf</div>
                                                     <div id="cow5" class="tab-content">dsfkjsf</div>
                                                 </div>
-                                        </div>
-                                        </div>
-                                        </div>
+                                            </div>
+
+                                            BIS HIER TAB ersetzen */}
 
 
+                                        </div>
+                                    </div>
                                 </div>
 
 
 
-                                */}
+
+
+
+
+
                             </li>
 
                         </ul>
