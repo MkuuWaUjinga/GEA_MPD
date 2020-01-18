@@ -5,6 +5,8 @@ import HerdCount from '../detailViews/detailComponents/HerdCount'
 import SomaticCellCountView from './detailComponents/SickCows'
 import HerdIncrease from '../detailViews/detailComponents/HerdIncrease'
 import Lactation from '../detailViews/detailComponents/Lactation'
+import '../detailViews/herdoverview.css'
+import {NavLink} from 'react-router-dom';
 
 class DetailHerdOverview extends Component {
 
@@ -25,6 +27,7 @@ componentDidMount() {
     console.log("In degail herd:", this.props.location.aboutProps.link_id)
     this.handleSwitch(this.props.location.aboutProps.link_id);
     */
+   this.handleSwitch('SICK_COWS');
 }
 
 
@@ -55,59 +58,36 @@ renderComponent(){
 
 <div className="main_detail_dashboard row">
     <div className="detailviews col xl9">
-        <h2 className="center">Herd Overview</h2>
-    <div className="row center">
-        <div className="col l2">
-            <div className={this.state.displayedComponent === "HERD_COUNT" ? 'card lime active' : 'card'}  onClick={() => this.handleSwitch("HERD_COUNT")}>
-                <div className="card-content">
-                    <div className="keyValue">
+    {/*<span className="sectionHeadline"><NavLink to="/"> <i className="small material-icons left">chevron_left</i> Main Dashboard</NavLink> </span> */}
+    
+    <h2 className="sectionHeadline center">Herd Overview</h2> 
+    <span className="sectionHeadline"><NavLink to="/"> <i className="small material-icons left">chevron_left</i></NavLink> </span>
+
+        <div className="herd_overview_nav">
+                    <div className={this.state.displayedComponent === "HERD_COUNT" ? 'ho_nav_block active' : 'ho_nav_block'}  onClick={() => this.handleSwitch("HERD_COUNT")}>
                         <p>Total Herd Count</p>
                         <p className="KPIdigit">233</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="col l2">
-            <div className={this.state.displayedComponent === "LACTATION" ? 'card lime active' : 'card'}  onClick={() => this.handleSwitch("LACTATION")}>
-                <div className="card-content">
-                    <div className="keyValue">
+                    </div> 
+                    <div className={this.state.displayedComponent === "LACTATION" ? 'ho_nav_block active' : 'ho_nav_block'}  onClick={() => this.handleSwitch("LACTATION")}>
                         <p>Lactating Animals</p>
                         <p className="KPIdigit">213</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="col l2">
-            <div className={this.state.displayedComponent === "SICK_COWS" ? 'card lime active' : 'card'} onClick={() => this.handleSwitch("SICK_COWS")}>
-                <div className="card-content">
-                    <div className="keyValue">
+                    </div> 
+                    <div className={this.state.displayedComponent === "SICK_COWS" ? 'ho_nav_block active' : 'ho_nav_block'}  onClick={() => this.handleSwitch("SICK_COWS")}>
                         <p>Sick cows (Mastitis)</p>
                         <p className="KPIdigit">3</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="col l2">
-            <div className={this.state.displayedComponent === "CONCEPTION_RATE" ? 'card lime active' : 'card'} onClick={() => this.handleSwitch("CONCEPTION_RATE")}>
-                <div className="card-content">
-                    <div className="keyValue">
+                    </div> 
+                    <div className={this.state.displayedComponent === "CONCEPTION_RATE" ? 'ho_nav_block active' : 'ho_nav_block'}  onClick={() => this.handleSwitch("CONCEPTION_RATE")}>
                         <p>Conception Rate (%)</p>
                         <p className="KPIdigit">40</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div className="col l2">
-            <div className={this.state.displayedComponent === "HERD_INCREASE" ? 'card lime active' : 'card'} onClick={() => this.handleSwitch("HERD_INCREASE")}>
-                <div className="card-content">
-                    <div className="keyValue">
+                    </div> 
+                    <div className={this.state.displayedComponent === "HERD_INCREASE" ? 'ho_nav_block active' : 'ho_nav_block'}  onClick={() => this.handleSwitch("HERD_INCREASE")}>
                         <p>In/-Decrease Herd</p>
                         <p className="KPIdigit">-2.1</p>
-                    </div>
-                </div>
+                    </div> 
             </div>
-        </div>
-    </div>
+
+
+
 
 {this.renderComponent()}
 

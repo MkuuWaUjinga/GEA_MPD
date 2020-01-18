@@ -231,26 +231,47 @@ div.keyValue {
   left: 60px;
   border-radius: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
+  display: table;
+  table-layout: fixed;
 }
 
 .business_kpis div {
-  float: left;
-  width: 300px;
-  background-color: white;
-  position: relative;
-  margin: 5px;
-  padding-left: 30px;
-
+display: table-cell;
+text-align: left;
+padding-left:20px;
 }
 
 .business_kpis div:not(:last-child) {
   border-right: solid 1px #cbd1d4;
 }
 
-.business_kpis .material-icons {
-  position: absolute;
-  top:0;
-  right: 0;
+.kpi_block {
+  position: relative
+}
+
+.kpi_block p:nth-child(2) {
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height:0px;
+  padding-top:6px;
+}
+.kpi_block p:nth-child(1) {
+  font-size: 0.9em;
+  padding-top:3px;
+}
+.kpi_block .material-icons{
+position: absolute;
+top:14px;
+right:0;
+color:#AAAAAA ;
+}
+
+.kpi_block img {
+  height:55px;
+  float: left;
+  margin-top:-15px;
+  margin-right: 15px;
+  opacity: 0.4;
 }
 
 
@@ -259,21 +280,34 @@ div.keyValue {
 div.timeframe_box {
   height: 50px;
   width: 70%;
-  background-color: red;
   position: absolute;
   top: 80px;
   left: 60px;
   border-radius: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
+  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);*/
+  display: table;
+  table-layout: fixed;
 }
 
 .timeframe_box div {
-  float: left;
-  width: 350px;
-  height: 30px;
-  background-color: white;
-  position: relative;
-  margin: 5px;
-  padding-left: 30px;
-
+display: table-cell;
+background-color: #558EE3;
+text-align: center;
+color: white;
 }
+
+.timeframe_box div:nth-child(1){
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.timeframe_box div:nth-child(5){
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.time_block:hover {
+  background-color: #3D639E;
+  border-radius: 5px;
+  border-radius: 5px;
+}
+

@@ -6,8 +6,6 @@ from functools import wraps
 
 dynamo_db_client = boto3.resource('dynamodb')
 
-# ''.join([random.choice(string.ascii_letters + string.digits) for n in range(32)])
-
 def dump_json_body(handler):
 
     @wraps(handler)
@@ -60,8 +58,8 @@ def get_user(user_id, stage):
             'userId': user_id
         }
     )['Item']
-    user_view(user)
-    return user
+    return user_view(user)
 
 def user_view(user):
+    del user['cows']
     return user

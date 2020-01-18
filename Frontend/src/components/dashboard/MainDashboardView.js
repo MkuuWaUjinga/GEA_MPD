@@ -4,17 +4,33 @@ import Taskbar from '../../../src/layout/taskbar/Taskbar'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux'
 import './dashboard.css';
+import {weatherIcon} from '../../assets/img/weatherIcon.png';
+import {fetchUser} from '../../store/APIactions/fetchUser';
+import { bindActionCreators } from 'redux';
+import moment from 'moment';
+
 
 class MainDashboardView extends Component {
+
+    componentDidMount () {
+            //FETCH_USER
+            this.props.getUser();
+    }
+
+
+
     render() {
-        const {notifications} = this.props;
+        const {notifications} = this.props.notifications;
+        console.log("these are the notifications", notifications);
+        const weatherIcon = require('../../assets/img/weatherIcon.png');
         return(
             <div className="main_dashboard container row">
 
         <div className="timeframe_box">
+                
                     <div className="time_block">
                         <p>Today</p>
-                    </div> 
+                    </div>
                     <div className="time_block">
                         <p>Week</p>
                     </div> 
@@ -32,32 +48,31 @@ class MainDashboardView extends Component {
             <div className="business_kpis">
                     <div className="kpi_block">
                         <p>Date</p>
-                        <p>Sat, 9th Oct</p>
+                        <p>{moment().format("MMM Do YYYY")} </p>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
                         <p>Time</p>
-                        <p>8:34</p>
+                        <p>{moment().format('LT')}</p>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
                         <p>Weather</p>
-                        <p>Rainy</p>
+                        <span><img src={weatherIcon} alt="weather icon"></img>
+                        <p>Rainy</p></span>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
                         <p>Temperature</p>
-                        <p>24°</p>
+                        <p>4°C</p>
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
                         <p>Estimated outcome</p>
-                        <p>$4523.34</p>
+                        <p>€ 14.210</p>
                         <i className="material-icons">more_vert</i>
                     </div> 
             </div>
-
-
 
                 <div className="kpi_boards col xl9">
                     <div className="row">
@@ -93,7 +108,7 @@ class MainDashboardView extends Component {
                                                 <hr></hr>
                                                 <li>
                                                     <div className="keyValue">
-                                                        <p>Milking time (min)</p>
+                                                        <p> &empty; Milking time (min)</p>
                                                         <p className="KPIdigit">6</p>
                                                         <p className="kpi_timestamp">Sat 9, 8:32</p>
                                                     </div>
@@ -153,7 +168,7 @@ class MainDashboardView extends Component {
                                         <div className="row">
                                             <div className="col l8">
                                                 <div className="box_icon valign-wrapper">
-                                                        <i className="material-icons">assessment</i>
+                                                        <i className="material-icons">bubble_chart</i>
                                                 </div>
                                                     <h5>Herd Overview</h5>
                                                     <div className="kpiDiagram herd_mgmt_container">
@@ -229,7 +244,7 @@ class MainDashboardView extends Component {
                                                 <div className="box_icon valign-wrapper">
                                                         <i className="material-icons">build</i>
                                                 </div>
-                                                    <h5>Herd Overview</h5>
+                                                    <h5>Machine Management</h5>
                                                     <div className="kpiDiagram machine_mgmt_container">
 
                                                 </div>
@@ -264,6 +279,19 @@ class MainDashboardView extends Component {
             </div>
         )
     }
+
 }
 
-export default MainDashboardView;
+const mapStateToProps = (state) => {
+    return {
+        notifications: state.notifications,
+    }
+};
+
+function mapDispatchToProps(dispatch) {
+    return {
+      getUser: bindActionCreators(fetchUser, dispatch)
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainDashboardView);

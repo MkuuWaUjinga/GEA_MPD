@@ -1,15 +1,17 @@
 import uuid from 'react-uuid';
 import {TOGGLE_NOTIFICATION} from '../actions/toggleNotification';
+import {FETCH_USER} from '../APIactions/fetchUser';
+
 
 const initState = {
     notifications: [
         {id: uuid(),
         date: '23/10/19',
         time: '8:24',
-        title:"Important - Abnormal Somatic Cell Count detected", 
+        title:"15:25 - Abnormal Somatic Cell Count detected", 
         content: '5 cows show a high somatic cell count',
         category: 'DetailHerdOverview/SickCows',
-        cows: [
+        cows: [ //proof?!
             {
                 cow_id: 124123,
                 SCC: [
@@ -72,72 +74,10 @@ const initState = {
             },
 
         ]
-        },
-/*
-        {id: uuid(),
-            date: '23/10/19',
-            time: '4:24',
-            title:"Warning - blasbdfaldsfdslf", 
-            content: 'XYZ',
-            category: 'DetailHerdOverview/SickCows',
-            cows: [
-                {
-                    cow_id: 235324,
-                    SCC: [
-                        43634,
-                        43634,
-                        36000,
-                        54345,
-                        23425,
-                        59776,
-                        83454
-                    ]
-                }
-    
-            ]
-            },
-
-            {id: uuid(),
-                date: '23/10/19',
-                time: '2:24',
-                title:"Note - blasbsdfasdf", 
-                content: 'XYZ',
-                category: 'DetailHerdOverview/SickCows',
-                cows: [
-                    {
-                        cow_id: 235324,
-                        SCC: [
-                            43634,
-                            43634,
-                            36000,
-                            54345,
-                            23425,
-                            59776,
-                            93454
-                        ]
-                    },
-                    {
-                        cow_id: 24353245,
-                        SCC: [
-                            43634,
-                            43634,
-                            36000,
-                            54345,
-                            23425,
-                            59776,
-                            83454
-                        ]
-                    },
-        
-                ]
-                },
-    
-
-            
-*/
+        }
     ],
     isActive: false
-}
+};
 
 const notificationReducer = (state = initState, action) => {
     switch (action.type) {
@@ -148,11 +88,15 @@ const notificationReducer = (state = initState, action) => {
                 isActive: newStatus
             } 
         }
-
+        case FETCH_USER:
+            return Object.assign(
+                {}, state, {
+                    notifications: action.notifications
+                });
         default: {
             return state;
         }
     }
-}
+};
 
 export default notificationReducer

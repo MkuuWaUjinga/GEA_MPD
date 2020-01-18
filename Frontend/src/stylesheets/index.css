@@ -73,14 +73,30 @@ nav.nav-wrapper{
   box-shadow: none;
 }
 
+.nav-wrapper .container {
+  margin-left: 40px;
+}
+
 .nav_background {
+  /*
   background-image: url(../assets//img//nav_background.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 220px;;
+  height: 220px;*/
+  height:220px;
+  background: rgb(104,190,245);
+  background: linear-gradient(162deg, rgba(104,190,245,1) 9%, rgba(80,162,251,1) 48%);
+  border-bottom-left-radius: 30px;
 }
 
+.brand-logo img {
+  height: 50px;
+}
 
+ul.right {
+  position: absolute;
+  right: 5%;
+}
 /*Detail Somatic Cell Count View*/
 
 .CowID {
@@ -100,28 +116,7 @@ nav.nav-wrapper{
   flex: 0 1 auto; /* Default */
   list-style-type: none;
 }
-.taskBox {
-  height: 100%;
-  max-height: 100%;
-}
 
-.taskBox .card-content {
-  padding-top: 0.3em !important;
-  padding-left: 2.5em !important;
-  padding-right: 2.5em !important;
-  font-size: 0.8em;
-}
-
-.taskBox .card {
-  height: 100px;
-}
-
-
-.taskBox .card-title {
-  font-size: 1.3em !important;
-  font-weight: bold !important;
-  margin-bottom: 0 !important;
-}
 
 .collapsible .collapsible-header{
   margin: 0 !important;
@@ -159,6 +154,7 @@ nav.nav-wrapper{
   height: 100vh;
   max-height: 100vh;
   background-color: transparent;
+  padding-top:60px !important;
 }
 
 .task_sidebar {

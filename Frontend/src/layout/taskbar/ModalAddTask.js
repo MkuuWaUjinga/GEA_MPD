@@ -36,6 +36,7 @@ componentDidMount() {
             endingTop: "10%"
           };
           M.Modal.init(this.Modal, options);
+          
 }
 
 
@@ -67,7 +68,7 @@ handleTaskFormSubmit = (e) => {
    <div>
            
 
-      <a className="waves-effect waves-light btn modal-trigger" data-target="ModalAddTask">Create new Task</a>
+      <a className="btn modal-trigger" data-target="ModalAddTask"><i className="large material-icons ">add</i></a>
 
         <div ref={Modal => {this.Modal = Modal}}
           id="ModalAddTask"
