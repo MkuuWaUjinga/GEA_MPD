@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Line} from 'react-chartjs-2';
-import M from 'materialize-css';
-
 import BarChart_SickCows from '../dataCharts/BarChart_SickCows';
 import SCC from '../dataCharts/SCC';
-import ModalContactSpoc from '../../../layout/contactSPOC/ModalContactSpoc';
-import ModalAddTask from '../../../layout/taskbar/ModalAddTask';
 import {fetchUser} from '../../../store/APIactions/fetchUser';
 import {bindActionCreators} from 'redux';
 import "materialize-css/dist/css/materialize.min.css";
-import {NavLink} from 'react-router-dom';
-import {Tab, Tabs, Card} from 'react-materialize';
+import {Tab, Tabs, Card, Collapsible, CollapsibleItem, Icon} from 'react-materialize';
 
 class SickCows extends Component {
 
@@ -23,31 +17,6 @@ class SickCows extends Component {
         //FETCH_USER
         // TODO implement check whether notification were already fetched before. Refetch just for testing.
         this.props.getUser();
-
-
-        var elems = document.querySelectorAll('.datepicker');
-
-        const optionsDatePicker = {
-            defaultDate: true
-        }
-
-
-        const optionsCollapsible = {
-            onOpenStart: () => {
-                setTimeout(function () {
-                    this.setState({collapsed: true});
-                    console.log("Open Start-1", this.state.collapsed);
-
-                }.bind(this), 100);
-            },
-
-            onCloseEnd: () => {
-                this.setState({collapsed: false});
-                console.log("collapsed state_END", this.state.collapsed)
-            },
-        }
-        M.Collapsible.init(this.Collapsible, optionsCollapsible);
-        M.Datepicker.init(elems, optionsCollapsible);
     }
 
 
@@ -84,7 +53,7 @@ class SickCows extends Component {
                                                     className="card-content black-text"
                                                     title={"Cow ID:" + cowData.cow_id}
                                                 >
-                                                    <SCC payload={cowData.scc_data}/> <p>ye works</p>
+                                                    <SCC payload={cowData.scc_data}/>
                                                 </Card>
                                             </Tab>
                                         )
@@ -265,39 +234,17 @@ class SickCows extends Component {
                     <div>
                         <h5>24th Jan. 2020</h5>
                         <hr/>
-                        <ul className="collapsible" ref={Collapsible => {
-                            this.Collapsible = Collapsible;
-                        }}>
-                            <li>
-                                <div className="collapsible-header">
-                                    <div className="row">
-                                        <div className="col l12">
-                                            <h6>10:11 - Cow #1234 is sick</h6>
-                                        </div>
-                                        <div className="alarm_msg col l12">
-                                            <i className="material-icons">error</i>
-                                            <p>alarmmmmm</p>
-                                        </div>
-                                    </div>
+                        <Collapsible accordion>
+                            <CollapsibleItem
+                                expanded={false}
+                                header="10:11 - Cow #1234 is sick"
+                                icon={<Icon>error</Icon>}
+                                node="div"
+                            >
+                                {notificationTab}
+                            </CollapsibleItem>
+                        </Collapsible>
 
-                                </div>
-
-
-                                <div className="collapsible-body">
-                                    <div className="row">
-                                        <div className="col l12">
-
-
-                                            {notificationTab}
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </li>
-
-                        </ul>
                     </div>
 
                     <ul className="pagination">
@@ -310,8 +257,6 @@ class SickCows extends Component {
                         <li><a href="#!"><i className="material-icons">chevron_right</i></a></li>
                     </ul>
                 </div>
-
-
             </div>
 
 
