@@ -13,8 +13,8 @@ class SomaticCellCountView extends Component {
         let cowarray = [];
 
         payloadData.map(x => {
-            var date = x.date.split(":")[0].split("-").reverse().join(".");
-            var time = x.date.split(":").slice(1, -1).join(":");
+            const date = x.date.split(":")[0].split("-").reverse().join(".");
+            let time = x.date.split(":").slice(1, -1).join(":");
             time = SomaticCellCountView.processTime(time);
             labelarray.push(date + " " + time);
             cowarray.push(x.value);
