@@ -145,7 +145,7 @@ class Taskbar extends Component {
                                                     <div><i className="material-icons">markunread</i>{spoc.email}</div>
                                                 </div>
                                             </div>
-                                            <h4>Tasks</h4>
+                                            <h4 className="task-header">Tasks</h4>
                                             <input type="text" placeholder="Search..." className="searchbar"></input>
                                             <h6>Active</h6>
                                             <div className="tasklist_container">
