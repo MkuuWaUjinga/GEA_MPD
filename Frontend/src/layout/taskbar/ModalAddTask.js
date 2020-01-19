@@ -88,7 +88,7 @@ setSpocId (id) {
       const todoList = todos.length ? (
         todos.map( todo => {
           return (
-          <li>{todo}</li>
+          <li key="todo-input">{todo}</li>
           )
         })
  
@@ -99,7 +99,7 @@ setSpocId (id) {
        
    <div>
            
-      <a className="waves-effect waves-light btn modal-trigger modalAddTask" data-target="ModalAddTask"><i class="material-icons left">send</i> Create Task</a>
+      <a className="waves-effect waves-light btn modal-trigger modalAddTask" data-target="ModalAddTask"><i className="material-icons left">send</i> Create Task</a>
 
         <div ref={Modal => {this.Modal = Modal}}
           id="ModalAddTask"
@@ -108,7 +108,7 @@ setSpocId (id) {
             <div className="modal-content">
               <div className="modalHeader">
                 <a href="#" className="modal-close">
-                        <i class="material-icons">close</i>
+                        <i className="material-icons">close</i>
                   </a>
 
                   <p>Assign Task:</p>
@@ -165,7 +165,7 @@ setSpocId (id) {
 
                 <div className="input-field ">
                   <input id="todo" type="text" className="todoInput" placeholder="Add a To Do" onChange={this.handleTaskFormChange}/>
-                  <label for="todo">To Do List</label>
+                  <label htmlFor="todo">To Do List</label>
                   <a className="btn-floating btn-large waves-effect waves-light blue" onClick={this.addTodo}><i className="material-icons">add</i></a>
 
                 </div>
@@ -180,7 +180,7 @@ setSpocId (id) {
                   <div className="ctaBar">
                       <i className="material-icons addMsg left">attach_file</i>
                       <i className="material-icons addMsg left">photo_camera</i>
-                      <a className="btn modal-close" onClick={this.handleTaskFormSubmit}><i class="material-icons left">send</i>Create Task</a>
+                      <a className="btn modal-close" onClick={this.handleTaskFormSubmit}><i className="material-icons left">send</i>Create Task</a>
 
                   </div>
 

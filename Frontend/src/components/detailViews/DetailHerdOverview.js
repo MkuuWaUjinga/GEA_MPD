@@ -3,6 +3,7 @@ import Taskbar from '../../layout/taskbar/Taskbar'
 import ConceptionRate from '../detailViews/detailComponents/ConceptionRate'
 import HerdCount from '../detailViews/detailComponents/HerdCount'
 import SomaticCellCountView from './detailComponents/SickCows'
+import SickCows from './detailComponents/SickCows'
 import HerdIncrease from '../detailViews/detailComponents/HerdIncrease'
 import Lactation from '../detailViews/detailComponents/Lactation'
 import '../detailViews/herdoverview.css'
@@ -12,7 +13,7 @@ class DetailHerdOverview extends Component {
 
     state = {
         displayedComponent: ""
-    }
+    };
 
 
     constructor(props) {
@@ -41,7 +42,7 @@ class DetailHerdOverview extends Component {
             case "LACTATION":
                 return <Lactation/>
             case "SICK_COWS":
-                return <SomaticCellCountView/>
+                return <SickCows/>
             case "CONCEPTION_RATE":
                 return <ConceptionRate/>
             case "HERD_INCREASE":
@@ -101,7 +102,7 @@ class DetailHerdOverview extends Component {
 
                 </div>
 
-                <Taskbar/>
+                <Taskbar />
             </div>
 
         )

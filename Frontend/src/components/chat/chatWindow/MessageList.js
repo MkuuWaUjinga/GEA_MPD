@@ -9,8 +9,8 @@ import {fetchTasks} from '../../../store/APIactions/fetchTasks'
 class MessageList extends Component {
 
       componentDidMount() {
-          this.props.getUser();
-          this.props.getTasks();
+          //this.props.getUser();
+          //this.props.getTasks();
     }
 
 

@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {deleteTask} from "../../store/actions/deleteTask";
 import {addTask} from "../../store/actions/addTask";
 import ModalAddTask from '../taskbar/ModalAddTask';
-import "materialize-css/dist/css/materialize.min.css";
 import "./taskbar.css";
 import {Tabs, Tab} from "react-materialize";
 import {fetchTasks} from '../../store/APIactions/fetchTasks';
@@ -88,7 +87,7 @@ class Taskbar extends Component {
         const spocs = this.props.spocs;
         const bar = <div>
             <Tabs className="tabs-swipe-demo">
-                <Tab className="col s2"
+                <Tab className="col s2" key={this.props.user.userId}
                      options={{
                          duration: 300,
                          onShow: null,
