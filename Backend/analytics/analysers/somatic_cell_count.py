@@ -39,7 +39,7 @@ class SomaticCellCountAnalyser(Analyser):
 
         if cows_with_mastritis_suspicion:
             return Notification(
-                title=f"Abnormal somatic cell count detected in {len(cows_with_mastritis_suspicion)} cows",
+                title=f"Abnormal somatic cell count detected for {len(cows_with_mastritis_suspicion)} cows",
                 escalation_status="alarm",
                 proof=cows_with_mastritis_suspicion,
                 notification_type="Somatic Cell Count Alert")
