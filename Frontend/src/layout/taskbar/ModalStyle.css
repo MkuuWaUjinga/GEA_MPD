@@ -1,0 +1,85 @@
+#ModalAddTask {
+    background-color: red;
+    height: 1500px;
+    border-radius: 20px;
+}
+
+#ModalAddTask .modal-content {
+    padding:0;
+}
+
+.modal-content .modalHeader {
+    height: 230px;
+    background-color: #FDA970;
+}
+
+.modal-content .spocList {
+    margin-left: 150px;
+}
+
+#ModalAddTask > div > div.modalHeader > div {
+    background-color: transparent;
+}
+
+a.modalAddTask {
+    float:right;
+    background-color:  #FDA970;
+    color: white;
+}
+
+.modalHeader {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.modalHeader p:first-of-type {
+    font-weight: bold;
+    color: rgb(99, 86, 74);
+}
+
+.spocsList {
+    display: flex;
+    flex-direction: row;
+}
+
+.spocsList div {
+    margin-right: 10px;
+}
+
+div.singleSPOC {
+    width:150px;
+    height: 150px;
+    background-color: transparent !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+
+#ModalAddTask > div > div.modalHeader > div > div > img {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    align-self: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+div.singleSPOC:hover {
+    background-color: rgba(215, 136, 84, 0.585) !important;
+    border-radius: 25px;
+}
+
+.singleSPOC p:first-of-type {
+    color: white;
+    font-size: 0.7em;
+}
+
+.singleSPOC p:nth-of-type(2) {
+    color: rgb(133, 69, 28);
+}
+
+#task_description {
+    border: none
+}

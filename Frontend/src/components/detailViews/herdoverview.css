@@ -300,13 +300,14 @@ div.card-content{
   bottom: 0;
   right: 0;
   margin-bottom: 10px;
+  display: inline;
 }
 
 .card_btns a {
   margin-right: 15px;
 }
 
-.card_btns a:first-of-type {
+.card_btns a.treatCow {
   background-color: white;
   border: 2px solid #5AA1FA;
   border-radius: 5px;
@@ -315,7 +316,7 @@ div.card-content{
   font-weight: bold;
 }
 
-.card_btns a:nth-of-type(2) {
+.card_btns a.modalAddTask {
   background-color: #FDAE7A;
   border-radius: 5px;
   box-shadow: none;
