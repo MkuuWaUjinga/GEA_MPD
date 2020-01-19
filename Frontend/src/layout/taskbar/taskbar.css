@@ -70,6 +70,17 @@ font-size:13px;
 
 /* taskbar - header */
 
+.tabs .tab a {
+    padding: 0 16px
+}
+
+h4{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: grey;
+    text-align: center;
+}
+
 .spocContactInfoIcon {
     border-radius: 25px;
     border: 1px solid #969695;
@@ -81,22 +92,22 @@ font-size:13px;
     font-weight: bold;
 }
 
-.spocContactInfoIcon.farmer {
+.spocContactInfoIcon.Farmer {
     color: #3E68B6;
 }
 
-.spocContactInfoIcon.vet {
+.spocContactInfoIcon.Vet {
     color: #FDB07E;
 }
 
-.spocContactInfoIcon.dealer {
+.spocContactInfoIcon.Dealer {
     color: #8E78E6;
 }
 
-.spocContactInfoIcon.consultant {
+.spocContactInfoIcon.Consultant {
     color: #FD7D86;
 }
-.spocContactInfoIcon.technician {
+.spocContactInfoIcon.Technician {
     color: #FD7D86;
 }
 .tabs .material-icons {

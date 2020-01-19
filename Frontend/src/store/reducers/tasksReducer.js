@@ -2,13 +2,16 @@ import uuid from 'react-uuid';
 import {DELETE_TASK} from '../actions/deleteTask';
 import {ADD_TASK} from '../actions/addTask';
 import {FETCH_TASKS} from "../APIactions/fetchTasks";
+import {NavLink} from "react-router-dom";
+import React from "react";
 
 const initState = {
     tasks: [
-        {id: uuid(), title: 'Milk Cows', description: 'milk them efficiently'},
-        {id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2'},
-        {id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3'},
-    ]
+        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows', description: 'milk them efficiently'},
+        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2'},
+        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3'},
+    ],
+    spocsToTask: {}
 };
 
 const tasksReducer = (state = initState, action) => {
@@ -36,10 +39,17 @@ const tasksReducer = (state = initState, action) => {
                 };
         }
         case FETCH_TASKS: {
-            return {
-                ...state,
-                ...action.tasks
+            let spocsToTaskMap = {};
+            let task;
+            for (task of action.tasks.tasks){
+                spocsToTaskMap[task.assigned_person_id] = spocsToTaskMap[task.assigned_person_id] || [];
+                spocsToTaskMap[task.assigned_person_id].push(task);
             }
+            return Object.assign(
+                {}, state, {
+                    tasks: action.tasks,
+                    spocsToTask: spocsToTaskMap
+                });
         }
 
         default: {
