@@ -26,7 +26,6 @@ class SickCows extends Component {
 
 
         const notis = this.props.notifications.notifications;
-        console.log("NOTIS", notis);
 
         const notificationTab = notis ? (
             notis.map(notification => {
