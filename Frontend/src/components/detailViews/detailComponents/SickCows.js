@@ -239,7 +239,6 @@ class SickCows extends Component {
                         <h4>Notifcations</h4>
                     </div>
                     <div className="notiSCCheadlineSearch">
-                        <input type="text" value="17. Jan 20 - Today, 24 Jan 20" className="datepicker"/>
                         <input type="text" placeholder="Search..." className="searchbar"></input>
                     </div>
 
