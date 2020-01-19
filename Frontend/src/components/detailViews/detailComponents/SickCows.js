@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import BarChart_SickCows from '../dataCharts/BarChart_SickCows';
 import SCC from '../dataCharts/SCC';
+import ModalAddTask from '../../../layout/taskbar/ModalAddTask';
 import {fetchUser} from '../../../store/APIactions/fetchUser';
 import {bindActionCreators} from 'redux';
 import "materialize-css/dist/css/materialize.min.css";
 import {Tab, Tabs, Card, Collapsible, CollapsibleItem, Icon} from 'react-materialize';
+import { Modal } from 'materialize-css';
 
 class SickCows extends Component {
 
@@ -63,8 +65,8 @@ class SickCows extends Component {
                                                             >
                                                                 <SCC payload={cowData.scc_data}/>
                                                                 <div className="card_btns">
-                                                                    <a className="waves-effect waves-light btn"><i className="material-icons left">add_circle</i> Treat Cow</a>
-                                                                    <a className="waves-effect waves-light btn"><i className="material-icons left">send</i>Create Task</a>
+                                                                    <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">send</i>Treat Cow</a>
+
                                                                 </div>    
                                                             </Card>
                                                         </Tab>
@@ -76,6 +78,7 @@ class SickCows extends Component {
                                         </Tabs>
                                     
                                 </div>
+                                <ModalAddTask payload={notification}/>
                             </CollapsibleItem>
                         </Collapsible>
                     </div>

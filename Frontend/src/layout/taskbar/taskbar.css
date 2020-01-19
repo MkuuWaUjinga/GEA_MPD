@@ -302,18 +302,6 @@ input.searchbar {
     padding-left: 1em !important;
 }
 
-/*_Create new task button__________*/
-
-.btn.modal-trigger {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    bottom:50px;
-    right:0;
-    background-color:#6198FC;
-    border-top-left-radius: 50px;
-}
-
 
 /*taskbar footer_______*/
 
