@@ -1,5 +1,5 @@
 .main_detail_dashboard {
-  height: 100vh;
+  height: 170vh;
 }
 
 div.herd_overview_nav {
@@ -104,6 +104,15 @@ div.SomaticCellCountContainer > div.subheadline > input {
 .SomaticCellCountChart {
   background-color: white !important;
 }
+
+
+/*Sick Cows Bar-Chart */
+.SCCcontainer .sickCows_barchart {
+  margin-top: 4%;
+  margin-bottom: 4%;;
+}
+
+
 
 /* List of cows that are in treatment */
 
