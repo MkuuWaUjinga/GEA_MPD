@@ -9,16 +9,16 @@ import {Tab, Tabs, Card, Collapsible, CollapsibleItem, Icon} from 'react-materia
 
 class SickCows extends Component {
 
-    state = {
-        collapsed: false
-    }
-
     componentDidMount() {
         //FETCH_USER
         // TODO implement check whether notification were already fetched before. Refetch just for testing.
         this.props.getUser();
     }
 
+    static processTime(time) {
+        return time.split(":")[0] > 12 ? time.split(":")[0] - 12 + ":" + time.split(":")[1] +
+            "pm " : time + "am "
+    }
 
     render() {
 
@@ -26,46 +26,59 @@ class SickCows extends Component {
 
 
         const notis = this.props.notifications.notifications;
-        console.log("NOTIS", notis)
+        console.log("NOTIS", notis);
 
         const notificationTab = notis ? (
             notis.map(notification => {
+                var date = notification.timestamp.split(":")[0].split("-").reverse().join(".");
+                var time = notification.timestamp.split(":").slice(1, -1).join(":");
                 return (
-                    <div className="tabs-vertical">
-                        <div className="col s4 m3 l2">
-                            <Tabs>
-                                {notification.proof ? (
-                                    notification.proof.map(cowData => {
-                                        return (
-                                            <Tab
-                                                options={{
-                                                    duration: 300,
-                                                    onShow: null,
-                                                    responsiveThreshold: Infinity,
-                                                    swipeable: false
-                                                }}
-                                                title={cowData.cow_id}
-                                            >
-                                                <Card
-                                                    actions={[
-                                                        <a key="1" href="#">This is a link</a>
-                                                    ]}
-                                                    className="card-content black-text"
-                                                    title={"Cow ID:" + cowData.cow_id}
-                                                >
-                                                    <SCC payload={cowData.scc_data}/>
-                                                </Card>
-                                            </Tab>
+                    <div>
+                        <h5>{date}</h5>
+                        <hr/>
+                        <Collapsible accordion>
+                            <CollapsibleItem
+                                expanded={false}
+                                header={SickCows.processTime(time) + " - " + notification.title}
+                                icon={<Icon>error</Icon>}
+                                node="div">
 
-                                        )
-                                    })
-                                ) : (<p>nope</p>)}
+                                <div className="tabs-vertical">
+                                    <div className="col s4 m3 l2">
+                                        <Tabs>
+                                            {notification.proof ? (
+                                                notification.proof.map(cowData => {
+                                                    return (
+                                                        <Tab
+                                                            options={{
+                                                                duration: 300,
+                                                                onShow: null,
+                                                                responsiveThreshold: Infinity,
+                                                                swipeable: false
+                                                            }}
+                                                            title={cowData.cow_id}
+                                                        >
+                                                            <Card
+                                                                actions={[
+                                                                    <a key="1" href="#">This is a link</a>
+                                                                ]}
+                                                                className="card-content black-text"
+                                                                title={"Cow ID:" + cowData.cow_id}
+                                                            >
+                                                                <SCC payload={cowData.scc_data}/>
+                                                            </Card>
+                                                        </Tab>
 
-                            </Tabs>
-                        </div>
+                                                    )
+                                                })
+                                            ) : (<p>nope</p>)}
+
+                                        </Tabs>
+                                    </div>
+                                </div>
+                            </CollapsibleItem>
+                        </Collapsible>
                     </div>
-
-
                 )
             })
 
@@ -231,22 +244,7 @@ class SickCows extends Component {
                         <input type="text" placeholder="Search..." className="searchbar"></input>
                     </div>
 
-
-                    <div>
-                        <h5>24th Jan. 2020</h5>
-                        <hr/>
-                        <Collapsible accordion>
-                            <CollapsibleItem
-                                expanded={false}
-                                header="10:11 - Cow #1234 is sick"
-                                icon={<Icon>error</Icon>}
-                                node="div"
-                            >
-                                {notificationTab}
-                            </CollapsibleItem>
-                        </Collapsible>
-
-                    </div>
+                    {notificationTab}
 
                     <ul className="pagination">
                         <li><a href="#!"><i className="material-icons">chevron_left</i></a></li>
