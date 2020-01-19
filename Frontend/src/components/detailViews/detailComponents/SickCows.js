@@ -23,17 +23,16 @@ class SickCows extends Component {
     render() {
 
         const cow_icon = require('../../../assets/img/cow_icon.png');
+        const cow_icon2 = require('../../../assets/img/cow_icon2.png');
 
 
         const notis = this.props.notifications.notifications;
-        console.log("NOTIS", notis)
 
         const notificationTab = notis ? (
             notis.map(notification => {
                 return (
                     <div className="tabs-vertical">
-                        <div className="col s4 m3 l2">
-                            <Tabs>
+                            <Tabs className="tabCardContainer" >
                                 {notification.proof ? (
                                     notification.proof.map(cowData => {
                                         return (
@@ -44,17 +43,19 @@ class SickCows extends Component {
                                                     responsiveThreshold: Infinity,
                                                     swipeable: false
                                                 }}
-                                                title={cowData.cow_id}
+                                                title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
                                             >
+                                            
                                                 <Card
-                                                    actions={[
-                                                        <a key="1" href="#">This is a link</a>
-                                                    ]}
                                                     className="card-content black-text"
                                                     title={"Cow ID:" + cowData.cow_id}
                                                 >
                                                     <SCC payload={cowData.scc_data}/>
-                                                </Card>
+                                                    <div className="card_btns">
+                                                         <a className="waves-effect waves-light btn"><i class="material-icons left">add_circle</i> Treat Cow</a>
+                                                         <a className="waves-effect waves-light btn"><i class="material-icons left">send</i>Create Task</a>
+                                                    </div>                                               
+                                             </Card>
                                             </Tab>
 
                                         )
@@ -62,7 +63,6 @@ class SickCows extends Component {
                                 ) : (<p>nope</p>)}
 
                             </Tabs>
-                        </div>
                     </div>
 
 

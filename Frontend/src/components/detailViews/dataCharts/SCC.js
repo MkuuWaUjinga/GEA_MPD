@@ -75,12 +75,12 @@ constructor(props){
     render() {
         const {uniqueCowData} = this.props;
         return(
-            <div className="SomaticCellCountContainer">
+            <div className="SCCcontainer">
                         <div className="SomaticCellCountChart">
                             <Line
                                 data={this.state.chartData}
-                                width={500}
-                                height={500}
+                                width= {800}
+                                height= {350}
                                 options={{
                                     maintainAspectRatio: false,
                                     responsive: false

@@ -1,4 +1,5 @@
 .main_detail_dashboard {
+  height: 100vh;
 }
 
 div.herd_overview_nav {
@@ -100,6 +101,9 @@ div.SomaticCellCountContainer > div.subheadline > input {
     width: 300px;
 }
 
+.SomaticCellCountChart {
+  background-color: white !important;
+}
 
 /* List of cows that are in treatment */
 
@@ -185,51 +189,127 @@ margin: 0 ;
 
 .tabs-vertical .tabs {
     height: auto;
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column; }
+    flex-direction: column;
+    position: absolute;
+  }
+   
+
+
   .tabs-vertical .tab {
     width: 100%;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
     flex-grow: 1;
     display: block;
     float: left;
     text-align: left;
     line-height: 48px;
-    height: 48px;
+    height: 110px;
     padding: 0;
     margin: 0;
     text-transform: uppercase;
-    text-overflow: ellipsis; }
+    text-overflow: ellipsis; 
+    background-color: #FDAE7A !important;
+  }
+
+  .tabs-vertical .tab:not(:last-child) {
+    border-bottom: solid 1px rgb(215, 157, 119);
+  }
+  
+
+
     .tabs-vertical .tab .active {
-      -moz-transition: border-color .5s ease;
-      -o-transition: border-color .5s ease;
-      -webkit-transition: border-color .5s ease;
-      transition: border-color .5s ease;
-      border-right: 3px solid #7280ce;
-      color: #3f51b5; }
+     /* border-right: 3px solid #7280ce; */
+      color: black !important; 
+      background-color: white !important;
+    }
+
+
+
+
+
     .tabs-vertical .tab a {
-      color: #3f51b5;
+      color: white;
       display: block;
       width: 100%;
       height: 100%;
       text-overflow: ellipsis;
       overflow: hidden;
-      -webkit-transition: color 0.28s ease;
-      -moz-transition: color 0.28s ease;
-      -o-transition: color 0.28s ease;
-      -ms-transition: color 0.28s ease;
-      transition: color 0.28s ease; }
+    }
+
+
       .tabs-vertical .tab a:hover {
-        color: #8591d5; }
+        background-color: white;
+        color: black;
+      }
+
+
+
     .tabs-vertical .tab.disabled a {
-      color: #8591d5;
+      color: white;
       cursor: default; }
+
   .tabs-vertical .indicator {
     display: none; }
 
-    /* */
 
 
+/*__Tabs - Card_______*/
+
+.tabs-vertical {
+  position: relative;
+}
+
+
+.tabs-vertical .tabs {
+  width: 100px;
+  float: left;
+}
+
+#tabIcon img{
+  height: 20px;
+  width: 20px;
+  margin-top: 0;
+}
+
+#tabIcon {
+  background-color: transparent;
+  text-align: center;
+  margin-bottom: 0;
+  line-height: 1em;
+}
+
+div.card-content{
+  background-color: white;
+  margin-left: 100px !important;
+  margin-top:0;
+  box-shadow: none;
+  height: 550px;
+}
+
+.card_btns {
+  position: absolute;
+  background-color: white !important;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 10px;
+}
+
+.card_btns a {
+  margin-right: 15px;
+}
+
+.card_btns a:first-of-type {
+  background-color: white;
+  border: 2px solid #5AA1FA;
+  border-radius: 5px;
+  box-shadow: none;
+  color:  #5AA1FA;
+  font-weight: bold;
+}
+
+.card_btns a:nth-of-type(2) {
+  background-color: #FDAE7A;
+  border-radius: 5px;
+  box-shadow: none;
+  color:  white;
+  font-weight: bold;
+}
