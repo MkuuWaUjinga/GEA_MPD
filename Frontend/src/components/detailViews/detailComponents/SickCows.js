@@ -14,7 +14,7 @@ class SickCows extends Component {
     componentDidMount() {
         //FETCH_USER
         // TODO implement check whether notification were already fetched before. Refetch just for testing.
-        this.props.getUser();
+        //this.props.getUser();
     }
 
     static processTime(time) {
@@ -35,7 +35,7 @@ class SickCows extends Component {
                 var date = notification.timestamp.split(":")[0].split("-").reverse().join(".");
                 var time = notification.timestamp.split(":").slice(1, -1).join(":");
                 return (
-                    <div>
+                    <div key="notification-section">
                         <h5>{date}</h5>
                         <hr/>
                         <Collapsible accordion>
@@ -50,7 +50,7 @@ class SickCows extends Component {
                                             {notification.proof ? (
                                                 notification.proof.map(cowData => {
                                                     return (
-                                                        <Tab
+                                                        <Tab key={cowData.cow_id}
                                                             options={{
                                                                 duration: 300,
                                                                 onShow: null,
@@ -65,8 +65,8 @@ class SickCows extends Component {
                                                             >
                                                                 <SCC payload={cowData.scc_data}/>
                                                                 <div className="card_btns">
-                                                                    <a className="waves-effect waves-light btn treatCow"><i class="material-icons left">send</i>Treat Cow</a>
-                                                                
+                                                                    <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">send</i>Treat Cow</a>
+
                                                                 </div>    
                                                             </Card>
                                                         </Tab>

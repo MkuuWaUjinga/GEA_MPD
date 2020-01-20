@@ -8,6 +8,8 @@ import {weatherIcon} from '../../assets/img/weatherIcon.png';
 import {fetchUser} from '../../store/APIactions/fetchUser';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
+import {fetchTasks} from "../../store/APIactions/fetchTasks";
+
 
 
 class MainDashboardView extends Component {
@@ -15,6 +17,7 @@ class MainDashboardView extends Component {
     componentDidMount () {
             //FETCH_USER
             this.props.getUser();
+            this.props.getTasks();
     }
 
 
@@ -289,6 +292,7 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
     return {
+        getTasks: bindActionCreators(fetchTasks, dispatch),
       getUser: bindActionCreators(fetchUser, dispatch)
     }
   }
