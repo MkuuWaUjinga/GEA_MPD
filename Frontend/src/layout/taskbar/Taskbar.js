@@ -68,38 +68,31 @@ class Taskbar extends Component {
                   <i className="material-icons">error</i>
                   <p>{task.description}</p>
                 </div>
+                
+                {/*              <form action="#" className="checkboxes">
+                <div className="check">
+                 {task.todoList.length ? (
 
-                <form action="#" className="checkboxes">
-                  <p>Please check cows:</p>
-                  <div className="check">
-                    <p>
-                      <label>
-                        <input type="checkbox" />
-                        <span>14123</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input type="checkbox" />
-                        <span>235324</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                        <input type="checkbox" />
-                        <span>325234</span>
-                      </label>
-                    </p>
-                  </div>
-                  {/*
-                                <p>
-                                  <label>
-                                    <input type="checkbox" checked="checked" />
-                                    <span>Yellow</span>
-                                  </label>
-                                </p>
-                                */}
-                </form>
+
+                    task.todoList.map(task => {
+                        return (
+                          <p>
+                          <label>
+                            <input type="checkbox" />
+                              <span>{task}</span>
+                          </label>
+                        </p>
+                        )
+                      })
+
+                ) : (
+                    null
+                  )}
+               </div>
+           </form>
+           */}
+
+
 
                 <div className="deleteTaskIcon" onClick={() => { if (window.confirm('Delete the item?')) { this.props.deleteTask(task.id) }; }}><i className="material-icons delete">more_horiz</i></div>
 

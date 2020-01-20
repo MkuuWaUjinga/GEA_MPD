@@ -71,6 +71,11 @@ div.singleSPOC:hover {
     border-radius: 25px;
 }
 
+.singleSPOC.active {
+    background-color: rgba(215, 136, 84, 0.585) !important;
+    border-radius: 25px;
+}
+
 .singleSPOC p:first-of-type {
     color: white;
     font-size: 0.7em;

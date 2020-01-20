@@ -7,9 +7,9 @@ import React from "react";
 
 const initState = {
     tasks: [
-        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows', description: 'milk them efficiently'},
-        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2'},
-        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3'},
+        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows', description: 'milk them efficiently', todoList: []},
+        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2', todoList: []},
+        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3', todoList: []},
     ],
     spocsToTask: {}
 };
@@ -31,7 +31,8 @@ const tasksReducer = (state = initState, action) => {
             const newTaskItem = {
                 id,
                 title: action.payload.title,
-                description: action.payload.description
+                description: action.payload.description,
+                todoList: action.payload.todoList
               };
               return { 
                   ...state, 

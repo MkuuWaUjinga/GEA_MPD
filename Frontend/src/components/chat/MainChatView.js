@@ -27,6 +27,9 @@ class MainChatView extends Component {
 
     render() {
         const cow_icon = require('../../assets/img/cow_icon.png');
+        const screenshotScc = require('../../assets/img/screenshotScc.png');
+
+
         return (
         <div className="chat row">
             <div className="main_chatView container col xl9">
@@ -40,6 +43,8 @@ class MainChatView extends Component {
                     </div>
                     <div className="scrollable content">
                         <MessageList />
+                        <img src={screenshotScc} alt="screenshotScc"></img>
+
                         <h5>23th Jan. 2020</h5>
                         <hr />
 

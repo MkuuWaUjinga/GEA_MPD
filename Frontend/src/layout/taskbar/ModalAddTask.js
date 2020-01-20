@@ -12,7 +12,8 @@ class ModalAddTask extends Component {
         task_description: '',
         todo: '',
         todoList: [""],
-        selected_spoc_ids: [""] 
+        selected_spoc_ids: [""],
+        spocs: { vet: false, consultant: false, technician: false, dealer: false }
       }
 
 componentDidMount() {
@@ -57,8 +58,8 @@ handleTaskFormChange = (e) => {
 
 handleTaskFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addTask({title: this.state.task_title, description: this.state.task_description});
-    this.setState({task_title:'', task_description:'', todo:'', todoList:''});
+    this.props.addTask({title: this.state.task_title, description: this.state.task_description, todoList: this.state.todoList});
+    this.setState({task_title:'', task_description:'', todo:'', todoList:'',selected_spoc_ids:'', spocs:''});
     console.log("current state", this.state)
 }
 
@@ -73,9 +74,35 @@ addTodo = (e) => {
 
 
 setSpocId (id) {
+let toggle = this.state.spocs[id];
+console.log("TOGGLE STATUS!",this.state);
+if (toggle===false) {
+  this.setState({
+    ...this.state,
+    selected_spoc_ids: [
+      ...this.state.selected_spoc_ids,
+      [id]
+    ],
+    spocs: {...this.state.spocs, [id]: true}
+  })
 
+} else {
+
+  this.setState({
+    ...this.state,
+    selected_spoc_ids: [
+      ...this.state.selected_spoc_ids,
+      
+      this.state.selected_spoc_ids.filter(x => {
+        return x !==[id]
+      }) 
+    ],
+    spocs: {...this.state.spocs, [id]: false}
+  })
 }
 
+
+}
 
 
 
@@ -96,7 +123,6 @@ setSpocId (id) {
 
         return(
 
-       
    <div>
            
       <a className="waves-effect waves-light btn modal-trigger modalAddTask" data-target="ModalAddTask"><i class="material-icons left">send</i> Create Task</a>
@@ -114,21 +140,21 @@ setSpocId (id) {
                   <p>Assign Task:</p>
 
                   <div className="spocsList">
-                      <div className="singleSPOC" onClick={this.setSpocId('spoc_id_dealer')}>
+                      <div className={this.state.spocs['dealer'] ? "active singleSPOC":"singleSPOC"} onClick={()=> this.setSpocId('dealer')}>
                           <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPicModal" />
                           
                           <p>DEALER</p>
                           <p>Tim Koy</p>
                       </div>
 
-                      <div className="singleSPOC" onClick={this.setSpocId('spoc_id_vet')}>
+                      <div className={this.state.spocs['vet'] ? "active singleSPOC":"singleSPOC"} onClick={()=> this.setSpocId('vet')}>
                           <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPicModal" />
                           
                           <p>VET</p>
                           <p>John Vermehren</p>
                       </div>
 
-                      <div className="singleSPOC" onClick={this.setSpocId('spoc_id_technician')}>
+                      <div className={this.state.spocs['technician'] ? "active singleSPOC":"singleSPOC"} onClick={()=> this.setSpocId('technician')}>
                           <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPicModal" />
                           
                           <p>TECHNICIAN</p>
@@ -136,7 +162,7 @@ setSpocId (id) {
                       </div>
 
 
-                      <div className="singleSPOC" onClick={this.setSpocId('spoc_id_consultant')}>
+                      <div className={this.state.spocs['consultant'] ? "active singleSPOC":"singleSPOC"} onClick={()=> this.setSpocId('consultant')}>
                           <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPicModal" />
                           
                           <p>CONSULTANT</p>
