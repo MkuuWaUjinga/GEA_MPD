@@ -51,19 +51,19 @@ class SickCows extends Component {
                                             notification.proof.map(cowData => {
                                                 return (
                                                     <Tab key={cowData.cow_id}
-                                                        options={{
-                                                            duration: 300,
-                                                            onShow: null,
-                                                            responsiveThreshold: Infinity,
-                                                            swipeable: false
-                                                        }}
-                                                        title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
+                                                         options={{
+                                                             duration: 300,
+                                                             onShow: null,
+                                                             responsiveThreshold: Infinity,
+                                                             swipeable: false
+                                                         }}
+                                                         title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
                                                     >
                                                         <Card
                                                             className="card-content black-text"
                                                             title={"Cow ID:" + cowData.cow_id}
                                                         >
-                                                            <SCC payload={cowData.scc_data} />
+                                                            <SCC payload={cowData.scc_data}/>
                                                             <div className="card_btns">
                                                                 <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">add_circle_outline</i>Treat Cow</a>
 
@@ -78,7 +78,7 @@ class SickCows extends Component {
                                     </Tabs>
 
                                 </div>
-                                <ModalAddTask payload={notification} />
+                                <ModalAddTask payload={notification}/>
                             </CollapsibleItem>
                         </Collapsible>
                     </div>
@@ -90,32 +90,6 @@ class SickCows extends Component {
 
         return (
             <div className="SomaticCellCountContainer">
-
-                <div className="NotificationsSomaticCellCount">
-
-                    <div className="notiSCCheadline">
-                        <i className="small material-icons left">notifications</i>
-                        <h4>Notifcations</h4>
-                    </div>
-                    <div className="notiSCCheadlineSearch">
-                        <input type="text" placeholder="Search..." className="searchbar"></input>
-                    </div>
-
-                    {notificationTab}
-                    {/* 
-<ul className="pagination">
-    <li><a href="#!"><i className="material-icons">chevron_left</i></a></li>
-    <li className="active"><a href="#!">1</a></li>
-    <li><a href="#!">2</a></li>
-    <li><a href="#!">3</a></li>
-    <li><a href="#!">4</a></li>
-    <li><a href="#!">5</a></li>
-    <li><a href="#!"><i className="material-icons">chevron_right</i></a></li>
-</ul>
-
-*/}
-                </div>
-
 
                 <div className="subheadline">
                     <h4>Cows currently in treatment</h4>
@@ -263,6 +237,18 @@ class SickCows extends Component {
 
                 </div>
 
+                <div className="NotificationsSomaticCellCount">
+
+                    <div className="notiSCCheadline">
+                        <i className="small material-icons left">notifications</i>
+                        <h4>Notifcations</h4>
+                    </div>
+                    <div className="notiSCCheadlineSearch">
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                    </div>
+
+                    {notificationTab}
+                </div>
 
             </div>
 
