@@ -165,10 +165,10 @@ class Taskbar extends Component {
                     className={this.props.isActive ? 'tabs tabs-swipe-demo active' : 'tabs tabs-swipe-demo'}
                 >
                     <li className="tab col s2">
-                        <a href="#test-swipe-1" ><div className="spocContactInfoIcon farmer"><span>Me</span></div></a>
+                        <a href="#test-swipe-1" ><div className="spocContactInfoIcon farmer"><span>JV</span></div></a>
                     </li>
                     <li className="tab col s2">
-                        <a href="#test-swipe-2 "><div className="spocContactInfoIcon vet">JV</div></a>
+                        <a href="#test-swipe-2 "><div className="spocContactInfoIcon vet">LK</div></a>
                     </li>
                     <li className="tab col s2">
                         <a href="#test-swipe-3"><div className="spocContactInfoIcon dealer">AK</div></a>

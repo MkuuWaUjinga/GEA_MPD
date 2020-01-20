@@ -193,7 +193,7 @@ if (toggle===false) {
                 <div className="input-field ">
                   <input id="todo" type="text" className="todoInput" placeholder="Add a To Do" onChange={this.handleTaskFormChange}/>
                   <label for="todo">To Do List</label>
-                  <a className="btn-floating btn-large waves-effect waves-light blue" onClick={this.addTodo}><i className="material-icons">add</i></a>
+                  <a className="btn-floating btn-large waves-effect waves-light orange right" onClick={this.addTodo}><i className="material-icons">add</i></a>
 
                 </div>
 
