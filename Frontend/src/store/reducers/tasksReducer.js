@@ -8,7 +8,7 @@ import React from "react";
 const initState = {
     tasks: [
         
-        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows', description: 'milk them efficiently', todoList: ["hallo"]},
+        {assigned_person_id: "...", id: uuid(), task_title: 'Milk Cows', description: 'milk them efficiently', todos: ["hallo"]},
        /* {assigned_person_id: "...", id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2', todoList: []},
         {assigned_person_id: "...", id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3', todoList: []},
         */
@@ -30,11 +30,12 @@ const tasksReducer = (state = initState, action) => {
         }
         case ADD_TASK: {
             const id = uuid();
+            console.log(action.payload);
             const newTaskItem = {
                 id,
-                title: action.payload.title,
+                task_title: action.payload.task_title,
                 description: action.payload.description,
-                todoList: action.payload.todoList
+                todos: action.payload.todoList
               };
               return { 
                   ...state, 
