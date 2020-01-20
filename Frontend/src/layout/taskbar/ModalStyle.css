@@ -1,5 +1,4 @@
 #ModalAddTask {
-    background-color: red;
     height: 1500px;
     border-radius: 20px;
 }
@@ -9,7 +8,7 @@
 }
 
 .modal-content .modalHeader {
-    height: 230px;
+    height: 260px;
     background-color: #FDA970;
 }
 
@@ -53,6 +52,7 @@ div.singleSPOC {
     text-align: center;
     display: flex;
     flex-direction: column;
+    line-height: 1px;
    
 }
 

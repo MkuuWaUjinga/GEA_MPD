@@ -65,7 +65,7 @@ class SickCows extends Component {
                                                             >
                                                                 <SCC payload={cowData.scc_data}/>
                                                                 <div className="card_btns">
-                                                                    <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">send</i>Treat Cow</a>
+                                                                    <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">add_circle_outline</i>Treat Cow</a>
 
                                                                 </div>    
                                                             </Card>

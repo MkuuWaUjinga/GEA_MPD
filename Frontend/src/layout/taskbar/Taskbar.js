@@ -38,6 +38,8 @@ class Taskbar extends Component {
             endingTop: "10%"
         };
         M.Modal.init(this.Modal, options);
+
+        console.log("PRPOPS",this.props)
     }
 
 
@@ -59,7 +61,7 @@ class Taskbar extends Component {
         const taskList = tasks.length ? (
             tasks.map(task => {
                 return (
-                    <NavLink to={"/chat/" + task.id} >
+                    <NavLink to={"/chat"} >
                         <div className="card herdmgmt" key={task.id} >
                             <div className="card-content">
                                 <span className="card-title">{task.title}</span>
@@ -69,28 +71,28 @@ class Taskbar extends Component {
                                     <p>{task.description}</p>
                                 </div>
 
-                                {/*              <form action="#" className="checkboxes">
-                <div className="check">
-                 {task.todoList.length ? (
+                                {/*  <form action="#" className="checkboxes">
+                                        <div className="check">
+                                        {task.todoList.length ? (
 
 
-                    task.todoList.map(task => {
-                        return (
-                          <p>
-                          <label>
-                            <input type="checkbox" />
-                              <span>{task}</span>
-                          </label>
-                        </p>
-                        )
-                      })
+                                            task.todoList.map(task => {
+                                                return (
+                                                <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <span>{task}</span>
+                                                </label>
+                                                </p>
+                                                )
+                                            })
 
-                ) : (
-                    null
-                  )}
-               </div>
-           </form>
-           */}
+                                        ) : (
+                                            null
+                                        )}
+                                    </div>
+                                </form>
+                                */}
 
 
 
@@ -118,10 +120,12 @@ class Taskbar extends Component {
                         <li id="notificationCell">
                             <p>Jan 24, 2020</p>
                             <h5>{notification.title}</h5>
+                            {/* 
                             <div className="alarm_msg">
                                 <i className="material-icons">error</i>
                                 <p>{notification.content}</p>
                             </div>
+                            */}
                         </li>
                     </NavLink>
                     </div>
