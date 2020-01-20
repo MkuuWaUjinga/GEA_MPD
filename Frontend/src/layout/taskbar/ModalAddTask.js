@@ -142,7 +142,7 @@ if (toggle===false) {
 
                   <div className="spocsList">
                       <div className={this.state.spocs['dealer'] ? "active singleSPOC":"singleSPOC"} onClick={()=> this.setSpocId('dealer')}>
-                          <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPicModal" />
+                          <img src="https://peterhurley.com/sites/default/files/styles/large/public/photos/2019/05/13/karl_008phweb.jpg?itok=TnqJTcg7" alt="spocPicture" className="spocPicModal" />
                           
                           <p>DEALER</p>
                           <p>Tim Koy</p>
@@ -156,7 +156,7 @@ if (toggle===false) {
                       </div>
 
                       <div className={this.state.spocs['technician'] ? "active singleSPOC":"singleSPOC"} onClick={()=> this.setSpocId('technician')}>
-                          <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPicModal" />
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOBcnv1xTyyjyIJnuPx6pfkG1ay_7qzdMZdjPAVnBGwTBmInF&s" alt="spocPicture" className="spocPicModal" />
                           
                           <p>TECHNICIAN</p>
                           <p>Jan Lauterbach</p>
@@ -164,7 +164,7 @@ if (toggle===false) {
 
 
                       <div className={this.state.spocs['consultant'] ? "active singleSPOC":"singleSPOC"} onClick={()=> this.setSpocId('consultant')}>
-                          <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPicModal" />
+                          <img src="https://image.brigitte.de/11267664/large1x1-622-622/725315d84ae2843ffc46dcf4f507245/EX/teaser.jpg" alt="spocPicture" className="spocPicModal" />
                           
                           <p>CONSULTANT</p>
                           <p>Rilke Ammer</p>
