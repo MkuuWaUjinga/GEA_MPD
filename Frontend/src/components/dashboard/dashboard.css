@@ -311,3 +311,9 @@ color: white;
   border-radius: 5px;
 }
 
+.time_block.active {
+  background-color: #3D639E;
+  border-radius: 5px;
+  border-radius: 5px;
+}
+

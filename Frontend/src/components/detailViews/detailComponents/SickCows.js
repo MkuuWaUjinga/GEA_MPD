@@ -90,9 +90,36 @@ class SickCows extends Component {
 
         return (
             <div className="SomaticCellCountContainer">
+
+<div className="NotificationsSomaticCellCount">
+
+<div className="notiSCCheadline">
+    <i className="small material-icons left">notifications</i>
+    <h4>Notifcations</h4>
+</div>
+<div className="notiSCCheadlineSearch">
+    <input type="text" placeholder="Search..." className="searchbar"></input>
+</div>
+
+{notificationTab}
+{/* 
+<ul className="pagination">
+    <li><a href="#!"><i className="material-icons">chevron_left</i></a></li>
+    <li className="active"><a href="#!">1</a></li>
+    <li><a href="#!">2</a></li>
+    <li><a href="#!">3</a></li>
+    <li><a href="#!">4</a></li>
+    <li><a href="#!">5</a></li>
+    <li><a href="#!"><i className="material-icons">chevron_right</i></a></li>
+</ul>
+
+*/}
+</div>
+
+
                 <div className="subheadline">
                     <h4>Cows currently in treatment</h4>
-                    <input type="text" className="datepicker" defaultValue='24.01.2020'/>
+                  {/*  <input type="text" className="datepicker" defaultValue='24.01.2020'/> */}
                 </div>
 
                 <BarChart_SickCows/>
@@ -236,28 +263,7 @@ class SickCows extends Component {
 
                 </div>
 
-                <div className="NotificationsSomaticCellCount">
-
-                    <div className="notiSCCheadline">
-                        <i className="small material-icons left">notifications</i>
-                        <h4>Notifcations</h4>
-                    </div>
-                    <div className="notiSCCheadlineSearch">
-                        <input type="text" placeholder="Search..." className="searchbar"></input>
-                    </div>
-
-                    {notificationTab}
-
-                    <ul className="pagination">
-                        <li><a href="#!"><i className="material-icons">chevron_left</i></a></li>
-                        <li className="active"><a href="#!">1</a></li>
-                        <li><a href="#!">2</a></li>
-                        <li><a href="#!">3</a></li>
-                        <li><a href="#!">4</a></li>
-                        <li><a href="#!">5</a></li>
-                        <li><a href="#!"><i className="material-icons">chevron_right</i></a></li>
-                    </ul>
-                </div>
+            
             </div>
 
 

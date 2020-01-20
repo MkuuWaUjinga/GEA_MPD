@@ -14,6 +14,11 @@ import {fetchTasks} from "../../store/APIactions/fetchTasks";
 
 class MainDashboardView extends Component {
 
+    state = {
+        activeTabs: {today: false, week: true, month: false, quarter: false, year: false}
+    }
+
+
     componentDidMount () {
             //FETCH_USER
             this.props.getUser();
@@ -21,8 +26,30 @@ class MainDashboardView extends Component {
     }
 
 
+    
+    toggleTab = (id) => {
+        let toggle = this.state.activeTabs[id];
+        if(toggle===false){
+            this.setState({
+                ...this.state,
+                activeTabs: { [id]: true}
+            })
+        } else {
+            this.setState({
+                ...this.state,
+                activeTabs: { [id]: false}
+            })
+        }
+    }
+ 
+
+
 
     render() {
+
+    
+
+
         const {notifications} = this.props.notifications;
         const weatherIcon = require('../../assets/img/weatherIcon.png');
         return(
@@ -30,19 +57,19 @@ class MainDashboardView extends Component {
 
         <div className="timeframe_box">
                 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['today'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('today')}>
                         <p>Today</p>
                     </div>
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['week'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('week')}>
                         <p>Week</p>
                     </div> 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['month'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('month')}>
                         <p>Month</p>
                     </div> 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['quarter'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('quarter')}>
                         <p>Quarter</p>
                     </div> 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['year'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('year')}>
                         <p>Year</p>
                     </div> 
             </div>    

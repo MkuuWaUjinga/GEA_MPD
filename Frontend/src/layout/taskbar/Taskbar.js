@@ -9,67 +9,67 @@ import "materialize-css/dist/css/materialize.min.css";
 import "./taskbar.css";
 
 class Taskbar extends Component {
-  state = {
-    task_title: '',
-    task_description: ''
-  }
+    state = {
+        task_title: '',
+        task_description: ''
+    }
 
-  componentDidMount() {
-    M.Tabs.init(this.Tabs);
-    M.updateTextFields();
-    const options = {
-      onOpenStart: () => {
-        console.log("Open Start-1");
-      },
-      onOpenEnd: () => {
-        console.log("Open End-2");
-      },
-      onCloseStart: () => {
-        console.log("Close Start-3");
-      },
-      onCloseEnd: () => {
-        console.log("Close End-4");
-      },
-      inDuration: 250,
-      outDuration: 250,
-      opacity: 0.5,
-      dismissible: false,
-      startingTop: "4%",
-      endingTop: "10%"
-    };
-    M.Modal.init(this.Modal, options);
-  }
-
-
-  handleTaskFormChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
-
-  handleTaskFormSubmit = (e) => {
-    e.preventDefault();
-    this.props.addTask({ title: this.state.task_title, description: this.state.task_description });
-    this.setState({ task_title: '', task_description: '' });
-  }
+    componentDidMount() {
+        M.Tabs.init(this.Tabs);
+        M.updateTextFields();
+        const options = {
+            onOpenStart: () => {
+                console.log("Open Start-1");
+            },
+            onOpenEnd: () => {
+                console.log("Open End-2");
+            },
+            onCloseStart: () => {
+                console.log("Close Start-3");
+            },
+            onCloseEnd: () => {
+                console.log("Close End-4");
+            },
+            inDuration: 250,
+            outDuration: 250,
+            opacity: 0.5,
+            dismissible: false,
+            startingTop: "4%",
+            endingTop: "10%"
+        };
+        M.Modal.init(this.Modal, options);
+    }
 
 
-  render() {
-    const { tasks } = this.props;
-    const taskList = tasks.length ? (
-      tasks.map(task => {
-        return (
-          <NavLink to={"/chat/" + task.id} >
-            <div className="card herdmgmt" key={task.id} >
-              <div className="card-content">
-                <span className="card-title">{task.title}</span>
-                <i className="material-icons chat">chat</i>
-                <div className="alarm_msg">
-                  <i className="material-icons">error</i>
-                  <p>{task.description}</p>
-                </div>
-                
-                {/*              <form action="#" className="checkboxes">
+    handleTaskFormChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    handleTaskFormSubmit = (e) => {
+        e.preventDefault();
+        this.props.addTask({ title: this.state.task_title, description: this.state.task_description });
+        this.setState({ task_title: '', task_description: '' });
+    }
+
+
+    render() {
+        const { tasks } = this.props;
+        const taskList = tasks.length ? (
+            tasks.map(task => {
+                return (
+                    <NavLink to={"/chat/" + task.id} >
+                        <div className="card herdmgmt" key={task.id} >
+                            <div className="card-content">
+                                <span className="card-title">{task.title}</span>
+                                <i className="material-icons chat">chat</i>
+                                <div className="alarm_msg">
+                                    <i className="material-icons">error</i>
+                                    <p>{task.description}</p>
+                                </div>
+
+                                {/*              <form action="#" className="checkboxes">
                 <div className="check">
                  {task.todoList.length ? (
 
@@ -102,8 +102,8 @@ class Taskbar extends Component {
                 )
             })
         ) : (
-            <div className="center">No tasks yet...</div>
-        );
+                <div className="center">No tasks yet...</div>
+            );
 
         const { notifications } = this.props;
         const notificationList = notifications.length ? (
@@ -128,8 +128,8 @@ class Taskbar extends Component {
                 )
             })
         ) : (
-            <p>No notifications yet...</p>
-        );
+                <p>No notifications yet...</p>
+            );
 
 
         return (
@@ -147,8 +147,8 @@ class Taskbar extends Component {
                     </div>
 
                 ) : (
-                    null
-                )}
+                        null
+                    )}
 
                 <ul ref={Tabs => {
                     this.Tabs = Tabs;
@@ -189,7 +189,7 @@ class Taskbar extends Component {
                         <div className="tasklist_container">
                             {taskList}
                         </div>
-                        <ModalAddTask payload="taskbar" />
+                      {/*   <ModalAddTask payload="taskbar" /> */}
                         <div className="taskbar_footer">
                             <span><i className="material-icons">archive</i>Archive<i className="material-icons">arrow_drop_down</i></span>
                         </div>

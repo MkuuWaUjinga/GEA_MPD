@@ -10,7 +10,7 @@ import './chat.css';
 class MainChatView extends Component {
 
     state = {
-        id: null
+        id: null,
     }
 
 
@@ -22,6 +22,8 @@ class MainChatView extends Component {
             id: id
         })
     }
+
+
 
 
 

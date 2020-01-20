@@ -141,20 +141,37 @@ ul.collapsible {
 
 .NotificationsSomaticCellCount {
     margin-top: 70px;
+    margin-bottom: 50px;
     background-color: #EAEBF1;
     padding: 40px;
     position: relative;
+
 
 }
 
 .notiSCCheadlineSearch {
   
   width: 50%;
-  display: flex;
-  flex-direction: row;
   position: absolute;
   top:0;
-  right: 20px;
+  right:0;
+  padding-left: 150px;
+  padding-top: 10px;
+}
+
+div.notiSCCheadline {
+  margin-top: -20px;
+  margin-bottom: 50px;
+
+}
+
+.notiSCCheadline .material-icons{
+margin-top: -6px;
+color: orange;
+}
+
+.notiSCCheadline h4 {
+  color: orange;
 }
 
 /*Notifications___________ */
