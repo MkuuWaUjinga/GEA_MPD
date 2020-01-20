@@ -65,7 +65,7 @@ class Taskbar extends Component {
                     <NavLink to={"/chat"} >
                         <div className="card herdmgmt" key={task.id} >
                             <div className="card-content">
-                                <span className="card-title">{task.title}</span>
+                                <span className="card-title">{task.task_title}</span>
                                 <i className="material-icons chat">chat</i>
 
                                 <p className="taskDescription">{task.description}</p>
@@ -76,12 +76,12 @@ class Taskbar extends Component {
                                 </div>
 */}
 
-                                {/*  <form action="#" className="checkboxes">
+                                {  <form action="#" className="checkboxes">
                                         <div className="check">
-                                        {task.todoList.length ? (
+                                        {task.todos.length ? (
 
 
-                                            task.todoList.map(task => {
+                                            task.todos.map(task => {
                                                 return (
                                                 <p>
                                                 <label>
@@ -97,7 +97,7 @@ class Taskbar extends Component {
                                         )}
                                     </div>
                                 </form>
-                                */}
+                                }
 
 
 

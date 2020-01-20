@@ -59,8 +59,8 @@ handleTaskFormChange = (e) => {
 handleTaskFormSubmit = (e) => {
     e.preventDefault();
     console.log('CURRENT STATE',this.state)
-    this.props.addTask({title: this.state.task_title, description: this.state.task_description, todoList: this.state.todoList});
-    this.setState({task_title:'', task_description:'', todo:'', todoList:[],selected_spoc_ids:[], spocs:{}});
+    this.props.addTask({task_title: this.state.task_title, description: this.state.description, todoList: this.state.todoList});
+    this.setState({task_title:'', decription:'', todo:'', todoList:[],selected_spoc_ids:[], spocs:{}});
     console.log("current state", this.state)
 }
 

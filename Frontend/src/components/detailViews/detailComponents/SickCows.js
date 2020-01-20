@@ -93,7 +93,6 @@ class SickCows extends Component {
 
                 <div className="subheadline">
                     <h4>Cows currently in treatment</h4>
-                    {/*  <input type="text" className="datepicker" defaultValue='24.01.2020'/> */}
                 </div>
 
                 <BarChart_SickCows />
