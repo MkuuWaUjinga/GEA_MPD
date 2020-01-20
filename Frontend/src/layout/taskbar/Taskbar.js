@@ -57,6 +57,7 @@ class Taskbar extends Component {
 
     render() {
         const { tasks } = this.props;
+        console.log("TASSSKKKS!!!",tasks);
         const taskList = tasks.length ? (
             tasks.map(task => {
                 return (
@@ -65,10 +66,14 @@ class Taskbar extends Component {
                             <div className="card-content">
                                 <span className="card-title">{task.title}</span>
                                 <i className="material-icons chat">chat</i>
+
+                                <p className="taskDescription">{task.description}</p>
+{/* 
                                 <div className="alarm_msg">
                                     <i className="material-icons">error</i>
                                     <p>{task.description}</p>
                                 </div>
+*/}
 
                                 {/*  <form action="#" className="checkboxes">
                                         <div className="check">

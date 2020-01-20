@@ -4,6 +4,7 @@ import PeopleList from '../chat/peopleListSidebar/PeopleList';
 import MessageList from './chatWindow/MessageList';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import './chat.css';
 
 
@@ -39,14 +40,15 @@ class MainChatView extends Component {
                     <div className="sticky_header">
                         <div className="iconBorder"><img src={cow_icon} alt="cow_icon"></img></div>
                         <div className="chatHeader">
-                            <p>4. Oct, 16:45</p>
+                            <p>{moment().format("MMM Do YYYY")}, {moment().format('LT')}</p>
                             <h4>High Somatic Cell Count detected in 5 Cows</h4>
                         </div>
                     </div>
                     <div className="scrollable content">
-                        <MessageList />
+                        {/*/
+                        <MessageList />  */}
                         <img src={screenshotScc} alt="screenshotScc"></img>
-
+{/*
                         <h5>23th Jan. 2020</h5>
                         <hr />
 
@@ -76,11 +78,11 @@ class MainChatView extends Component {
 
 
 
-
                         <h5>24th Jan. 2020</h5>
                         <hr />
 
 
+ */}
                         {/*<h4>{this.state.id}</h4> */}
                     </div>
 

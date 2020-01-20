@@ -191,6 +191,7 @@ img.spocPic {
     padding-top: 0.3em !important;
     padding-left: 2.5em !important;
     padding-right: 2.5em !important;
+    margin-left: 0 !important;
     font-size: 0.8em;
   }
   
@@ -272,6 +273,14 @@ div.alarm_msg {
       font-size: 13px;
       padding-top:7px;
   }
+
+
+p.taskDescription{
+ color: grey;
+}
+
+
+
 .checkboxes {
     margin-top:0;
 }

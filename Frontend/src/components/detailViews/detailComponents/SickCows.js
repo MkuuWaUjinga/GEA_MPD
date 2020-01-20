@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import BarChart_SickCows from '../dataCharts/BarChart_SickCows';
 import SCC from '../dataCharts/SCC';
 import ModalAddTask from '../../../layout/taskbar/ModalAddTask';
-import {fetchUser} from '../../../store/APIactions/fetchUser';
-import {bindActionCreators} from 'redux';
+import { fetchUser } from '../../../store/APIactions/fetchUser';
+import { bindActionCreators } from 'redux';
 import "materialize-css/dist/css/materialize.min.css";
-import {Tab, Tabs, Card, Collapsible, CollapsibleItem, Icon} from 'react-materialize';
+import { Tab, Tabs, Card, Collapsible, CollapsibleItem, Icon } from 'react-materialize';
 import { Modal } from 'materialize-css';
 
 class SickCows extends Component {
@@ -37,7 +37,7 @@ class SickCows extends Component {
                 return (
                     <div key="notification-section">
                         <h5>{date}</h5>
-                        <hr/>
+                        <hr />
                         <Collapsible accordion>
                             <CollapsibleItem
                                 expanded={false}
@@ -46,39 +46,39 @@ class SickCows extends Component {
                                 node="div">
 
                                 <div className="tabs-vertical">
-                                        <Tabs className="tabCardContainer">
-                                            {notification.proof ? (
-                                                notification.proof.map(cowData => {
-                                                    return (
-                                                        <Tab key={cowData.cow_id}
-                                                            options={{
-                                                                duration: 300,
-                                                                onShow: null,
-                                                                responsiveThreshold: Infinity,
-                                                                swipeable: false
-                                                            }}
-                                                            title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
+                                    <Tabs className="tabCardContainer">
+                                        {notification.proof ? (
+                                            notification.proof.map(cowData => {
+                                                return (
+                                                    <Tab key={cowData.cow_id}
+                                                        options={{
+                                                            duration: 300,
+                                                            onShow: null,
+                                                            responsiveThreshold: Infinity,
+                                                            swipeable: false
+                                                        }}
+                                                        title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
+                                                    >
+                                                        <Card
+                                                            className="card-content black-text"
+                                                            title={"Cow ID:" + cowData.cow_id}
                                                         >
-                                                            <Card
-                                                                className="card-content black-text"
-                                                                title={"Cow ID:" + cowData.cow_id}
-                                                            >
-                                                                <SCC payload={cowData.scc_data}/>
-                                                                <div className="card_btns">
-                                                                    <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">add_circle_outline</i>Treat Cow</a>
+                                                            <SCC payload={cowData.scc_data} />
+                                                            <div className="card_btns">
+                                                                <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">add_circle_outline</i>Treat Cow</a>
 
-                                                                </div>    
-                                                            </Card>
-                                                        </Tab>
+                                                            </div>
+                                                        </Card>
+                                                    </Tab>
 
-                                                    )
-                                                })
-                                            ) : (<p>nope</p>)}
+                                                )
+                                            })
+                                        ) : (<p>nope</p>)}
 
-                                        </Tabs>
-                                    
+                                    </Tabs>
+
                                 </div>
-                                <ModalAddTask payload={notification}/>
+                                <ModalAddTask payload={notification} />
                             </CollapsibleItem>
                         </Collapsible>
                     </div>
@@ -91,18 +91,18 @@ class SickCows extends Component {
         return (
             <div className="SomaticCellCountContainer">
 
-<div className="NotificationsSomaticCellCount">
+                <div className="NotificationsSomaticCellCount">
 
-<div className="notiSCCheadline">
-    <i className="small material-icons left">notifications</i>
-    <h4>Notifcations</h4>
-</div>
-<div className="notiSCCheadlineSearch">
-    <input type="text" placeholder="Search..." className="searchbar"></input>
-</div>
+                    <div className="notiSCCheadline">
+                        <i className="small material-icons left">notifications</i>
+                        <h4>Notifcations</h4>
+                    </div>
+                    <div className="notiSCCheadlineSearch">
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                    </div>
 
-{notificationTab}
-{/* 
+                    {notificationTab}
+                    {/* 
 <ul className="pagination">
     <li><a href="#!"><i className="material-icons">chevron_left</i></a></li>
     <li className="active"><a href="#!">1</a></li>
@@ -114,15 +114,15 @@ class SickCows extends Component {
 </ul>
 
 */}
-</div>
+                </div>
 
 
                 <div className="subheadline">
                     <h4>Cows currently in treatment</h4>
-                  {/*  <input type="text" className="datepicker" defaultValue='24.01.2020'/> */}
+                    {/*  <input type="text" className="datepicker" defaultValue='24.01.2020'/> */}
                 </div>
 
-                <BarChart_SickCows/>
+                <BarChart_SickCows />
                 <div className="CowsInTreatment">
 
                     <ul className="collapsible">
@@ -173,10 +173,10 @@ class SickCows extends Component {
                                 </div>
                                 <div className="col l2">
                                     <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
-                                         data-tooltip="6 Days until end of treatment">
+                                        data-tooltip="6 Days until end of treatment">
                                         <span>Time Period</span>
                                         <div className="determinate orange lighten-2"
-                                             style={{width: '75%', animation: 'grow 2s'}}>75%
+                                            style={{ width: '75%', animation: 'grow 2s' }}>75%
                                         </div>
                                     </div>
                                 </div>
@@ -208,10 +208,10 @@ class SickCows extends Component {
                                 </div>
                                 <div className="col l2">
                                     <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
-                                         data-tooltip="6 Days until end of treatment">
+                                        data-tooltip="6 Days until end of treatment">
                                         <span>Time Period</span>
                                         <div className="determinate orange lighten-2"
-                                             style={{width: '56%', animation: 'grow 2s'}}>56%
+                                            style={{ width: '56%', animation: 'grow 2s' }}>56%
                                         </div>
                                     </div>
                                 </div>
@@ -243,10 +243,10 @@ class SickCows extends Component {
                                 </div>
                                 <div className="col l2">
                                     <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
-                                         data-tooltip="6 Days until end of treatment">
+                                        data-tooltip="6 Days until end of treatment">
                                         <span>Time Period</span>
                                         <div className="determinate orange lighten-2"
-                                             style={{width: '20%', animation: 'grow 2s'}}>20%
+                                            style={{ width: '20%', animation: 'grow 2s' }}>20%
                                         </div>
                                     </div>
                                 </div>
@@ -263,7 +263,7 @@ class SickCows extends Component {
 
                 </div>
 
-            
+
             </div>
 
 
