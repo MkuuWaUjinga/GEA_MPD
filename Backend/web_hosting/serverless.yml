@@ -78,7 +78,7 @@ resources:
 
 custom:
   myStage: ${opt:stage, self:provider.stage}
-  siteName: farmatic
+  siteName: farmony
   siteNameStageAppendix:
     dev: '-dev'
     prod: ''
