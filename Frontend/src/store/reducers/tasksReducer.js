@@ -39,7 +39,7 @@ const tasksReducer = (state = initState, action) => {
               };
               return { 
                   ...state, 
-                  tasks: [...state.tasks, newTaskItem] 
+                  tasks: [newTaskItem, ...state.tasks]
                 };
         }
         case FETCH_TASKS: {
