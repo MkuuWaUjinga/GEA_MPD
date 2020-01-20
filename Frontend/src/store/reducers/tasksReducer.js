@@ -2,13 +2,18 @@ import uuid from 'react-uuid';
 import {DELETE_TASK} from '../actions/deleteTask';
 import {ADD_TASK} from '../actions/addTask';
 import {FETCH_TASKS} from "../APIactions/fetchTasks";
+import {NavLink} from "react-router-dom";
+import React from "react";
 
 const initState = {
     tasks: [
-        {id: uuid(), title: 'Milk Cows', description: 'milk them efficiently'},
-        {id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2'},
-        {id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3'},
-    ]
+        
+        {assigned_person_id: "...", id: uuid(), task_title: 'Milk Cows', description: 'milk them efficiently', todos: ["hallo"]},
+       /* {assigned_person_id: "...", id: uuid(), title: 'Milk Cows2', description: 'milk them efficiently2', todoList: []},
+        {assigned_person_id: "...", id: uuid(), title: 'Milk Cows3', description: 'milk them efficiently3', todoList: []},
+        */
+    ],
+    spocsToTask: {}
 };
 
 const tasksReducer = (state = initState, action) => {
@@ -25,21 +30,30 @@ const tasksReducer = (state = initState, action) => {
         }
         case ADD_TASK: {
             const id = uuid();
+            console.log(action.payload);
             const newTaskItem = {
                 id,
-                title: action.payload.title,
-                description: action.payload.description
+                task_title: action.payload.task_title,
+                description: action.payload.description,
+                todos: action.payload.todoList
               };
               return { 
                   ...state, 
-                  tasks: [...state.tasks, newTaskItem] 
+                  tasks: [newTaskItem, ...state.tasks]
                 };
         }
         case FETCH_TASKS: {
-            return {
-                ...state,
-                ...action.tasks
+            let spocsToTaskMap = {};
+            let task;
+            for (task of action.tasks.tasks){
+                spocsToTaskMap[task.assigned_person_id] = spocsToTaskMap[task.assigned_person_id] || [];
+                spocsToTaskMap[task.assigned_person_id].push(task);
             }
+            return Object.assign(
+                {}, state, {
+                    tasks: action.tasks.tasks,
+                    spocsToTask: spocsToTaskMap
+                });
         }
 
         default: {

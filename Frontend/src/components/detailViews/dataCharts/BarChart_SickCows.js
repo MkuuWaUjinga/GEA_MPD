@@ -44,8 +44,8 @@ constructor(props){
 
     render() {
         return(
-            <div className="SomaticCellCountContainer">
-                        <div className="SomaticCellCountChart">
+            <div className="SCCcontainer">
+                        <div className="sickCows_barchart">
                             <Bar
                                 data={this.state.chartData}
                                 width={100}

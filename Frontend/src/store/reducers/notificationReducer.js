@@ -6,8 +6,7 @@ import {FETCH_USER} from '../APIactions/fetchUser';
 const initState = {
     notifications: [
         {id: uuid(),
-        date: '23/10/19',
-        time: '8:24',
+        timestamp: '2020-01-14:14:17:48',
         title:"15:25 - Abnormal Somatic Cell Count detected", 
         content: '5 cows show a high somatic cell count',
         category: 'DetailHerdOverview/SickCows',

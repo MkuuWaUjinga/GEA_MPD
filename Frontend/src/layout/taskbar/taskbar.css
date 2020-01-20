@@ -70,6 +70,17 @@ font-size:13px;
 
 /* taskbar - header */
 
+.tabs .tab a {
+    padding: 0 16px
+}
+
+.task-header {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: grey;
+    text-align: center;
+}
+
 .spocContactInfoIcon {
     border-radius: 25px;
     border: 1px solid #969695;
@@ -81,22 +92,22 @@ font-size:13px;
     font-weight: bold;
 }
 
-.spocContactInfoIcon.farmer {
+.spocContactInfoIcon.Farmer {
     color: #3E68B6;
 }
 
-.spocContactInfoIcon.vet {
+.spocContactInfoIcon.Vet {
     color: #FDB07E;
 }
 
-.spocContactInfoIcon.dealer {
+.spocContactInfoIcon.Dealer {
     color: #8E78E6;
 }
 
-.spocContactInfoIcon.consultant {
+.spocContactInfoIcon.Consultant {
     color: #FD7D86;
 }
-.spocContactInfoIcon.technician {
+.spocContactInfoIcon.Technician {
     color: #FD7D86;
 }
 .tabs .material-icons {
@@ -110,7 +121,7 @@ font-size:13px;
     background-color: white;
     width: auto;
     height: 150px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid rgba(108, 108, 108, 0.482);
     padding-top: 10px;
     line-height: 2px;
 }
@@ -144,6 +155,14 @@ img.spocPic {
 
 .spocContent div {
     margin-right: 5px !important ;
+    color:rgba(92, 92, 92, 0.317);
+}
+
+.spocContent .material-icons {
+    margin-right: 15px !important;
+    display: inline-flex;
+    vertical-align: center;
+    padding-top: 4px;
 }
 
 .col.swipeContent {
@@ -154,8 +173,7 @@ img.spocPic {
 /*_taskbar__________*/
 
 .tasklist_container {
-    overflow: scroll;
-    height: 880px;
+    height: 0px;
     width:auto;
 }
 
@@ -173,12 +191,12 @@ img.spocPic {
     padding-top: 0.3em !important;
     padding-left: 2.5em !important;
     padding-right: 2.5em !important;
+    margin-left: 0 !important;
     font-size: 0.8em;
   }
   
   .taskBox .card {
-    height: 250px;
-
+    height: 150px;
   }
   
   
@@ -254,6 +272,14 @@ div.alarm_msg {
       font-size: 13px;
       padding-top:7px;
   }
+
+
+p.taskDescription{
+ color: grey;
+}
+
+
+
 .checkboxes {
     margin-top:0;
 }
@@ -289,18 +315,6 @@ input.searchbar {
     height: 35px !important;
     border-bottom: none !important;
     padding-left: 1em !important;
-}
-
-/*_Create new task button__________*/
-
-.btn.modal-trigger {
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    bottom:50px;
-    right:0;
-    background-color:#6198FC;
-    border-top-left-radius: 50px;
 }
 
 

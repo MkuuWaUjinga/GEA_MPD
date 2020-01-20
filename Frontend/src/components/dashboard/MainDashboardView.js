@@ -8,39 +8,68 @@ import {weatherIcon} from '../../assets/img/weatherIcon.png';
 import {fetchUser} from '../../store/APIactions/fetchUser';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
+import {fetchTasks} from "../../store/APIactions/fetchTasks";
+
 
 
 class MainDashboardView extends Component {
 
+    state = {
+        activeTabs: {today: false, week: true, month: false, quarter: false, year: false}
+    }
+
+
     componentDidMount () {
             //FETCH_USER
             this.props.getUser();
+            this.props.getTasks();
     }
+
+
+    
+    toggleTab = (id) => {
+        let toggle = this.state.activeTabs[id];
+        if(toggle===false){
+            this.setState({
+                ...this.state,
+                activeTabs: { [id]: true}
+            })
+        } else {
+            this.setState({
+                ...this.state,
+                activeTabs: { [id]: false}
+            })
+        }
+    }
+ 
 
 
 
     render() {
+
+    
+
+
         const {notifications} = this.props.notifications;
-        console.log("these are the notifications", notifications);
         const weatherIcon = require('../../assets/img/weatherIcon.png');
         return(
             <div className="main_dashboard container row">
 
         <div className="timeframe_box">
                 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['today'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('today')}>
                         <p>Today</p>
                     </div>
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['week'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('week')}>
                         <p>Week</p>
                     </div> 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['month'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('month')}>
                         <p>Month</p>
                     </div> 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['quarter'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('quarter')}>
                         <p>Quarter</p>
                     </div> 
-                    <div className="time_block">
+                    <div className={this.state.activeTabs['year'] ? "active time_block":"time_block"} onClick={()=> this.toggleTab('year')}>
                         <p>Year</p>
                     </div> 
             </div>    
@@ -290,6 +319,7 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
     return {
+        getTasks: bindActionCreators(fetchTasks, dispatch),
       getUser: bindActionCreators(fetchUser, dispatch)
     }
   }
