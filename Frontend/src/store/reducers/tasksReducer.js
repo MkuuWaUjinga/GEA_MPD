@@ -48,7 +48,7 @@ const tasksReducer = (state = initState, action) => {
             }
             return Object.assign(
                 {}, state, {
-                    tasks: action.tasks,
+                    tasks: action.tasks.tasks,
                     spocsToTask: spocsToTaskMap
                 });
         }

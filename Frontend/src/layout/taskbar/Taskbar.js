@@ -39,7 +39,6 @@ class Taskbar extends Component {
         };
         M.Modal.init(this.Modal, options);
 
-        console.log("PRPOPS",this.props)
     }
 
 
@@ -220,7 +219,6 @@ const mapStateToProps = (state) => {
         tasks: state.tasks.tasks,
         isActive: state.notifications.isActive,
         notifications: state.notifications.notifications
-
     }
 }
 
