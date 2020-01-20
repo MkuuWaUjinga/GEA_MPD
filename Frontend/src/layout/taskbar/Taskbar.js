@@ -15,6 +15,7 @@ class Taskbar extends Component {
     }
 
     componentDidMount() {
+
         M.Tabs.init(this.Tabs);
         M.updateTextFields();
         const options = {
