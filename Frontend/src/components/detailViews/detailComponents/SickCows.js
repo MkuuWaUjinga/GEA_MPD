@@ -60,7 +60,7 @@ class SickCows extends Component {
                                                          title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
                                                     >
                                                         <Card
-                                                            className="card-content black-text"
+                                                            className="card-content note black-text"
                                                             title={"Cow ID:" + cowData.cow_id}
                                                         >
                                                             <SCC payload={cowData.scc_data}/>

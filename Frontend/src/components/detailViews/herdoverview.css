@@ -28,13 +28,31 @@ div.herd_overview_nav {
     border-right: solid 1px #cbd1d4;
   }
 
+  .herd_overview_nav div:last-child:hover{
+    border-top-right-radius: 23px;
+    border-bottom-right-radius: 23px;
+  }
+
+  .herd_overview_nav div:first-child:hover{
+    border-top-left-radius: 23px;
+    border-bottom-left-radius: 23px;
+  }
+
+
+
 .herd_overview_nav p:first-child {
     font-size: 13px;
     font-weight: bold;
 }
 
 .herd_overview_nav p.KPIdigit {
-color: #F57228;
+color: #F09960;
+}
+
+
+.herd_overview_nav .kpi_timestamp {
+  font-size: 12px;
+  color: grey;
 }
 
 span.sectionHeadline {
@@ -60,23 +78,37 @@ span.sectionHeadline {
       margin-right:-10px;
   }
 
+.ho_nav_block {
+  padding-top: 3px !important;
+}
+
   .ho_nav_block:hover {
-    background-color: #FFECDF;
-    outline: 2px solid #FBCFAF
+    background-color: rgb(255, 237, 198);
   }
 
-  
+  .ho_nav_block:first-of-type.active {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .ho_nav_block:last-of-type.active {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
 
   .ho_nav_block.active {
-    background-color: #FFECDF;
+    background-color: rgb(255, 237, 198)
   }
+
+
 
 
   /* __Sick Cows View____________*/
 
   .SomaticCellCountContainer {
       margin-top: 60px;
-      margin-left:50px;
+      margin-left: 50px;
       margin-right: 50px;
   }
 
@@ -167,11 +199,11 @@ div.notiSCCheadline {
 
 .notiSCCheadline .material-icons{
 margin-top: -6px;
-color: orange;
+color: #F09960;
 }
 
 .notiSCCheadline h4 {
-  color: orange;
+  color: #F09960;
 }
 
 /*Notifications___________ */
@@ -303,7 +335,15 @@ margin: 0 ;
   line-height: 1em;
 }
 
-div.card-content{
+.card-content.note{
+  background-color: white;
+  margin-left: 100px !important;
+  margin-top:0;
+  box-shadow: none;
+  height: 550px;
+}
+
+.card-content .card-content{
   background-color: white;
   margin-left: 100px !important;
   margin-top:0;

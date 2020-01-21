@@ -49,7 +49,9 @@ class SomaticCellCountView extends Component {
                 datasets: [
                     {
                         label: 'Somatic Cell Count',
-                        data: []
+                        data: [],
+                        backgroundColor: "rgba(229,248,246, 0.8)",
+                        borderColor: "rgb(106,237,229)"
                     }
                 ]
             }

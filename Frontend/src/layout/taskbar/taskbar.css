@@ -44,8 +44,6 @@ font-size:13px;
 }
 
 
-
-
 .task_sidebar ul{
     margin:0;
 }
@@ -67,6 +65,12 @@ font-size:13px;
 .tabs-swipe-demo a:hover {
     background-color: white;
 }
+
+span.btn-floating.active {
+    background-color: rgb(26, 127, 215);
+}
+
+
 
 /* taskbar - header */
 

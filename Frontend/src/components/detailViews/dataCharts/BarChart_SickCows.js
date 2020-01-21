@@ -21,7 +21,7 @@ constructor(props){
             datasets: [
                 {
                     label: 'Sick cows under treatment',
-                    backgroundColor: 'rgba(187, 195, 212, 0.616)',
+                    backgroundColor: 'rgba(255,183,24, 0.6)',
                     data:[
                         5,
                         3,

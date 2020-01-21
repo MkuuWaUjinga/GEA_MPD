@@ -5,6 +5,7 @@ import { deleteTask } from "../../store/actions/deleteTask";
 import { addTask } from "../../store/actions/addTask";
 import ModalAddTask from '../taskbar/ModalAddTask';
 import M from 'materialize-css';
+import moment from 'moment';
 import "materialize-css/dist/css/materialize.min.css";
 import "./taskbar.css";
 
@@ -123,7 +124,7 @@ class Taskbar extends Component {
                         }
                     }} >
                         <li id="notificationCell">
-                            <p>Jan 24, 2020</p>
+                            <p>{moment().format("ddd D, YYYY")}</p>
                             <h5>{notification.title}</h5>
                             {/* 
                             <div className="alarm_msg">
@@ -198,7 +199,7 @@ class Taskbar extends Component {
                         <div className="tasklist_container">
                             {taskList}
                         </div>
-                      {/*   <ModalAddTask payload="taskbar" /> */}
+                      {/* <ModalAddTask payload="taskbar" /> */}
                         <div className="taskbar_footer">
                             <span><i className="material-icons">archive</i>Archive<i className="material-icons">arrow_drop_down</i></span>
                         </div>
