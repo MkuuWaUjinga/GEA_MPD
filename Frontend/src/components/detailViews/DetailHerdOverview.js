@@ -68,14 +68,14 @@ class DetailHerdOverview extends Component {
                             className={this.state.displayedComponent === "HERD_COUNT" ? 'ho_nav_block active' : 'ho_nav_block'}
                             onClick={() => this.handleSwitch("HERD_COUNT")}>
                             <p>Total Herd Count</p>
-                            <p className="KPIdigit">233</p>
+                            <p className="KPIdigit">116</p>
                             <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                         </div>
                         <div
                             className={this.state.displayedComponent === "LACTATION" ? 'ho_nav_block active' : 'ho_nav_block'}
                             onClick={() => this.handleSwitch("LACTATION")}>
                             <p>Lactating Animals</p>
-                            <p className="KPIdigit">213</p>
+                            <p className="KPIdigit">86</p>
                             <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                         </div>
                         <div
@@ -96,7 +96,7 @@ class DetailHerdOverview extends Component {
                             className={this.state.displayedComponent === "HERD_INCREASE" ? 'ho_nav_block active' : 'ho_nav_block'}
                             onClick={() => this.handleSwitch("HERD_INCREASE")}>
                             <p>In/-Decrease Herd</p>
-                            <p className="KPIdigit">-2.1</p>
+                            <p className="KPIdigit">-1.1</p>
                             <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                         </div>
                     </div>

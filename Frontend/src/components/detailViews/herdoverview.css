@@ -83,7 +83,7 @@ span.sectionHeadline {
 }
 
   .ho_nav_block:hover {
-    background-color: rgb(255, 237, 198);
+    background-color: rgba(240, 154, 96, 0.203)
   }
 
   .ho_nav_block:first-of-type.active {
@@ -98,7 +98,7 @@ span.sectionHeadline {
 
 
   .ho_nav_block.active {
-    background-color: rgb(255, 237, 198)
+    background-color: rgba(240, 154, 96, 0.203)
   }
 
 
@@ -144,6 +144,22 @@ div.SomaticCellCountContainer > div.subheadline > input {
   margin-bottom: 4%;;
 }
 
+.medicalRecord {
+  background-color: white !important;
+  padding-top: 20px;
+}
+
+ div.medicalRecord > ul > li > div{ 
+  background-color: white !important;
+}
+
+
+
+.medicalRecord p:first-child {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
 
 
 /* List of cows that are in treatment */
@@ -170,6 +186,13 @@ ul.collapsible {
 .collapsible-header img {
     height: 30px;
 }
+
+.collapsible .collapsible-body {
+  height: 700px;
+}
+
+
+
 
 .NotificationsSomaticCellCount {
     margin-top: 70px;
@@ -322,6 +345,12 @@ margin: 0 ;
   float: left;
 }
 
+.tabs-vertical .card-title {
+  font-weight: bold;
+  color: #FFAE75;
+  margin-bottom: 30px !important;
+}
+
 #tabIcon img{
   height: 20px;
   width: 20px;
@@ -339,22 +368,24 @@ margin: 0 ;
   background-color: white;
   margin-left: 100px !important;
   margin-top:0;
-  box-shadow: none;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   height: 550px;
 }
 
 .card-content .card-content{
+  position: relative;
   background-color: white;
   margin-left: 100px !important;
   margin-top:0;
   box-shadow: none;
   height: 550px;
+
 }
 
 .card_btns {
   position: absolute;
   background-color: white !important;
-  bottom: 0;
+  top: 20px;
   right: 0;
   margin-bottom: 10px;
   display: inline;
@@ -365,13 +396,24 @@ margin: 0 ;
 }
 
 .card_btns a.treatCow {
+  padding-top: 20px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 20px;
   background-color: white;
   border: 2px solid #5AA1FA;
-  border-radius: 5px;
+  border-radius: 50%;
   box-shadow: none;
   color:  #5AA1FA;
   font-weight: bold;
 }
+
+.card_btns a.treatCow:hover {
+  color:white;
+  background-color:  #5AA1FA;
+}
+
 
 .card_btns a.modalAddTask {
   background-color: #FDAE7A;
@@ -379,4 +421,5 @@ margin: 0 ;
   box-shadow: none;
   color:  white;
   font-weight: bold;
+  margin-top: 20px !important;
 }

@@ -6,7 +6,9 @@
     border-radius: 25px;
     padding:0 !important;
     /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);*/
-    box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.051);
+    /*box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.051); */
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
     background-color: white;
 }
 
@@ -74,6 +76,20 @@ span.btn-floating.active {
 
 /* taskbar - header */
 
+.tab a.active > div.spocContactInfoIcon {
+background-color: #FFAE75;
+color: white;
+border-color: #FFAE75;
+}
+
+.indicator {
+    display: none;
+}
+.tab a.active{
+    background-color: white !important;
+    border-top: 4px solid #FFAE75 !important;
+}
+
 .tabs .tab a {
     padding: 0 16px
 }
@@ -92,28 +108,41 @@ span.btn-floating.active {
     height: 35px;
     background: white;
     margin-top:6px;
+    margin-left: 20px !important;
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
+    color:  #569ffd;
 }
 
-.spocContactInfoIcon.Farmer {
+.spocContactInfoIcon p {
+  margin-top: -5px !important;
+  font-weight: bold;
+}
+
+/*
+
+.spocContactInfoIcon.farmer p{
     color: #3E68B6;
 }
 
-.spocContactInfoIcon.Vet {
+.spocContactInfoIcon.vet p{
     color: #FDB07E;
 }
 
-.spocContactInfoIcon.Dealer {
+.spocContactInfoIcon.dealer p{
     color: #8E78E6;
 }
 
-.spocContactInfoIcon.Consultant {
+.spocContactInfoIcon.consultant p{
     color: #FD7D86;
 }
-.spocContactInfoIcon.Technician {
-    color: #FD7D86;
+.spocContactInfoIcon.technician p{
+    color: #FD7D86
+    
+    ;
 }
+
+*/
 .tabs .material-icons {
     position: absolute;
     right:10px;
@@ -159,15 +188,18 @@ img.spocPic {
 
 .spocContent div {
     margin-right: 5px !important ;
-    color:rgba(92, 92, 92, 0.317);
+    color:rgba(51, 51, 51, 0.365);
+    display: flex;
+    flex-direction: row;
 }
 
 .spocContent .material-icons {
     margin-right: 15px !important;
     display: inline-flex;
     vertical-align: center;
-    padding-top: 4px;
+    padding-top: 3px;
 }
+
 
 .col.swipeContent {
     padding: 0;
@@ -324,6 +356,25 @@ input.searchbar {
 
 /*taskbar footer_______*/
 
+div.add_task_btn {
+    position: absolute;
+    bottom:50px;
+    right:0;
+    border-top-left-radius: 90%;
+    width: 70px;
+    height: 70px;
+    background-color: #569ffd;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+
+.add_task_btn .material-icons {
+    font-size: 1.7em;
+    color: white;
+    margin-left: 30px;
+    margin-top: 25px;
+}
+
 .taskbar_footer {
     height: 50px;
     width: 100%;
@@ -332,8 +383,18 @@ input.searchbar {
     right:0;
     background-color: #F7F7F7;
     padding-left:20px;
-    padding-top:10px;
     border-bottom-left-radius: 20px;
     border-bottom-left-radius: 20px;
 
+}
+
+.taskbar_footer span {
+    display: flex;
+    flex-direction: row;
+    color: grey;
+}
+
+.taskbar_footer .material-icons {
+    padding-top: 12px;
+    padding-right: 14px;
 }

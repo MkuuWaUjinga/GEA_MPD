@@ -166,19 +166,19 @@ class Taskbar extends Component {
                     className={this.props.isActive ? 'tabs tabs-swipe-demo active' : 'tabs tabs-swipe-demo'}
                 >
                     <li className="tab col s2">
-                        <a href="#test-swipe-1" ><div className="spocContactInfoIcon farmer"><span>JV</span></div></a>
+                        <a href="#test-swipe-1" ><div className="spocContactInfoIcon vet"><p>JV</p></div></a>
                     </li>
                     <li className="tab col s2">
-                        <a href="#test-swipe-2 "><div className="spocContactInfoIcon vet">LK</div></a>
+                        <a href="#test-swipe-2 "><div className="spocContactInfoIcon farmer"><p>LK</p></div></a>
                     </li>
                     <li className="tab col s2">
-                        <a href="#test-swipe-3"><div className="spocContactInfoIcon dealer">AK</div></a>
+                        <a href="#test-swipe-3"><div className="spocContactInfoIcon dealer"><p>AK</p></div></a>
                     </li>
                     <li className="tab col s2">
-                        <a href="#test-swipe-4"><div className="spocContactInfoIcon consultant">SL</div></a>
+                        <a href="#test-swipe-4"><div className="spocContactInfoIcon consultant"><p>SL</p></div></a>
                     </li>
                     <li className="tab col s2">
-                        <a href="#test-swipe-5"><div className="spocContactInfoIcon technician">RA</div></a>
+                        <a href="#test-swipe-5"><div className="spocContactInfoIcon technician"><p>RA</p></div></a>
                     </li>
                     <i className="material-icons">more_vert</i>
                 </ul>
@@ -190,8 +190,8 @@ class Taskbar extends Component {
                             <div className="spocContent">
                                 <h5>John Vermehren</h5>
                                 <p>Vet</p>
-                                <div><i className="material-icons">phone_in_talk</i>+49 234 2334534</div>
-                                <div><i className="material-icons">markunread</i>john.vermehren@gmail.com</div>
+                                <div><i className="material-icons">phone_in_talk</i><p>+49 234 2334534</p></div>
+                                <div><i className="material-icons">markunread</i><p>john.vermehren@gmail.com</p></div>
                             </div>
                         </div>
                         <input type="text" placeholder="Search..." className="searchbar"></input>
@@ -200,8 +200,9 @@ class Taskbar extends Component {
                             {taskList}
                         </div>
                       {/* <ModalAddTask payload="taskbar" /> */}
+                        <div className="add_task_btn"><i className="material-icons">add</i></div>
                         <div className="taskbar_footer">
-                            <span><i className="material-icons">archive</i>Archive<i className="material-icons">arrow_drop_down</i></span>
+                            <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
                         </div>
                     </div>
                 </div>
