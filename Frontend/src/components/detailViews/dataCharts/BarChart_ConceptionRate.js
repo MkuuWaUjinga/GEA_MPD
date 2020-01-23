@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Bar} from 'react-chartjs-2';
 import M from 'materialize-css';  
-class SomaticCellCountView extends Component {
+class BarChart_ConceptionRate extends Component {
 
 state = {
 
@@ -20,20 +20,20 @@ constructor(props){
             
             datasets: [
                 {
-                    label: 'Sick cows under treatment',
-                    backgroundColor: 'rgba(255,129,33, 0.6)',
+                    label: 'Conception Rate',
+                    backgroundColor: 'rgba(255,232,25, 0.6)',
                     data:[
+                        32,
+                        56,
                         5,
-                        3,
-                        7,
-                        5,
-                        6,
-                        5,
-                        3,
-                        3,
-                        4,
-                        5,
-                        3
+                        34,
+                        34,
+                        74,
+                        45,
+                        23,
+                        53,
+                        43,
+                        40
                     ]
                 }
             ]
@@ -76,4 +76,4 @@ constructor(props){
     }
 }
 
-export default SomaticCellCountView;
+export default BarChart_ConceptionRate;

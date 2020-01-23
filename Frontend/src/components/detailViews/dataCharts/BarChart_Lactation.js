@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 import M from 'materialize-css';  
-class SomaticCellCountView extends Component {
+class BarChart_TotalHerdCount extends Component {
 
 state = {
 
@@ -20,20 +20,20 @@ constructor(props){
             
             datasets: [
                 {
-                    label: 'Sick cows under treatment',
-                    backgroundColor: 'rgba(255,129,33, 0.6)',
+                    label: 'Lactation',
+                    backgroundColor: 'rgba(255,60,0, 0.6)',
                     data:[
-                        5,
-                        3,
-                        7,
-                        5,
-                        6,
-                        5,
-                        3,
-                        3,
-                        4,
-                        5,
-                        3
+                        34,
+                        45,
+                        65,
+                        32,
+                        43,
+                        64,
+                        34,
+                        43,
+                        32,
+                        45,
+                        86
                     ]
                 }
             ]
@@ -46,7 +46,7 @@ constructor(props){
         return(
             <div className="SCCcontainer">
                         <div className="sickCows_barchart">
-                            <Bar
+                            <Line
                                 data={this.state.chartData}
                                 width={100}
                                 height={250}
@@ -76,4 +76,4 @@ constructor(props){
     }
 }
 
-export default SomaticCellCountView;
+export default BarChart_TotalHerdCount;

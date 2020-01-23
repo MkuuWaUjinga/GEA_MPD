@@ -37,12 +37,12 @@
 
 a.modalAddTask {
     float:right;
-    background-color:  #FDA970;
+    background-color:  rgb(250, 147, 79);
     color: white;
 }
 
 a.modalAddTask:hover {
-    background-color: rgb(147, 78, 0) !important;
+    background-color: rgb(103, 55, 0) !important;
 }
 .modalHeader {
     padding-left: 20px;
@@ -55,12 +55,12 @@ a.modalAddTask:hover {
 }
 
 #ModalAddTask > div > form > div > label {
-    color:  #FDA970;
+    color:  rgb(222, 124, 58);
     
 }
 .modalHeader p:first-of-type {
     font-weight: bold;
-    color: rgb(99, 86, 74);
+    color: rgb(0, 0, 0);
 }
 
 .spocsList {
@@ -120,7 +120,7 @@ div.singleSPOC:hover {
 }
 
 .input-field label {
-    color: #FDA970;
+    color: rgb(214, 117, 52);
 }
 
 .input-field.addTodo {

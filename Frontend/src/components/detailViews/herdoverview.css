@@ -46,13 +46,13 @@ div.herd_overview_nav {
 }
 
 .herd_overview_nav p.KPIdigit {
-color: #F09960;
+color: rgb(226, 121, 50);
 }
 
 
 .herd_overview_nav .kpi_timestamp {
   font-size: 12px;
-  color: grey;
+  color: rgb(0, 0, 0);
 }
 
 span.sectionHeadline {
@@ -83,7 +83,7 @@ span.sectionHeadline {
 }
 
   .ho_nav_block:hover {
-    background-color: rgba(240, 154, 96, 0.203)
+    background-color: rgba(210, 131, 78, 0.203)
   }
 
   .ho_nav_block:first-of-type.active {

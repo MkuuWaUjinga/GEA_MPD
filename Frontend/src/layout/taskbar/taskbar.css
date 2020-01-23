@@ -37,7 +37,7 @@ text-align: left;
 padding-right: 17px;
 margin-top: -10px;
 margin-bottom: -10px;
-color: #969695;
+color: #000000;
 font-size:13px;
 }
 
@@ -48,7 +48,7 @@ font-size:13px;
 
 #notificationCell .alarm_msg p {
     margin:0;
-    color: #969695;
+    color: #000000;
 }
 
 
@@ -57,7 +57,7 @@ font-size:13px;
 }
 
 div.task_sidebar.col.xl3 > div:nth-child(1) > ul{
-    background-color: #f5b94278;
+    background-color: #d99e2678;
     margin-top:-10px !important;
     padding-top: 15px;
 }
@@ -109,7 +109,7 @@ border-color: #FFAE75;
 .task-header {
     font-size: 1.3em;
     font-weight: bold;
-    color: grey;
+    color: black;
     text-align: center;
 }
 
@@ -159,7 +159,7 @@ border-color: #FFAE75;
     position: absolute;
     right:10px;
     top:13px;
-    color: #969695;
+    color: black;
 }
 
 .spocInfo {
@@ -200,7 +200,7 @@ img.spocPic {
 
 .spocContent div {
     margin-right: 5px !important ;
-    color:rgba(51, 51, 51, 0.365);
+    color:rgb(0, 0, 0);
     display: flex;
     flex-direction: row;
 }
@@ -264,7 +264,7 @@ img.spocPic {
 
   .card.herdmgmt .card-title{
     margin-top: 8px;
-   color: #F57228;
+   color: rgb(255, 136, 67);
    line-height: 19px;
 }
 
@@ -276,7 +276,7 @@ i.chat {
       position: absolute;
       top: 7px;
       right:5px;
-      color: rgba(0, 0, 0, 0.1);
+      color: rgba(0, 0, 0, 0.4);
   }
 
   .deleteTaskIcon{
@@ -294,8 +294,11 @@ i.chat {
       background-color: rgba(0, 0, 0, 0.1);
 
   }
-  .deleteTaskIcon.delete {
+  .deleteTaskIcon .material-icons.delete {
       text-align: center;  
+      color:black;
+      margin-top: 2px;
+      padding-left: 3px;
   }
 
 
@@ -326,10 +329,13 @@ div.alarm_msg {
 
 
 p.taskDescription{
- color: grey;
+ color: rgb(0, 0, 0);
 }
 
-
+.check span {
+    color: black;
+    font-weight: bold;
+}
 
 .checkboxes {
     margin-top:0;
@@ -349,12 +355,70 @@ margin-bottom:5px;
     border-color: #FECFB1;
 }
 
+
+
 .checkboxes span {
     font-size: 14px !important;
 }
 
+.card.farmer {
+    background-color: rgba(161, 222, 255, 0.517);
+}
+
+.card.farmer .card-title {
+    color: rgb(37, 106, 209);
+}
+
+.card.farmer span{
+color: black;
+font-weight: bold;
+}
 
 
+.card.dealer {
+    background-color: rgba(158, 215, 182, 0.324);
+}
+
+.card.dealer span{
+    color: black;
+    font-weight: bold;
+    }
+
+    .card.dealer .card-title {
+        color: rgb(43, 150, 104);
+    }
+    
+
+    .card.technician {
+        background-color: rgba(238, 137, 91, 0.455);
+    }
+    
+    .card.technician span{
+        color: black;
+        font-weight: bold;
+        }
+
+        .card.card.technician .card-title {
+            color: rgb(209, 66, 37);
+        }
+        
+        .card.consultant {
+            background-color: rgba(165, 37, 176, 0.324);
+        }
+        
+        .card.consultant span{
+            color: black;
+            font-weight: bold;
+            }
+            
+            .card.card.consultant .card-title {
+                color: rgb(183, 42, 60);
+            }
+                   
+        
+        
+        
+    
 /*_Searchbar______*/
 
 input.searchbar {
@@ -406,7 +470,7 @@ div.add_task_btn {
 .taskbar_footer span {
     display: flex;
     flex-direction: row;
-    color: grey;
+    color: rgb(0, 0, 0);
 }
 
 .taskbar_footer .material-icons {

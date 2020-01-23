@@ -33,6 +33,10 @@ class SignedInLinks extends Component {
 
     render(){
 
+        const mhProfilePic = require('../assets/img/mhProfilePic.png');
+
+
+
         return(
 
         <ul className="right">
@@ -57,8 +61,10 @@ class SignedInLinks extends Component {
                     </span>
             </li>
 
-            <li><NavLink to="/" className='btn btn-floating  blue darken-1'>Me</NavLink></li>
-
+{/*
+            <li><NavLink to="/" className='btn btn-floating  blue darken-1'></NavLink></li>
+*/}
+             <li><img src={mhProfilePic} alt="farmerPicture" className="FarmerProfilePic" /></li>
             
         </ul>
     )
