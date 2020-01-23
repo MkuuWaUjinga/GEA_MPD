@@ -16,7 +16,7 @@ constructor(props){
     super(props);
     this.state = {
         chartData:{
-            labels: ['WED','THU','FRI','SAT','SUN','MON','TUE','WED','THU','FRI','SAT'],
+            labels: ['TUE', 'WED','THU','FRI','SAT','SUN','MON','TUE','WED','THU','FRI'],
             
             datasets: [
                 {
