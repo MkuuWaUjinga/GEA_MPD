@@ -12,6 +12,11 @@
     background-color: #FDA970;
 }
 
+
+.input-field.modalheadline{
+    width: 70%;
+    margin-left: 20px;
+}
 .modalHeader .spocList {
     margin-left: 100px;
 }
@@ -47,7 +52,6 @@ a.modalAddTask:hover {
 #ModalAddTask > div > form {
     margin-top:0;
     padding: 0;
-    width:70%;
 }
 
 #ModalAddTask > div > form > div > label {
@@ -119,7 +123,7 @@ div.singleSPOC:hover {
     color: #FDA970;
 }
 
-.input-field {
+.input-field.addTodo {
     width: 70%;
     margin-left: 20px;
     margin-top: 24px;
@@ -128,20 +132,21 @@ div.singleSPOC:hover {
 }
 
 .input-field .btn-floating {
+margin-top: 30px;
 width:40px;
 height:40px;
 }
+
+.input-field .btn-floating .material-icons{
+    margin-top: 5px;
+    }
+
 .todoPreview {
-    margin-left: 20px;
+    margin-left: 50px;
+    line-height: 10px;
 }
 
-.todoPreview ul > li {
-    display: flex;
-    flex-direction: row;
-}
-#todoIcon {
-    border-radius: 100%;
-    border: 1px solid #FDA970;
-    width:5px;
-    height: 5px;
+
+#ModalAddTask > div > ul > li {
+    list-style-type: circle;
 }

@@ -110,13 +110,13 @@ if (toggle===false) {
 
     render() {
 
-      const screenshotScc = require('../../assets/img/screenshotScc.png');
+      const screenshotScc = require('../../assets/img/SCCpic.PNG');
 
       const todos = this.state.todoList;
       const todoList = todos.length ? (
         todos.map( todo => {
           return (
-          <li><div id="todoIcon"></div><p>{todo}</p></li>
+          <li className="listItem"><p>{todo}</p></li>
           )
         })
  
@@ -177,7 +177,7 @@ if (toggle===false) {
               </div>
               
                 <form >
-                        <div className="input-field ">
+                        <div className="input-field modalheadline">
                             <input id="task_title" type="text" data-length="20" onChange={this.handleTaskFormChange}/>
                             <label htmlFor="task_title">Headline</label>
                         </div>
@@ -185,16 +185,22 @@ if (toggle===false) {
 
                 <img src={screenshotScc} alt="screenshotScc"></img>
                 
+
+              
+                <div className="input-field addTodo row">
+                  <div className="col l8">
+                    <label for="todo">To Do List</label>
+                    <input id="todo" type="text" className="todoInput" placeholder="Add a To Do" onChange={this.handleTaskFormChange}/>
+                  </div>
+                  <div className="col l4">
+                     <a className="btn-floating btn-small waves-effect waves-light orange right" onClick={this.addTodo}><i className="material-icons">add</i></a>
+                  </div>
+                </div>
+
                 <ul className="todoPreview">
                    {todoList}
                 </ul>
 
-                <div className="input-field ">
-                  <input id="todo" type="text" className="todoInput" placeholder="Add a To Do" onChange={this.handleTaskFormChange}/>
-                  <label for="todo">To Do List</label>
-                  <a className="btn-floating btn-large waves-effect waves-light orange right" onClick={this.addTodo}><i className="material-icons">add</i></a>
-
-                </div>
 
                 
 

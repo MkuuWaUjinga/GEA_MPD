@@ -30,7 +30,8 @@ class MainChatView extends Component {
 
     render() {
         const cow_icon = require('../../assets/img/cow_icon.png');
-        const screenshotScc = require('../../assets/img/screenshotScc.png');
+        const screenshotScc = require('../../assets/img/SCCpic.PNG');
+        const mhProfilePic = require('../../assets/img/mhProfilePic.png');
 
 
         return (
@@ -50,17 +51,17 @@ class MainChatView extends Component {
                      <h5>{moment().format("MMM Do YYYY")}</h5>
                         <hr />
                         <div className="chatMsg">
-                            <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPic" />
+                            <img src={mhProfilePic} alt="spocPicture" className="spocPic" />
 
 
                             <div className="msgContainer">
                                 <div className="msgBox">
-                                    <p id="userName">John Vermehren</p><span>{moment().format('LT')}</span>
+                                    <p id="userName">Magnus Hoffmann</p><span>{moment().format('LT')}</span>
                                 </div>
                                 <p id="chatContent">Hey, can you check these cows?</p>
                             </div>
                         </div>
-                        <img src={screenshotScc} alt="screenshotScc"></img>
+                        <img src={screenshotScc} alt="screenshotScc" className="sccScreenshot"></img>
 
 {/* 
                         <h5>23th Jan. 2020</h5>
