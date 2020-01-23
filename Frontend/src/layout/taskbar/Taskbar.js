@@ -341,7 +341,7 @@ class Taskbar extends Component {
                                     <img src="https://image.brigitte.de/11267664/large1x1-622-622/725315d84ae2843ffc46dcf4f507245/EX/teaser.jpg" alt="farmerPicture" className="spocPic" />
                                     <div className="spocContent">
                                         <h5>Rilke Ammer</h5>
-                                        <p>Feed Consultant</p>6
+                                        <p>Feed Consultant</p>
                                         <div><i className="material-icons">phone_in_talk</i><p>+49 234 2386734</p></div>
                                         <div><i className="material-icons">markunread</i><p>rilke.ammer@gmail.com</p></div>
                                     </div>
