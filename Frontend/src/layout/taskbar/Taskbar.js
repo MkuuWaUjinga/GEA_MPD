@@ -8,6 +8,8 @@ import M from 'materialize-css';
 import moment from 'moment';
 import "materialize-css/dist/css/materialize.min.css";
 import "./taskbar.css";
+import {bindActionCreators} from "redux";
+import {fetchTasks} from "../../store/APIactions/fetchTasks";
 
 class Taskbar extends Component {
     state = {
@@ -16,6 +18,7 @@ class Taskbar extends Component {
     }
 
     componentDidMount() {
+        this.props.getTasks();
 
         M.Tabs.init(this.Tabs);
         M.updateTextFields();
@@ -318,7 +321,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteTask: (id) => dispatch(deleteTask(id)),
-        addTask: (newTask) => dispatch(addTask(newTask))
+        addTask: (newTask) => dispatch(addTask(newTask)),
+        getTasks: bindActionCreators(fetchTasks, dispatch),
     }
 }
 

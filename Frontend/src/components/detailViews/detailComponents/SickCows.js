@@ -14,7 +14,7 @@ class SickCows extends Component {
     componentDidMount() {
         //FETCH_USER
         // TODO implement check whether notification were already fetched before. Refetch just for testing.
-        //this.props.getUser();
+        this.props.getUser();
     }
 
     static processTime(time) {
