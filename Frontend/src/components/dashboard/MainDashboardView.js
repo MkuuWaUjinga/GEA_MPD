@@ -327,7 +327,7 @@ const mapStateToProps = (state) => {
 function mapDispatchToProps(dispatch) {
     return {
         getTasks: bindActionCreators(fetchTasks, dispatch),
-      getUser: bindActionCreators(fetchUser, dispatch)
+        getUser: bindActionCreators(fetchUser, dispatch)
     }
   }
 

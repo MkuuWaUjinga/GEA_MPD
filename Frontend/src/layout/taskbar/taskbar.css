@@ -8,7 +8,6 @@
     /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);*/
     /*box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.051); */
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
     background-color: white;
 }
 
@@ -21,23 +20,30 @@
     padding-top:12px;
     padding-left:15px;
     font-size: 1.1em;
+    color: white;
+    font-weight: bold;
 }
 #notificationCell {
-    padding-left: 25px ;
+    padding-left: 10px ;
     height: 7em;
 }
 
+#notificationCell .card .card-content h5 {
+    margin-left:0;
+}
+
 #notificationCell p:first-child {
-text-align: right;
+text-align: left;
 padding-right: 17px;
-margin-bottom: -15px;
+margin-top: -10px;
+margin-bottom: -10px;
 color: #969695;
 font-size:13px;
 }
 
 #notificationCell h5 {
     color: #F57228;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 #notificationCell .alarm_msg p {
@@ -48,6 +54,12 @@ font-size:13px;
 
 .task_sidebar ul{
     margin:0;
+}
+
+div.task_sidebar.col.xl3 > div:nth-child(1) > ul{
+    background-color: #f5b94278;
+    margin-top:-10px !important;
+    padding-top: 15px;
 }
 
 .tabs-swipe-demo.active {
@@ -201,6 +213,8 @@ img.spocPic {
 }
 
 
+
+
 .col.swipeContent {
     padding: 0;
 }
@@ -223,6 +237,7 @@ img.spocPic {
     max-height: 100%;
   }
   
+
   .taskBox .card-content {
     padding-top: 0.3em !important;
     padding-left: 2.5em !important;

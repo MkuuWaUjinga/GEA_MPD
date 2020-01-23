@@ -5,6 +5,8 @@ import HerdCount from '../detailViews/detailComponents/HerdCount'
 import SomaticCellCountView from './detailComponents/SickCows'
 import HerdIncrease from '../detailViews/detailComponents/HerdIncrease'
 import Lactation from '../detailViews/detailComponents/Lactation'
+import {connect} from 'react-redux';
+import {toggleNotification} from "../../store/actions/toggleNotification";
 import moment from 'moment';
 import '../detailViews/herdoverview.css'
 import {NavLink} from 'react-router-dom';
@@ -22,12 +24,19 @@ class DetailHerdOverview extends Component {
 
     }
 
+    handleNotificationClosing = () => {
+        if (this.props.isActive === true) {
+            this.props.toggleNotification(false)
+        } 
+    }
+
     componentDidMount() {
         /*
         console.log("In degail herd:", this.props.location.aboutProps.link_id)
         this.handleSwitch(this.props.location.aboutProps.link_id);
         */
         this.handleSwitch('SICK_COWS');
+        this.handleNotificationClosing();
     }
 
 
@@ -114,4 +123,17 @@ class DetailHerdOverview extends Component {
     }
 }
 
-export default DetailHerdOverview;
+const mapStateToProps = (state) => {
+    return {
+        isActive: state.notifications.isActive,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        toggleNotification: (newStatus) => dispatch(toggleNotification(newStatus))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailHerdOverview);

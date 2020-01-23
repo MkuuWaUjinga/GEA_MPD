@@ -1,5 +1,5 @@
 #ModalAddTask {
-    height: 1500px;
+    width: 800px;
     border-radius: 20px;
 }
 
@@ -8,12 +8,22 @@
 }
 
 .modal-content .modalHeader {
-    height: 260px;
+    height: 210px;
     background-color: #FDA970;
 }
 
-.modal-content .spocList {
-    margin-left: 150px;
+.modalHeader .spocList {
+    margin-left: 100px;
+}
+
+#ModalAddTask > div > img{
+    width: 50%;
+    margin-left: 20px;
+}
+
+
+.modalHeader .modal-close {
+    color: rgb(92, 89, 83);
 }
 
 #ModalAddTask > div > div.modalHeader > div {
@@ -26,11 +36,24 @@ a.modalAddTask {
     color: white;
 }
 
+a.modalAddTask:hover {
+    background-color: rgb(147, 78, 0) !important;
+}
 .modalHeader {
     padding-left: 20px;
     padding-top: 20px;
 }
 
+#ModalAddTask > div > form {
+    margin-top:0;
+    padding: 0;
+    width:70%;
+}
+
+#ModalAddTask > div > form > div > label {
+    color:  #FDA970;
+    
+}
 .modalHeader p:first-of-type {
     font-weight: bold;
     color: rgb(99, 86, 74);
@@ -39,6 +62,7 @@ a.modalAddTask {
 .spocsList {
     display: flex;
     flex-direction: row;
+    margin-top: -20px;
 }
 
 .spocsList div {
@@ -46,8 +70,8 @@ a.modalAddTask {
 }
 
 div.singleSPOC {
-    width:150px;
-    height: 150px;
+    width:110px;
+    height: 130px;
     background-color: transparent !important;
     text-align: center;
     display: flex;
@@ -57,10 +81,11 @@ div.singleSPOC {
 }
 
 
+
 #ModalAddTask > div > div.modalHeader > div > div > img {
     border-radius: 50%;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     align-self: center;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -83,8 +108,40 @@ div.singleSPOC:hover {
 
 .singleSPOC p:nth-of-type(2) {
     color: rgb(133, 69, 28);
+    margin-top: 10px;
 }
 
 #task_description {
     border: none
+}
+
+.input-field label {
+    color: #FDA970;
+}
+
+.input-field {
+    width: 70%;
+    margin-left: 20px;
+    margin-top: 24px;
+    position: flex;
+    flex-direction: row;
+}
+
+.input-field .btn-floating {
+width:40px;
+height:40px;
+}
+.todoPreview {
+    margin-left: 20px;
+}
+
+.todoPreview ul > li {
+    display: flex;
+    flex-direction: row;
+}
+#todoIcon {
+    border-radius: 100%;
+    border: 1px solid #FDA970;
+    width:5px;
+    height: 5px;
 }

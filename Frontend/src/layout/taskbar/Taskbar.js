@@ -58,6 +58,11 @@ class Taskbar extends Component {
 
 
     render() {
+
+        
+        const mhProfilePic = require('../../assets/img/mhProfilePic.png');
+
+
         const { tasks } = this.props;
         console.log("TASSSKKKS!!!",tasks);
         const taskList = tasks.length ? (
@@ -124,14 +129,20 @@ class Taskbar extends Component {
                         }
                     }} >
                         <li id="notificationCell">
+                        <div className="card" >
+                            <div className="card-content">
+
                             <p>{moment().format("ddd D, YYYY")}</p>
-                            <h5>{notification.title}</h5>
+                            <div><i className="material-icons chat orange-text">report_problem</i><h5>{notification.title}</h5></div>
                             {/* 
                             <div className="alarm_msg">
                                 <i className="material-icons">error</i>
                                 <p>{notification.content}</p>
                             </div>
                             */}
+                            </div>
+                            </div>
+
                         </li>
                     </NavLink>
                     </div>
@@ -151,7 +162,7 @@ class Taskbar extends Component {
                         <div className="nav_notification">
                             Notifications
                         </div>
-                        <ul>
+                        <ul className="notification_list">
                             {notificationList}
                         </ul>
                     </div>
@@ -166,10 +177,10 @@ class Taskbar extends Component {
                     className={this.props.isActive ? 'tabs tabs-swipe-demo active' : 'tabs tabs-swipe-demo'}
                 >
                     <li className="tab col s2">
-                        <a href="#test-swipe-1" ><div className="spocContactInfoIcon vet"><p>JV</p></div></a>
+                        <a href="#test-swipe-1" ><div className="spocContactInfoIcon vet"><p>MH</p></div></a>
                     </li>
                     <li className="tab col s2">
-                        <a href="#test-swipe-2 "><div className="spocContactInfoIcon farmer"><p>LK</p></div></a>
+                        <a href="#test-swipe-2 "><div className="spocContactInfoIcon farmer"><p>JV</p></div></a>
                     </li>
                     <li className="tab col s2">
                         <a href="#test-swipe-3"><div className="spocContactInfoIcon dealer"><p>AK</p></div></a>
@@ -185,35 +196,107 @@ class Taskbar extends Component {
 
                 <div id="test-swipe-1" className="col l12 swipeContent">
                     <div className="taskBox">
-                        <div className="spocInfo">
-                            <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPic" />
-                            <div className="spocContent">
-                                <h5>John Vermehren</h5>
-                                <p>Vet</p>
-                                <div><i className="material-icons">phone_in_talk</i><p>+49 234 2334534</p></div>
-                                <div><i className="material-icons">markunread</i><p>john.vermehren@gmail.com</p></div>
+                                <div className="spocInfo">
+                                    <img src={mhProfilePic} alt="farmerPicture" className="spocPic" />
+                                    <div className="spocContent">
+                                        <h5>Magnus Hoffmann</h5>
+                                        <p>Farmer</p>
+                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 2334534</p></div>
+                                        <div><i className="material-icons">markunread</i><p>magnus.hoffmann@gmail.com</p></div>
+                                    </div>
+                                </div>
+                                <input type="text" placeholder="Search..." className="searchbar"></input>
+                                <h6>Active</h6>
+                            {/* <ModalAddTask payload="taskbar" /> */}
+                                <div className="add_task_btn"><i className="material-icons">add</i></div>
+                                <div className="taskbar_footer">
+                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                                </div>
+                        </div>
+                </div>
+                <div id="test-swipe-2" className="col s12 swipeContent">
+                    <div className="taskBox">
+                            <div className="spocInfo">
+                                <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPic" />
+                                <div className="spocContent">
+                                    <h5>John Vermehren</h5>
+                                    <p>Vet</p>
+                                    <div><i className="material-icons">phone_in_talk</i><p>+49 234 2334534</p></div>
+                                    <div><i className="material-icons">markunread</i><p>john.vermehren@gmail.com</p></div>
+                                </div>
                             </div>
-                        </div>
-                        <input type="text" placeholder="Search..." className="searchbar"></input>
-                        <h6>Active</h6>
-                        <div className="tasklist_container">
-                            {taskList}
-                        </div>
-                      {/* <ModalAddTask payload="taskbar" /> */}
-                        <div className="add_task_btn"><i className="material-icons">add</i></div>
-                        <div className="taskbar_footer">
-                            <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
-                        </div>
+                            <input type="text" placeholder="Search..." className="searchbar"></input>
+                            <h6>Active</h6>
+                            <div className="tasklist_container">
+                                {taskList}
+                            </div>
+                        {/* <ModalAddTask payload="taskbar" /> */}
+                            <div className="add_task_btn"><i className="material-icons">add</i></div>
+                            <div className="taskbar_footer">
+                                <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                            </div>
                     </div>
                 </div>
-                <div id="test-swipe-2" className="col s12 red">
-                    Technician
+                <div id="test-swipe-3" className="col s12 swipeContent ">
+                        <div className="taskBox">
+                                <div className="spocInfo">
+                                    <img src="https://peterhurley.com/sites/default/files/styles/large/public/photos/2019/05/13/karl_008phweb.jpg?itok=TnqJTcg7" alt="farmerPicture" className="spocPic" />
+                                    <div className="spocContent">
+                                        <h5>Tim Koy</h5>
+                                        <p>Dealer</p>
+                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 2334534</p></div>
+                                        <div><i className="material-icons">markunread</i><p>tim.koy@gmail.com</p></div>
+                                    </div>
+                                </div>
+                                <input type="text" placeholder="Search..." className="searchbar"></input>
+                                <h6>Active</h6>
+                            {/* <ModalAddTask payload="taskbar" /> */}
+                                <div className="add_task_btn"><i className="material-icons">add</i></div>
+                                <div className="taskbar_footer">
+                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                                </div>
+                        </div>
                 </div>
-                <div id="test-swipe-3" className="col s12 green">
-                    Vet
+                <div id="test-swipe-4" className="col s12 swipeContent">
+                                        <div className="taskBox">
+                                <div className="spocInfo">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOBcnv1xTyyjyIJnuPx6pfkG1ay_7qzdMZdjPAVnBGwTBmInF&s" alt="farmerPicture" className="spocPic" />
+                                    <div className="spocContent">
+                                        <h5>Jan Lauterbach</h5>
+                                        <p>Technician</p>
+                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 2334534</p></div>
+                                        <div><i className="material-icons">markunread</i><p>jan.lauterbach@gmail.com</p></div>
+                                    </div>
+                                </div>
+                                <input type="text" placeholder="Search..." className="searchbar"></input>
+                                <h6>Active</h6>
+                            {/* <ModalAddTask payload="taskbar" /> */}
+                                <div className="add_task_btn"><i className="material-icons">add</i></div>
+                                <div className="taskbar_footer">
+                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                                </div>
+                        </div>
                 </div>
-                <div id="test-swipe-4" className="col s12 purple">
-                    Consultant
+
+                <div id="test-swipe-5" className="col s12 swipeContent">
+                                        <div className="taskBox">
+                                <div className="spocInfo">
+                                    <img src="https://image.brigitte.de/11267664/large1x1-622-622/725315d84ae2843ffc46dcf4f507245/EX/teaser.jpg" alt="farmerPicture" className="spocPic" />
+                                    <div className="spocContent">
+                                        <h5>Rilke Ammer</h5>
+                                        <p>Feed Consultant</p>
+                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 2334534</p></div>
+                                        <div><i className="material-icons">markunread</i><p>rilke.ammer@gmail.com</p></div>
+                                    </div>
+                                </div>
+                                <input type="text" placeholder="Search..." className="searchbar"></input>
+                                <h6>Active</h6>
+                            {/* <ModalAddTask payload="taskbar" /> */}
+                                <div className="add_task_btn"><i className="material-icons">add</i></div>
+                                <div className="taskbar_footer">
+                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                                </div>
+                        </div>
                 </div>
 
             </div>
