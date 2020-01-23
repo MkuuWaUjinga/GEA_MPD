@@ -116,7 +116,7 @@ if (toggle===false) {
       const todoList = todos.length ? (
         todos.map( todo => {
           return (
-          <li>{todo}</li>
+          <li><div id="todoIcon"></div><p>{todo}</p></li>
           )
         })
  
@@ -185,8 +185,7 @@ if (toggle===false) {
 
                 <img src={screenshotScc} alt="screenshotScc"></img>
                 
-
-                <ul>
+                <ul className="todoPreview">
                    {todoList}
                 </ul>
 
@@ -196,6 +195,9 @@ if (toggle===false) {
                   <a className="btn-floating btn-large waves-effect waves-light orange right" onClick={this.addTodo}><i className="material-icons">add</i></a>
 
                 </div>
+
+                
+
 
 
                 <textarea id="description" className="msgInputField" rows="5" cols="50" name="description" placeholder="Add a new message..." onChange={this.handleTaskFormChange}></textarea>

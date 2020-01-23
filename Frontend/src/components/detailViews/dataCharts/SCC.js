@@ -49,7 +49,9 @@ class SomaticCellCountView extends Component {
                 datasets: [
                     {
                         label: 'Somatic Cell Count',
-                        data: []
+                        data: [],
+                        backgroundColor: "rgba(229,248,246, 0.8)",
+                        borderColor: "rgb(106,237,229)"
                     }
                 ]
             }
@@ -64,7 +66,7 @@ class SomaticCellCountView extends Component {
                         <div className="SomaticCellCountChart">
                             <Line
                                 data={this.state.chartData}
-                                width= {800}
+                                width= {1100}
                                 height= {350}
                                 options={{
                                     maintainAspectRatio: false,

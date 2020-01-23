@@ -16,12 +16,12 @@ constructor(props){
     super(props);
     this.state = {
         chartData:{
-            labels: ['WED','THU','FRI','SAT','SUN','MON','TUE','WED','THU','FRI','SAT'],
+            labels: ['TUE', 'WED','THU','FRI','SAT','SUN','MON','TUE','WED','THU','FRI'],
             
             datasets: [
                 {
                     label: 'Sick cows under treatment',
-                    backgroundColor: 'rgba(187, 195, 212, 0.616)',
+                    backgroundColor: 'rgba(240, 153, 96, 0.6)',
                     data:[
                         5,
                         3,

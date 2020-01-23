@@ -97,7 +97,7 @@ class MainDashboardView extends Component {
                         <i className="material-icons">more_vert</i>
                     </div> 
                     <div className="kpi_block">
-                        <p>Estimated outcome</p>
+                        <p>Estimated income</p>
                         <p>€ 14.210</p>
                         <i className="material-icons">more_vert</i>
                     </div> 
@@ -123,7 +123,7 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p>Milking Output (kg)</p>
                                                         <p className="KPIdigit">42335</p>
-                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
@@ -131,7 +131,7 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p># Milkings</p>
                                                         <p className="KPIdigit">75</p>
-                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
@@ -139,7 +139,7 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p> &empty; Milking time (min)</p>
                                                         <p className="KPIdigit">6</p>
-                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -168,7 +168,7 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p>Fat (%)</p>
                                                         <p className="KPIdigit">3.34</p>
-                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
@@ -176,10 +176,17 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p>Protein (%)</p>
                                                         <p className="KPIdigit">2.03</p>
-                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
+                                                <li>
+                                                    <div className="keyValue">
+                                                        <p>Standard Plate Count</p>
+                                                        <p className="KPIdigit">5</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -210,7 +217,7 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p># Conception Rate (%)</p>
                                                         <p className="KPIdigit">42</p>
-                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
@@ -218,7 +225,7 @@ class MainDashboardView extends Component {
                                                     <div className="keyValue">
                                                         <p>In-/Decrease Herd (%)</p>
                                                         <p className="KPIdigit">-1.1</p>
-                                                        <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                        <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                     </div>
                                                 </li>
                                                 <hr></hr>
@@ -246,17 +253,17 @@ class MainDashboardView extends Component {
                                                 <ul>
                                                     <li>
                                                         <div className="keyValue">
-                                                            <p>Feed Storage (kg)</p>
-                                                            <p className="KPIdigit">2355</p>
-                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                            <p>Dry Matter Intake (kg)</p>
+                                                            <p className="KPIdigit">612</p>
+                                                            <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                         </div>
                                                     </li>
                                                     <hr></hr>
                                                     <li>
                                                         <div className="keyValue">
-                                                            <p>Feed Efficiency</p>
-                                                            <p className="KPIdigit">-2.1</p>
-                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                            <p>Feed Efficiency (%)</p>
+                                                            <p className="KPIdigit">-7</p>
+                                                            <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                         </div>
                                                     </li>
                                                     <hr></hr>
@@ -284,15 +291,15 @@ class MainDashboardView extends Component {
                                                         <div className="keyValue">
                                                             <p>Cleaning Program Rounds</p>
                                                             <p className="KPIdigit">1</p>
-                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                            <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                         </div>
                                                     </li>
                                                     <hr></hr>
                                                     <li>
                                                         <div className="keyValue">
                                                             <p># Stored Rubber Liner</p>
-                                                            <p className="KPIdigit">127</p>
-                                                            <p className="kpi_timestamp">Sat 9, 8:32</p>
+                                                            <p className="KPIdigit">64</p>
+                                                            <p className="kpi_timestamp">{moment().format("ddd D, h:mm")} </p>
                                                         </div>
                                                     </li>
                                                     <hr></hr>
@@ -320,7 +327,7 @@ const mapStateToProps = (state) => {
 function mapDispatchToProps(dispatch) {
     return {
         getTasks: bindActionCreators(fetchTasks, dispatch),
-      getUser: bindActionCreators(fetchUser, dispatch)
+        getUser: bindActionCreators(fetchUser, dispatch)
     }
   }
 

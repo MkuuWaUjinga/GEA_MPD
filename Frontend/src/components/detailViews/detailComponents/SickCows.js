@@ -14,7 +14,7 @@ class SickCows extends Component {
     componentDidMount() {
         //FETCH_USER
         // TODO implement check whether notification were already fetched before. Refetch just for testing.
-        //this.props.getUser();
+        this.props.getUser();
     }
 
     static processTime(time) {
@@ -60,12 +60,30 @@ class SickCows extends Component {
                                                          title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
                                                     >
                                                         <Card
-                                                            className="card-content black-text"
-                                                            title={"Cow ID:" + cowData.cow_id}
+                                                            className="card-content note black-text"
+                                                            title={"High Somatic Cell Count detected for Cow-ID: " + cowData.cow_id}
                                                         >
+                                                                             
                                                             <SCC payload={cowData.scc_data}/>
+                                                            <div className="medicalRecord"><p>Medical Record</p>
+                                                            
+                                                            <ul >
+                                                                {cowData.medical_record ? (
+                                                                    cowData.medical_record.map(record => {
+                                                                        return(
+                                                                            <li>
+                                                                            <div >
+                                                                               {record.date} - {record.case}
+                                                                          </div>
+                                                                          </li>
+                                                                        )
+                                                                    })
+                                                                   
+                                                                ):null}
+                                                            </ul>
+                                                            </div>
                                                             <div className="card_btns">
-                                                                <a className="waves-effect waves-light btn treatCow"><i className="material-icons left">add_circle_outline</i>Treat Cow</a>
+                                                                <a className="waves-effect waves-light btn treatCow">Treat Cow</a>
 
                                                             </div>
                                                         </Card>
@@ -133,20 +151,20 @@ class SickCows extends Component {
                                     <img src={cow_icon} alt="cow_icon"></img>
                                 </div>
                                 <div className="col l2">
-                                    5689
+                                    12
                                 </div>
                                 <div className="col l2">
                                     Mastitis
                                 </div>
                                 <div className="col l2">
-                                    Antibiotics
+                                    Penicillin
                                 </div>
                                 <div className="col l2">
-                                    01/04/19
+                                    14/01/20
                                 </div>
                                 <div className="col l2">
                                     <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
-                                        data-tooltip="6 Days until end of treatment">
+                                        data-tooltip="12 Days until end of treatment">
                                         <span>Time Period</span>
                                         <div className="determinate orange lighten-2"
                                             style={{ width: '75%', animation: 'grow 2s' }}>75%
@@ -154,7 +172,7 @@ class SickCows extends Component {
                                     </div>
                                 </div>
                                 <div className="col l2">
-                                    13/04/19
+                                    26/01/20
                                 </div>
                                 <div className="col l2">
                                     <i className="large material-icons left">arrow_drop_down</i>
@@ -168,28 +186,28 @@ class SickCows extends Component {
                                     <img src={cow_icon} alt="cow_icon"></img>
                                 </div>
                                 <div className="col l2">
-                                    12322
+                                    22
                                 </div>
                                 <div className="col l2">
                                     Claw Disease
                                 </div>
                                 <div className="col l2">
-                                    Antibiotics
+                                    -
                                 </div>
                                 <div className="col l2">
-                                    23/02/19
+                                    14/01/20
                                 </div>
                                 <div className="col l2">
                                     <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
-                                        data-tooltip="6 Days until end of treatment">
+                                        data-tooltip="13 Days until end of treatment">
                                         <span>Time Period</span>
                                         <div className="determinate orange lighten-2"
-                                            style={{ width: '56%', animation: 'grow 2s' }}>56%
+                                            style={{ width: '70%', animation: 'grow 2s' }}>56%
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col l2">
-                                    15/05/19
+                                    27/01/20
                                 </div>
                                 <div className="col l2">
                                     <i className="large material-icons left">arrow_drop_down</i>
@@ -203,28 +221,28 @@ class SickCows extends Component {
                                     <img src={cow_icon} alt="cow_icon"></img>
                                 </div>
                                 <div className="col l2">
-                                    23421
+                                    31
                                 </div>
                                 <div className="col l2">
                                     Mastitis
                                 </div>
                                 <div className="col l2">
-                                    Antibiotics
+                                    Cobactan
                                 </div>
                                 <div className="col l2">
-                                    31/03/19
+                                    16/01/120
                                 </div>
                                 <div className="col l2">
                                     <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
-                                        data-tooltip="6 Days until end of treatment">
+                                        data-tooltip="16 Days until end of treatment">
                                         <span>Time Period</span>
                                         <div className="determinate orange lighten-2"
-                                            style={{ width: '20%', animation: 'grow 2s' }}>20%
+                                            style={{ width: '65%', animation: 'grow 2s' }}>20%
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col l2">
-                                    25/05/19
+                                    30/01/20
                                 </div>
                                 <div className="col l2">
                                     <i className="large material-icons left">arrow_drop_down</i>
