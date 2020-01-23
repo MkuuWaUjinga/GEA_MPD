@@ -109,6 +109,19 @@ class SickCows extends Component {
         return (
             <div className="SomaticCellCountContainer">
 
+                <div className="NotificationsSomaticCellCount">
+
+                    <div className="notiSCCheadline">
+                        <i className="small material-icons left">notifications</i>
+                        <h4>Notifcations</h4>
+                    </div>
+                    <div className="notiSCCheadlineSearch">
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                    </div>
+
+                    {notificationTab}
+                </div>
+
                 <div className="subheadline">
                     <h4>Cows currently in treatment</h4>
                 </div>
@@ -252,19 +265,6 @@ class SickCows extends Component {
                         </li>
                     </ul>
 
-                </div>
-
-                <div className="NotificationsSomaticCellCount">
-
-                    <div className="notiSCCheadline">
-                        <i className="small material-icons left">notifications</i>
-                        <h4>Notifcations</h4>
-                    </div>
-                    <div className="notiSCCheadlineSearch">
-                        <input type="text" placeholder="Search..." className="searchbar"></input>
-                    </div>
-
-                    {notificationTab}
                 </div>
 
             </div>

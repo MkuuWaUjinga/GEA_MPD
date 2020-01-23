@@ -20,6 +20,17 @@ componentDidMount (){
         const cow_icon = require('../../../assets/img/cow_icon.png');
         return(
             <div className="SomaticCellCountContainer">
+                
+            <div className="NotificationsSomaticCellCount">
+
+                <div className="notiSCCheadline">
+                    <i className="small material-icons left">notifications</i>
+                    <h4>Notifcations</h4>
+                </div>
+                <div className="notiSCCheadlineSearch">
+                    <input type="text" placeholder="Search..." className="searchbar"></input>
+                </div>
+                </div>
 
             <div className="subheadline">
                 <h4>Lactating Animals</h4>
@@ -81,16 +92,6 @@ componentDidMount (){
 
             </div>
 
-            <div className="NotificationsSomaticCellCount">
-
-                <div className="notiSCCheadline">
-                    <i className="small material-icons left">notifications</i>
-                    <h4>Notifcations</h4>
-                </div>
-                <div className="notiSCCheadlineSearch">
-                    <input type="text" placeholder="Search..." className="searchbar"></input>
-                </div>
-            </div>
 
         </div>
 

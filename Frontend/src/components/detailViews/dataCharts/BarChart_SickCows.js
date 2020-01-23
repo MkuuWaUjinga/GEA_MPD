@@ -1,75 +1,65 @@
 import React, {Component} from 'react';
 import {Bar} from 'react-chartjs-2';
-import M from 'materialize-css';  
+
 class SomaticCellCountView extends Component {
 
-state = {
+    constructor(props) {
 
-}
+        super(props);
+        this.state = {
+            chartData: {
+                labels: ['WED', 'THU', 'FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
 
-componentDidMount (){
-    M.AutoInit();
-}
-
-constructor(props){
-    
-    super(props);
-    this.state = {
-        chartData:{
-            labels: ['TUE', 'WED','THU','FRI','SAT','SUN','MON','TUE','WED','THU','FRI'],
-            
-            datasets: [
-                {
-                    label: 'Sick cows under treatment',
-                    backgroundColor: 'rgba(255,129,33, 0.6)',
-                    data:[
-                        5,
-                        3,
-                        7,
-                        5,
-                        6,
-                        5,
-                        3,
-                        3,
-                        4,
-                        5,
-                        3
-                    ]
-                }
-            ]
+                datasets: [
+                    {
+                        label: 'Sick cows under treatment',
+                        backgroundColor: 'rgba(247, 137, 62, 0.616)',
+                        data: [
+                            5,
+                            3,
+                            7,
+                            5,
+                            6,
+                            5,
+                            3,
+                            3,
+                            4,
+                            5,
+                            3
+                        ]
+                    }
+                ]
+            }
         }
+
     }
-    
-}
 
     render() {
-        return(
+        return (
             <div className="SCCcontainer">
-                        <div className="sickCows_barchart">
-                            <Bar
-                                data={this.state.chartData}
-                                width={100}
-                                height={250}
-                                options={
-                                    {
-                                    maintainAspectRatio: false,
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }]
-                                    }
+                <div className="sickCows_barchart">
+                    <Bar
+                        data={this.state.chartData}
+                        width={100}
+                        height={250}
+                        options={
+                            {
+                                maintainAspectRatio: false,
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
                                 }
-                                }
-                            
-                            
-                            
-                            />
-                        </div>
+                            }
+                        }
+
+
+                    />
+                </div>
 
             </div>
-
 
 
         )
