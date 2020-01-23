@@ -14,7 +14,7 @@ class SickCows extends Component {
     componentDidMount() {
         //FETCH_USER
         // TODO implement check whether notification were already fetched before. Refetch just for testing.
-        //this.props.getUser();
+        this.props.getUser();
     }
 
     static processTime(time) {
@@ -151,7 +151,7 @@ class SickCows extends Component {
                                     <img src={cow_icon} alt="cow_icon"></img>
                                 </div>
                                 <div className="col l2">
-                                    253
+                                    12
                                 </div>
                                 <div className="col l2">
                                     Mastitis
@@ -186,7 +186,7 @@ class SickCows extends Component {
                                     <img src={cow_icon} alt="cow_icon"></img>
                                 </div>
                                 <div className="col l2">
-                                    745
+                                    22
                                 </div>
                                 <div className="col l2">
                                     Claw Disease
@@ -221,7 +221,7 @@ class SickCows extends Component {
                                     <img src={cow_icon} alt="cow_icon"></img>
                                 </div>
                                 <div className="col l2">
-                                    978
+                                    31
                                 </div>
                                 <div className="col l2">
                                     Mastitis
