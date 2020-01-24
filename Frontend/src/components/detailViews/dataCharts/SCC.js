@@ -66,7 +66,7 @@ class SomaticCellCountView extends Component {
                         <div className="SomaticCellCountChart">
                             <Line
                                 data={this.state.chartData}
-                                width= {1100}
+                                width= {1000}
                                 height= {350}
                                 options={{
                                     maintainAspectRatio: false,
