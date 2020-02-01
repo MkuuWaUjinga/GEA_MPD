@@ -3,13 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteTask } from "../../store/actions/deleteTask";
 import { addTask } from "../../store/actions/addTask";
-import ModalAddTask from '../taskbar/ModalAddTask';
 import M from 'materialize-css';
 import moment from 'moment';
 import "materialize-css/dist/css/materialize.min.css";
 import "./taskbar.css";
-import {bindActionCreators} from "redux";
-import {fetchTasks} from "../../store/APIactions/fetchTasks";
+import { bindActionCreators } from "redux";
+import { fetchTasks } from "../../store/APIactions/fetchTasks";
 
 class Taskbar extends Component {
     state = {
@@ -62,12 +61,11 @@ class Taskbar extends Component {
 
     render() {
 
-        
+
         const mhProfilePic = require('../../assets/img/mhProfilePic.png');
 
 
         const { tasks } = this.props;
-        console.log("TASSSKKKS!!!",tasks);
         const taskList = tasks.length ? (
             tasks.map(task => {
                 return (
@@ -78,32 +76,27 @@ class Taskbar extends Component {
                                 <i className="material-icons chat">chat</i>
 
                                 <p className="taskDescription">{task.description}</p>
-{/* 
-                                <div className="alarm_msg">
-                                    <i className="material-icons">error</i>
-                                    <p>{task.description}</p>
-                                </div>
-*/}
 
-                                {  <form action="#" className="checkboxes">
-                                        <div className="check">
+
+                                {<form action="#" className="checkboxes">
+                                    <div className="check">
                                         {task.todos.length ? (
 
 
                                             task.todos.map(task => {
                                                 return (
-                                                <p>
-                                                <label>
-                                                    <input type="checkbox" />
-                                                    <span>{task}</span>
-                                                </label>
-                                                </p>
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            <span>{task}</span>
+                                                        </label>
+                                                    </p>
                                                 )
                                             })
 
                                         ) : (
-                                            null
-                                        )}
+                                                null
+                                            )}
                                     </div>
                                 </form>
                                 }
@@ -132,18 +125,13 @@ class Taskbar extends Component {
                         }
                     }} >
                         <li id="notificationCell">
-                        <div className="card" >
-                            <div className="card-content">
+                            <div className="card" >
+                                <div className="card-content">
 
-                            <p>{moment().format("ddd D, YYYY")}</p>
-                            <div><i className="material-icons chat orange-text">report_problem</i><h5>{notification.title}</h5></div>
-                            {/* 
-                            <div className="alarm_msg">
-                                <i className="material-icons">error</i>
-                                <p>{notification.content}</p>
-                            </div>
-                            */}
-                            </div>
+                                    <p>{moment().format("ddd D, YYYY")}</p>
+                                    <div><i className="material-icons chat orange-text">report_problem</i><h5>{notification.title}</h5></div>
+
+                                </div>
                             </div>
 
                         </li>
@@ -199,22 +187,22 @@ class Taskbar extends Component {
 
                 <div id="test-swipe-1" className="col l12 swipeContent">
                     <div className="taskBox">
-                                <div className="spocInfo">
-                                    <img src={mhProfilePic} alt="farmerPicture" className="spocPic" />
-                                    <div className="spocContent">
-                                        <h5>Magnus Hoffmann</h5>
-                                        <p>Farmer</p>
-                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 23345334</p></div>
-                                        <div><i className="material-icons">markunread</i><p>magnus.hoffmann@gmail.com</p></div>
-                                    </div>
-                                </div>
+                        <div className="spocInfo">
+                            <img src={mhProfilePic} alt="farmerPicture" className="spocPic" />
+                            <div className="spocContent">
+                                <h5>Magnus Hoffmann</h5>
+                                <p>Farmer</p>
+                                <div><i className="material-icons">phone_in_talk</i><p>+49 234 23345334</p></div>
+                                <div><i className="material-icons">markunread</i><p>magnus.hoffmann@gmail.com</p></div>
+                            </div>
+                        </div>
 
-                                <input type="text" placeholder="Search..." className="searchbar"></input>
-                                <h6>Active</h6>
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                        <h6>Active</h6>
 
 
-                             <div className="card farmer"  >
-                                <div className="card-content">
+                        <div className="card farmer"  >
+                            <div className="card-content">
                                 <span className="card-title">Phone with Technician</span>
                                 <i className="material-icons chat">chat</i>
                                 <label>
@@ -222,10 +210,10 @@ class Taskbar extends Component {
                                     <span>Show him broken pump</span>
                                 </label>
                                 <div className="deleteTaskIcon" ><i className="material-icons delete">more_horiz</i></div>
-                                </div>
                             </div>
-                            <div className="card farmer"  >
-                                <div className="card-content">
+                        </div>
+                        <div className="card farmer"  >
+                            <div className="card-content">
                                 <span className="card-title">Check Cow-ID 231</span>
                                 <i className="material-icons chat">chat</i>
                                 <label>
@@ -233,57 +221,54 @@ class Taskbar extends Component {
                                     <span>Get her a new feed trough</span>
                                 </label>
                                 <div className="deleteTaskIcon" ><i className="material-icons delete">more_horiz</i></div>
-                                </div>
                             </div>
-
-
-                            {/* <ModalAddTask payload="taskbar" /> */}
-                                <div className="add_task_btn"><i className="material-icons">add</i></div>
-                                <div className="taskbar_footer">
-                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
-                                </div>
                         </div>
+
+
+                        <div className="add_task_btn"><i className="material-icons">add</i></div>
+                        <div className="taskbar_footer">
+                            <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                        </div>
+                    </div>
                 </div>
                 <div id="test-swipe-2" className="col s12 swipeContent">
                     <div className="taskBox">
-                            <div className="spocInfo">
-                                <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPic" />
-                                <div className="spocContent">
-                                    <h5>John Vermehren</h5>
-                                    <p>Vet</p>
-                                    <div><i className="material-icons">phone_in_talk</i><p>+49 234 24586734</p></div>
-                                    <div><i className="material-icons">markunread</i><p>john.vermehren@gmail.com</p></div>
-                                </div>
+                        <div className="spocInfo">
+                            <img src="http://philipp-bode.de/wp-content/uploads/2019/11/Philipp_Bode.jpg" alt="spocPicture" className="spocPic" />
+                            <div className="spocContent">
+                                <h5>John Vermehren</h5>
+                                <p>Vet</p>
+                                <div><i className="material-icons">phone_in_talk</i><p>+49 234 24586734</p></div>
+                                <div><i className="material-icons">markunread</i><p>john.vermehren@gmail.com</p></div>
                             </div>
-                            <input type="text" placeholder="Search..." className="searchbar"></input>
-                            <h6>Active</h6>
-                            <div className="tasklist_container">
-                                {taskList}
-                            </div>
-                        {/* <ModalAddTask payload="taskbar" /> */}
-                            <div className="add_task_btn"><i className="material-icons">add</i></div>
-                            <div className="taskbar_footer">
-                                <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
-                            </div>
+                        </div>
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                        <h6>Active</h6>
+                        <div className="tasklist_container">
+                            {taskList}
+                        </div>
+                        <div className="add_task_btn"><i className="material-icons">add</i></div>
+                        <div className="taskbar_footer">
+                            <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                        </div>
                     </div>
                 </div>
                 <div id="test-swipe-3" className="col s12 swipeContent ">
-                        <div className="taskBox">
-                                <div className="spocInfo">
-                                    <img src="https://peterhurley.com/sites/default/files/styles/large/public/photos/2019/05/13/karl_008phweb.jpg?itok=TnqJTcg7" alt="farmerPicture" className="spocPic" />
-                                    <div className="spocContent">
-                                        <h5>Tim Koy</h5>
-                                        <p>Dealer</p>
-                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 2744534</p></div>
-                                        <div><i className="material-icons">markunread</i><p>tim.koy@gmail.com</p></div>
-                                    </div>
-                                </div>
-                                <input type="text" placeholder="Search..." className="searchbar"></input>
-                                <h6>Active</h6>
-                            {/* <ModalAddTask payload="taskbar" /> */}
-                            
-                            <div className="card dealer"  >
-                                <div className="card-content">
+                    <div className="taskBox">
+                        <div className="spocInfo">
+                            <img src="https://peterhurley.com/sites/default/files/styles/large/public/photos/2019/05/13/karl_008phweb.jpg?itok=TnqJTcg7" alt="farmerPicture" className="spocPic" />
+                            <div className="spocContent">
+                                <h5>Tim Koy</h5>
+                                <p>Dealer</p>
+                                <div><i className="material-icons">phone_in_talk</i><p>+49 234 2744534</p></div>
+                                <div><i className="material-icons">markunread</i><p>tim.koy@gmail.com</p></div>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                        <h6>Active</h6>
+
+                        <div className="card dealer"  >
+                            <div className="card-content">
                                 <span className="card-title">Please order new rubber</span>
                                 <i className="material-icons chat">chat</i>
                                 <label>
@@ -291,33 +276,32 @@ class Taskbar extends Component {
                                     <span>Quantity: 500</span>
                                 </label>
                                 <div className="deleteTaskIcon" ><i className="material-icons delete">more_horiz</i></div>
-                                </div>
                             </div>
-
-
-                                <div className="add_task_btn"><i className="material-icons">add</i></div>
-                                <div className="taskbar_footer">
-                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
-                                </div>
                         </div>
+
+
+                        <div className="add_task_btn"><i className="material-icons">add</i></div>
+                        <div className="taskbar_footer">
+                            <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                        </div>
+                    </div>
                 </div>
                 <div id="test-swipe-4" className="col s12 swipeContent">
-                                        <div className="taskBox">
-                                <div className="spocInfo">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOBcnv1xTyyjyIJnuPx6pfkG1ay_7qzdMZdjPAVnBGwTBmInF&s" alt="farmerPicture" className="spocPic" />
-                                    <div className="spocContent">
-                                        <h5>Jan Lauterbach</h5>
-                                        <p>Technician</p>
-                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 23647534</p></div>
-                                        <div><i className="material-icons">markunread</i><p>jan.lauterbach@gmail.com</p></div>
-                                    </div>
-                                </div>
-                                <input type="text" placeholder="Search..." className="searchbar"></input>
-                                <h6>Active</h6>
-                            {/* <ModalAddTask payload="taskbar" /> */}
+                    <div className="taskBox">
+                        <div className="spocInfo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiOBcnv1xTyyjyIJnuPx6pfkG1ay_7qzdMZdjPAVnBGwTBmInF&s" alt="farmerPicture" className="spocPic" />
+                            <div className="spocContent">
+                                <h5>Jan Lauterbach</h5>
+                                <p>Technician</p>
+                                <div><i className="material-icons">phone_in_talk</i><p>+49 234 23647534</p></div>
+                                <div><i className="material-icons">markunread</i><p>jan.lauterbach@gmail.com</p></div>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                        <h6>Active</h6>
 
-                            <div className="card technician"  >
-                                <div className="card-content">
+                        <div className="card technician"  >
+                            <div className="card-content">
                                 <span className="card-title">Missing receipt</span>
                                 <i className="material-icons chat">chat</i>
                                 <label>
@@ -325,43 +309,42 @@ class Taskbar extends Component {
                                     <span>Please send me receipt of last technician service </span>
                                 </label>
                                 <div className="deleteTaskIcon" ><i className="material-icons delete">more_horiz</i></div>
-                                </div>
                             </div>
-
-                                <div className="add_task_btn"><i className="material-icons">add</i></div>
-                                <div className="taskbar_footer">
-                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
-                                </div>
                         </div>
+
+                        <div className="add_task_btn"><i className="material-icons">add</i></div>
+                        <div className="taskbar_footer">
+                            <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="test-swipe-5" className="col s12 swipeContent">
-                                        <div className="taskBox">
-                                <div className="spocInfo">
-                                    <img src="https://image.brigitte.de/11267664/large1x1-622-622/725315d84ae2843ffc46dcf4f507245/EX/teaser.jpg" alt="farmerPicture" className="spocPic" />
-                                    <div className="spocContent">
-                                        <h5>Rilke Ammer</h5>
-                                        <p>Feed Consultant</p>
-                                        <div><i className="material-icons">phone_in_talk</i><p>+49 234 2386734</p></div>
-                                        <div><i className="material-icons">markunread</i><p>rilke.ammer@gmail.com</p></div>
-                                    </div>
-                                </div>
-                                <input type="text" placeholder="Search..." className="searchbar"></input>
-                                <h6>Active</h6>
-                            {/* <ModalAddTask payload="taskbar" /> */}
-                            <div className="card consultant"  >
-                                <div className="card-content">
+                    <div className="taskBox">
+                        <div className="spocInfo">
+                            <img src="https://image.brigitte.de/11267664/large1x1-622-622/725315d84ae2843ffc46dcf4f507245/EX/teaser.jpg" alt="farmerPicture" className="spocPic" />
+                            <div className="spocContent">
+                                <h5>Rilke Ammer</h5>
+                                <p>Feed Consultant</p>
+                                <div><i className="material-icons">phone_in_talk</i><p>+49 234 2386734</p></div>
+                                <div><i className="material-icons">markunread</i><p>rilke.ammer@gmail.com</p></div>
+                            </div>
+                        </div>
+                        <input type="text" placeholder="Search..." className="searchbar"></input>
+                        <h6>Active</h6>
+                        <div className="card consultant"  >
+                            <div className="card-content">
                                 <span className="card-title">Please call me back</span>
                                 <i className="material-icons chat">chat</i>
                                 <p className="taskDescription">I couldn't reach you. We need to talk about the feed ratio for next week.</p>
                                 <div className="deleteTaskIcon" ><i className="material-icons delete">more_horiz</i></div>
-                                </div>
                             </div>
-                                <div className="add_task_btn"><i className="material-icons">add</i></div>
-                                <div className="taskbar_footer">
-                                    <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
-                                </div>
                         </div>
+                        <div className="add_task_btn"><i className="material-icons">add</i></div>
+                        <div className="taskbar_footer">
+                            <span><i className="material-icons">archive</i><p>Archive</p><i className="material-icons">arrow_drop_down</i></span>
+                        </div>
+                    </div>
                 </div>
 
             </div>

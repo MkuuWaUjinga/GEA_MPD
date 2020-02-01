@@ -10,7 +10,7 @@ const initState = {
         title:"15:25 - Abnormal Somatic Cell Count detected", 
         content: '5 cows show a high somatic cell count',
         category: 'DetailHerdOverview/SickCows',
-        cows: [ //proof?!
+        cows: [ 
             {
                 cow_id: 124123,
                 SCC: [

@@ -1,14 +1,15 @@
-import {FETCH_USER} from "../APIactions/fetchUser";
+import { FETCH_USER } from "../APIactions/fetchUser";
 
 const initState = {
     user:
-        {userId: 'E6XrsXoB7oQhwlnL97VrlbECk9iaIXMN',
+    {
+        userId: 'E6XrsXoB7oQhwlnL97VrlbECk9iaIXMN',
         firstName: 'John',
         lastName: 'Zimmerman',
         email: 'john.zimmerman@tum.de',
         number: '',
         role: 'Farmer',
-        },
+    },
 }
 
 

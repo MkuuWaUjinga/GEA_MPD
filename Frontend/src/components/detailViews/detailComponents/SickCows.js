@@ -2,19 +2,55 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BarChart_SickCows from '../dataCharts/BarChart_SickCows';
 import SCC from '../dataCharts/SCC';
-import ModalAddTask from '../../../layout/taskbar/ModalAddTask';
+import ModalAddTask from '../../../layout/modalAddTask/ModalAddTask';
 import { fetchUser } from '../../../store/APIactions/fetchUser';
 import { bindActionCreators } from 'redux';
 import "materialize-css/dist/css/materialize.min.css";
 import { Tab, Tabs, Card, Collapsible, CollapsibleItem, Icon } from 'react-materialize';
-import { Modal } from 'materialize-css';
+import M from 'materialize-css';
+
 
 class SickCows extends Component {
 
+    state = {
+        treated_cows: [
+            {
+                cow_id: "25",
+                disease: "Mastitis",
+                medication: "Cobactan",
+                start_treatment: "12/01/20",
+                end_treatment: "28/01/20",
+                description: "medical record"
+            },
+        ]
+    }
+
     componentDidMount() {
         //FETCH_USER
-        // TODO implement check whether notification were already fetched before. Refetch just for testing.
         this.props.getUser();
+
+        const options = {
+            onOpenStart: () => {
+                console.log("Open Start");
+            },
+            onOpenEnd: () => {
+                console.log("Open End");
+            },
+            onCloseStart: () => {
+                console.log("Close Start");
+            },
+            onCloseEnd: () => {
+                console.log("Close End");
+            },
+            inDuration: 250,
+            outDuration: 250,
+            opacity: 0.5,
+            dismissible: false,
+            startingTop: "4%",
+            endingTop: "10%"
+        };
+        M.Modal.init(this.Modal, options);
+
     }
 
     static processTime(time) {
@@ -22,14 +58,83 @@ class SickCows extends Component {
             "pm " : time + "am "
     }
 
+    handleTaskFormChange = (e) => {
+        this.setState({
+            [e.target.id]: e.target.value
+        })
+        console.log("current state", this.state)
+    }
+
+    handleTaskFormSubmit = (e) => {
+        e.preventDefault();
+        console.log('CURRENT STATE', this.state)
+        this.setState({
+            treated_cows: [...this.state,
+            {
+                cow_id: "test",
+                disease: this.state.disease,
+                medication: this.state.medication,
+                start_treatment: "test",
+                end_treatment: "test2",
+                description: this.state.description
+            }
+            ]
+        });
+        console.log("current state", this.state)
+    }
+
+
     render() {
 
         const cow_icon = require('../../../assets/img/cow_icon.png');
         const cow_icon2 = require('../../../assets/img/cow_icon2.png');
 
 
-        const notis = this.props.notifications.notifications;
+        const treated_cows = this.state.treated_cows;
+        const treated_cows_list = treated_cows ? (
+            treated_cows.map(cow => {
+                return (
 
+
+                    <li>
+                        <div className="collapsible-header row center">
+                            <div className="col l2">
+                                <img src={cow_icon} alt="cow_icon"></img>
+                            </div>
+                            <div className="col l2">
+                                {cow.cow_id}
+                            </div>
+                            <div className="col l2">
+                                {cow.disease}
+                            </div>
+                            <div className="col l2">
+                                {cow.medication}
+                            </div>
+                            <div className="col l2">
+                                {cow.start_treatment}
+                            </div>
+                            <div className="col l2">
+                                <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
+                                    data-tooltip="16 Days until end of treatment">
+                                    <span>Time Period</span>
+                                    <div className="determinate orange lighten-2"
+                                        style={{ width: '65%', animation: 'grow 2s' }}>75%
+                                </div>
+                                </div>
+                            </div>
+                            <div className="col l2">
+                                {cow.end_treatment}
+                            </div>
+                            <div className="col l2">
+                                <i className="large material-icons left">arrow_drop_down</i>
+                            </div>
+                        </div>
+                        <div className="collapsible-body"><span>{cow.description}.</span></div>
+                    </li>)
+            })
+        ) : (<p>no cows in treatment</p>);
+
+        const notis = this.props.notifications.notifications;
         const notificationTab = notis ? (
             notis.map(notification => {
                 var date = notification.timestamp.split(":")[0].split("-").reverse().join(".");
@@ -51,39 +156,39 @@ class SickCows extends Component {
                                             notification.proof.map(cowData => {
                                                 return (
                                                     <Tab key={cowData.cow_id}
-                                                         options={{
-                                                             duration: 300,
-                                                             onShow: null,
-                                                             responsiveThreshold: Infinity,
-                                                             swipeable: false
-                                                         }}
-                                                         title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
+                                                        options={{
+                                                            duration: 300,
+                                                            onShow: null,
+                                                            responsiveThreshold: Infinity,
+                                                            swipeable: false
+                                                        }}
+                                                        title={<div id="tabIcon"><p>Id: {cowData.cow_id}</p><img src={cow_icon2} alt="cow_icon"></img> </div>} id="cardTab"
                                                     >
                                                         <Card
                                                             className="card-content note black-text"
                                                             title={"High Somatic Cell Count detected for Cow-ID: " + cowData.cow_id}
                                                         >
-                                                                             
-                                                            <SCC payload={cowData.scc_data}/>
+
+                                                            <SCC payload={cowData.scc_data} />
                                                             <div className="medicalRecord"><p>Medical Record</p>
-                                                            
-                                                            <ul >
-                                                                {cowData.medical_record ? (
-                                                                    cowData.medical_record.map(record => {
-                                                                        return(
-                                                                            <li>
-                                                                            <div >
-                                                                               {record.date} - {record.case}
-                                                                          </div>
-                                                                          </li>
-                                                                        )
-                                                                    })
-                                                                   
-                                                                ):null}
-                                                            </ul>
+
+                                                                <ul >
+                                                                    {cowData.medical_record ? (
+                                                                        cowData.medical_record.map(record => {
+                                                                            return (
+                                                                                <li>
+                                                                                    <div >
+                                                                                        {record.date} - {record.case}
+                                                                                    </div>
+                                                                                </li>
+                                                                            )
+                                                                        })
+
+                                                                    ) : null}
+                                                                </ul>
                                                             </div>
                                                             <div className="card_btns">
-                                                                <a className="waves-effect waves-light btn treatCow">Treat Cow</a>
+                                                                <a className="waves-effect waves-light btn treatCow" >Treat Cow</a>
 
                                                             </div>
                                                         </Card>
@@ -96,7 +201,7 @@ class SickCows extends Component {
                                     </Tabs>
 
                                 </div>
-                                <ModalAddTask payload={notification}/>
+                                <ModalAddTask payload={notification} />
                             </CollapsibleItem>
                         </Collapsible>
                     </div>
@@ -127,6 +232,9 @@ class SickCows extends Component {
                 </div>
 
                 <BarChart_SickCows />
+
+
+
                 <div className="CowsInTreatment">
 
                     <ul className="collapsible">
@@ -158,6 +266,7 @@ class SickCows extends Component {
                                 </div>
                             </div>
                         </li>
+
                         <li>
                             <div className="collapsible-header row center">
                                 <div className="col l2">
@@ -228,41 +337,8 @@ class SickCows extends Component {
                             </div>
                             <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                         </li>
-                        <li>
-                            <div className="collapsible-header row center">
-                                <div className="col l2">
-                                    <img src={cow_icon} alt="cow_icon"></img>
-                                </div>
-                                <div className="col l2">
-                                    31
-                                </div>
-                                <div className="col l2">
-                                    Mastitis
-                                </div>
-                                <div className="col l2">
-                                    Cobactan
-                                </div>
-                                <div className="col l2">
-                                    16/01/120
-                                </div>
-                                <div className="col l2">
-                                    <div className="progress blue-grey lighten-4 tooltipped" data-position="top"
-                                        data-tooltip="16 Days until end of treatment">
-                                        <span>Time Period</span>
-                                        <div className="determinate orange lighten-2"
-                                            style={{ width: '65%', animation: 'grow 2s' }}>20%
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col l2">
-                                    30/01/20
-                                </div>
-                                <div className="col l2">
-                                    <i className="large material-icons left">arrow_drop_down</i>
-                                </div>
-                            </div>
-                            <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                        </li>
+
+                        {treated_cows_list}
                     </ul>
 
                 </div>

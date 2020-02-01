@@ -1,5 +1,5 @@
 
-/*Overall Dashboard*/
+/*Overall Dashboard____________________*/
 .feed_mgmt_container{
     overflow: hidden;
     background-size: cover;
@@ -53,7 +53,7 @@
     top: 0;
     transition: top ease 0.5s;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);
-    /*transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
+
   }
   .kpi_boards .card:hover {
     top: -5px;
@@ -138,18 +138,6 @@ div.keyValue {
   padding-top: -2px;
 }
 
-/*
-.kpi_herdoverviewbox li, .kpi_feedmgmtbox li, .kpi_machinemgmtbox li {
-  height: 160px;
-}
-*/
-/*
-.kpi_herdoverviewbox .KPIdigit, .kpi_feedmgmtbox .KPIdigit, .kpi_machinemgmtbox .KPIdigit {
-  padding-top: 15%;
-  padding-bottom: 20%;
-}
-*/
-
 
 
 /*Milking Performance______________________________*/
@@ -220,7 +208,7 @@ div.keyValue {
 }
 
 
-/*_____________________________*/
+/*_KPIs____________________________*/
 
 .business_kpis {
   height: 100px;
@@ -284,7 +272,6 @@ div.timeframe_box {
   top: 80px;
   left: 60px;
   border-radius: 20px;
-  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);*/
   display: table;
   table-layout: fixed;
 }

@@ -165,10 +165,6 @@ ul.right {
   padding-top:60px !important;
 }
 
-.task_sidebar {
-  background-color: black;
-  height: 100vh;
-}
 
 #root > div > div > div.kpi_boards.col {
   padding-left: 3.5em;

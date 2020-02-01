@@ -117,16 +117,11 @@ span.sectionHeadline {
     flex-direction: row;
   }
 
-  .SomaticCellCountContainer .subheadline input{
-
-  }
-
   .SomaticCellCountContainer h4{
     font-size: 1.3em;
     font-weight: bold;
     color: grey;
 }
-
 
 div.SomaticCellCountContainer > div.subheadline > input {
 

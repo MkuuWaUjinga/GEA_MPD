@@ -12,13 +12,12 @@ class SignUp extends Component {
 
     handleChange = (e) => {
         this.setState({
-        [e.target.id]: e.target.value //we have 2 fields that use handleChange method, thats why we need to differentiate by asking for the id (either we update email or password state) -> save value of input in state variable
+        [e.target.id]: e.target.value 
         })
     } 
 
     handleSubmit = (e) => {
-        e.preventDefault(); //if eg users presses enter, we dont want that
-        console.log(this.state);
+        e.preventDefault(); 
     }
 
 

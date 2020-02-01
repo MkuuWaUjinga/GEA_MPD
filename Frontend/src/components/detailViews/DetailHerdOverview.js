@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Taskbar from '../../layout/taskbar/Taskbar'
 import ConceptionRate from '../detailViews/detailComponents/ConceptionRate'
 import HerdCount from '../detailViews/detailComponents/HerdCount'
 import SomaticCellCountView from './detailComponents/SickCows'
 import HerdIncrease from '../detailViews/detailComponents/HerdIncrease'
 import Lactation from '../detailViews/detailComponents/Lactation'
-import {connect} from 'react-redux';
-import {toggleNotification} from "../../store/actions/toggleNotification";
+import { connect } from 'react-redux';
+import { toggleNotification } from "../../store/actions/toggleNotification";
 import moment from 'moment';
 import '../detailViews/herdoverview.css'
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class DetailHerdOverview extends Component {
 
@@ -27,7 +27,7 @@ class DetailHerdOverview extends Component {
     handleNotificationClosing = () => {
         if (this.props.isActive === true) {
             this.props.toggleNotification(false)
-        } 
+        }
     }
 
     componentDidMount() {
@@ -41,21 +41,21 @@ class DetailHerdOverview extends Component {
 
 
     handleSwitch = (componentName) => {
-        this.setState({displayedComponent: componentName});
+        this.setState({ displayedComponent: componentName });
     }
 
     renderComponent() {
         switch (this.state.displayedComponent) {
             case "HERD_COUNT":
-                return <HerdCount/>
+                return <HerdCount />
             case "LACTATION":
-                return <Lactation/>
+                return <Lactation />
             case "SICK_COWS":
-                return <SomaticCellCountView/>
+                return <SomaticCellCountView />
             case "CONCEPTION_RATE":
-                return <ConceptionRate/>
+                return <ConceptionRate />
             case "HERD_INCREASE":
-                return <HerdIncrease/>
+                return <HerdIncrease />
         }
     }
 
@@ -116,7 +116,7 @@ class DetailHerdOverview extends Component {
 
                 </div>
 
-                <Taskbar/>
+                <Taskbar />
             </div>
 
         )

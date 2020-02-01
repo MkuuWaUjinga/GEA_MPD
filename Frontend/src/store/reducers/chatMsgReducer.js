@@ -18,8 +18,6 @@ const initState = {
 }
 
 
-
-
 const chatMsgReducer = (state = initState, action) => {
             return state;
         

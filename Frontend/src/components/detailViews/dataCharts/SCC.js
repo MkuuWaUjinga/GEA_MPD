@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Line, Chart} from 'react-chartjs-2';
+import React, { Component } from 'react';
+import { Line, Chart } from 'react-chartjs-2';
 
 class SomaticCellCountView extends Component {
 
@@ -60,20 +60,20 @@ class SomaticCellCountView extends Component {
     }
 
     render() {
-        const {uniqueCowData} = this.props;
-        return(
+        const { uniqueCowData } = this.props;
+        return (
             <div className="SCCcontainer">
-                        <div className="SomaticCellCountChart">
-                            <Line
-                                data={this.state.chartData}
-                                width= {1000}
-                                height= {350}
-                                options={{
-                                    maintainAspectRatio: false,
-                                    responsive: false
-                                }}
-                            />
-                        </div>
+                <div className="SomaticCellCountChart">
+                    <Line
+                        data={this.state.chartData}
+                        width={1000}
+                        height={350}
+                        options={{
+                            maintainAspectRatio: false,
+                            responsive: false
+                        }}
+                    />
+                </div>
 
             </div>
 

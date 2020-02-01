@@ -5,8 +5,6 @@
     top:100px;
     border-radius: 25px;
     padding:0 !important;
-    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.068), 0 1px 2px rgba(0, 0, 0, 0.151);*/
-    /*box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.051); */
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     background-color: white;
 }
@@ -131,30 +129,6 @@ border-color: #FFAE75;
   font-weight: bold;
 }
 
-/*
-
-.spocContactInfoIcon.farmer p{
-    color: #3E68B6;
-}
-
-.spocContactInfoIcon.vet p{
-    color: #FDB07E;
-}
-
-.spocContactInfoIcon.dealer p{
-    color: #8E78E6;
-}
-
-.spocContactInfoIcon.consultant p{
-    color: #FD7D86;
-}
-.spocContactInfoIcon.technician p{
-    color: #FD7D86
-    
-    ;
-}
-
-*/
 .tabs .material-icons {
     position: absolute;
     right:10px;
