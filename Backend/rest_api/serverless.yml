@@ -1,4 +1,4 @@
-service: mpd-rest-api
+service: farmony-rest-api
 
 provider:
   name: aws

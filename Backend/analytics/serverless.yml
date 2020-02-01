@@ -1,4 +1,4 @@
-service: mpd-analytics
+service: farmony-analytics
 
 provider:
   name: aws
@@ -23,6 +23,6 @@ functions:
     events:
       - schedule:
           rate: rate(10 minutes)
-          enabled: false
+          enabled: true
 custom:
   myStage: ${opt:stage, self:provider.stage}
