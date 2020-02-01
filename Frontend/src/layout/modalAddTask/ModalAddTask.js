@@ -169,7 +169,6 @@ class ModalAddTask extends Component {
               </div>
 
 
-
             </div>
 
             <form >
@@ -197,15 +196,7 @@ class ModalAddTask extends Component {
               {todoList}
             </ul>
 
-
-
-
-
-
             <textarea id="description" className="msgInputField" rows="5" cols="50" name="description" placeholder="Add a new message..." onChange={this.handleTaskFormChange}></textarea>
-
-
-
 
 
             <div className="ctaBar">
@@ -214,8 +205,6 @@ class ModalAddTask extends Component {
               <a className="btn modal-close" onClick={this.handleTaskFormSubmit}><i class="material-icons left">send</i>Create Task</a>
 
             </div>
-
-
 
           </div>
         </div>

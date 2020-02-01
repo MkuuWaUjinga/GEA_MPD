@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Line, Chart } from 'react-chartjs-2';
+import { Line} from 'react-chartjs-2';
 
 class SomaticCellCountView extends Component {
 

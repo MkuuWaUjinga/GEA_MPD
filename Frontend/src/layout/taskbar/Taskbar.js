@@ -69,14 +69,12 @@ class Taskbar extends Component {
         const taskList = tasks.length ? (
             tasks.map(task => {
                 return (
-                    <NavLink to={"/chat"} >
-                        <div className="card herdmgmt" key={task.id} >
+                    <NavLink to={"/chat/"+ task.taskId} >
+                        <div className="card herdmgmt" key={task.taskId} >
                             <div className="card-content">
                                 <span className="card-title">{task.task_title}</span>
                                 <i className="material-icons chat">chat</i>
-
                                 <p className="taskDescription">{task.description}</p>
-
 
                                 {<form action="#" className="checkboxes">
                                     <div className="check">
@@ -100,8 +98,6 @@ class Taskbar extends Component {
                                     </div>
                                 </form>
                                 }
-
-
 
                                 <div className="deleteTaskIcon" onClick={() => { if (window.confirm('Delete the item?')) { this.props.deleteTask(task.id) }; }}><i className="material-icons delete">more_horiz</i></div>
 

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import ListHerdMgmt from './dashboardLayouts/ListHerdMgmt';
 import Taskbar from '../../../src/layout/taskbar/Taskbar'
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 import './dashboard.css';
-import { weatherIcon } from '../../assets/img/weatherIcon.png';
 import { fetchUser } from '../../store/APIactions/fetchUser';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';

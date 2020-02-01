@@ -18,12 +18,6 @@ class DetailHerdOverview extends Component {
     }
 
 
-    constructor(props) {
-
-        super(props);
-
-    }
-
     handleNotificationClosing = () => {
         if (this.props.isActive === true) {
             this.props.toggleNotification(false)
@@ -31,10 +25,7 @@ class DetailHerdOverview extends Component {
     }
 
     componentDidMount() {
-        /*
-        console.log("In degail herd:", this.props.location.aboutProps.link_id)
-        this.handleSwitch(this.props.location.aboutProps.link_id);
-        */
+
         this.handleSwitch('SICK_COWS');
         this.handleNotificationClosing();
     }
@@ -66,7 +57,6 @@ class DetailHerdOverview extends Component {
 
             <div className="main_detail_dashboard row">
                 <div className="detailviews col xl9">
-                    {/*<span className="sectionHeadline"><NavLink to="/"> <i className="small material-icons left">chevron_left</i> Main Dashboard</NavLink> </span> */}
 
                     <h2 className="sectionHeadline center">Herd Overview</h2>
                     <span className="sectionHeadline"><NavLink to="/"> <i

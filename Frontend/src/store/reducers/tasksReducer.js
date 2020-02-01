@@ -2,8 +2,6 @@ import uuid from 'react-uuid';
 import { DELETE_TASK } from '../actions/deleteTask';
 import { ADD_TASK } from '../actions/addTask';
 import { FETCH_TASKS } from "../APIactions/fetchTasks";
-import { NavLink } from "react-router-dom";
-import React from "react";
 
 const initState = {
     tasks: [

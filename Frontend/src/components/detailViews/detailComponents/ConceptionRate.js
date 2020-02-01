@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Line } from 'react-chartjs-2';
-
 import BarChart_ConceptionRate from '../dataCharts/BarChart_ConceptionRate';
 import M from 'materialize-css';
 

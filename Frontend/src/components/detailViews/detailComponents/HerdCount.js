@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Line } from 'react-chartjs-2';
-
 import BarChart_TotalHerdCount from '../dataCharts/BarChart_TotalHerdCount';
 import M from 'materialize-css';
 

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Taskbar from '../../../src/layout/taskbar/Taskbar';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
 import moment from 'moment';
 import './chat.css';
 
@@ -15,7 +13,6 @@ class MainChatView extends Component {
 
 
     componentDidMount() {
-
         let id = this.props.match.params.chat_id;
         this.setState({
             id: id
@@ -66,7 +63,7 @@ class MainChatView extends Component {
                         <div className="ctaBar">
                             <i className="material-icons addMsg left">attach_file</i>
                             <i className="material-icons addMsg left">photo_camera</i>
-                            <a className="btn"><i class="material-icons left">send</i>Send</a>
+                            <a className="btn"><i className="material-icons left">send</i>Send</a>
 
                         </div>
                     </div>
