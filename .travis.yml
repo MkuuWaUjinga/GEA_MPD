@@ -6,4 +6,4 @@ script:
 # run tests
   - Backend/scripts/run_tests.sh
 after_success:
-  - Backend/scripts/deploy.sh
+  - Backend/scripts/deploy_travis.sh
