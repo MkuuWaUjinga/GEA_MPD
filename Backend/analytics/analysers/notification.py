@@ -17,17 +17,9 @@ class Notification:
         self.escalation_status = escalation_status
         self.proof = proof
 
-    # TODO check whether notification already exists
-    # 1. Check whether notificaiton with same topic exisits
-    #   (if yes) 2. 1 Check whether cow ids are the same
-    #            (if yes): Do nothing
-    #            (if new id): Add new_id and data to existing notification (update assigned person)
     def store_for_user(self, user_id, stage):
-        session = boto3.Session(
-            aws_access_key_id= "AKIAQIQ3QKJLYODOYXPS",
-            aws_secret_access_key="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",
-        )
-        table = session.resource('dynamodb').Table('Users'+ '-dev' if stage=='dev' else '')
+        self.client = boto3.resource('dynamodb')
+        table = self.client.Table('Users'+ '-dev' if stage=='dev' else '')
 
         table.update_item(Key={
             'userId': user_id},

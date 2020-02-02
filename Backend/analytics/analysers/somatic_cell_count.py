@@ -3,7 +3,6 @@ from collections import defaultdict
 import numpy as np
 from .notification import Notification
 from .analyser import Analyser
-import boto3
 
 somatic_cell_count_metric_id = 1
 relevant_time_frame = 14 # in days
